@@ -28,7 +28,6 @@ TEST(SnapshotNode, TestMaster) {
     ros::Subscriber commandstate_sub =
         nh.subscribe("/test/SystemCommandState", 100, &commandstate_Callback);
     ros::Publisher command_pub = nh.advertise<eros::command>("/test/SystemCommand", 20);
-
     usleep(1.0 * 1000000.0);  // Wait for Snapshot Node to Start.
     EXPECT_TRUE(heartbeat_count > 0);
 
@@ -38,7 +37,6 @@ TEST(SnapshotNode, TestMaster) {
     snapshot_command.Option1 = (uint8_t)eros::Command::GenerateSnapshot_Option1::CLEAR_SNAPSHOTS;
     command_pub.publish(snapshot_command);
     usleep(5.0 * 1000000.0);
-
     EXPECT_TRUE(commandstate_count > 0);
     EXPECT_TRUE(commandstate_msg.CurrentCommand.Command ==
                 (uint8_t)eros::Command::Type::GENERATE_SNAPSHOT);
@@ -47,7 +45,6 @@ TEST(SnapshotNode, TestMaster) {
     EXPECT_TRUE(commandstate_msg.diag.DiagnosticMessage ==
                 (uint8_t)eros_diagnostic::Message::NOERROR);
     commandstate_count = 0;
-
     logger->log_notice("Testing Generation of Snapshot");
     snapshot_command.Command = (uint8_t)eros::Command::Type::GENERATE_SNAPSHOT;
     snapshot_command.Option1 = (uint8_t)eros::Command::GenerateSnapshot_Option1::RUN_MASTER;

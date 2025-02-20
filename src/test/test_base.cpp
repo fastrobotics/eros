@@ -67,7 +67,7 @@ TEST(BasicTest, TestOperation_BaseNodeProcess) {
                 Logger::LoggerStatus::LOG_WRITTEN);
 
     json json_obj = tester->read_configuration(
-        "", true, std::string(ZIPFILETESTDATA_DIR) + "/config/DeviceList.json");
+        "", true, std::string(ZIPFILETESTDATA_DIR) + "/catkin_ws/src/sconfig/DeviceList.json");
     printf("host: %s\n", tester->get_hostname().c_str());
     EXPECT_TRUE(json_obj.size() > 0);
     printf("json:%s\n", json_obj.dump().c_str());
@@ -226,7 +226,8 @@ TEST(ConfigurationTests, ConfigurationTestCases) {
         EXPECT_EQ(obj, empty);
     }
     {
-        std::string ConfigPath = std::string(getenv("HOME")) + "/config/DeviceList.json";
+        std::string ConfigPath =
+            std::string(getenv("HOME")) + "/catkin_ws/src/config/DeviceList.json";
         json empty;
         json obj;
 
@@ -254,7 +255,8 @@ TEST(FileReadTests, FileReadTestCases) {
         // Failure Tests: Unsupported File Types
         std::string ConfigPath =
             std::string(getenv("HOME")) +
-            "/config/DeviceList.json";  // File Exists, but this function isn't intended to support.
+            "/catkin_ws/src/config/DeviceList.json";  // File Exists, but this function isn't
+                                                      // intended to support.
         FileHelper::FileInfo info = tester->read_file(ConfigPath);
         EXPECT_EQ(info.fileStatus, FileHelper::FileStatus::FILE_ERROR);
         EXPECT_EQ(info.fileType, FileHelper::FileType::UNKNOWN);

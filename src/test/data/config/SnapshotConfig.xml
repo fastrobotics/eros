@@ -23,7 +23,7 @@
             <Command file="ntp_status">ntpq -p</Command>
             <Command file="lsmod">lsmod</Command>
             <Folder>~/var/log/output/</Folder>
-            <Folder>~/config/</Folder>
+            <Folder>~/catkin_ws/src/config/</Folder>
             <File>/var/log/syslog</File>
             <File>/var/log/kern.log</File>
         </Architecture>
@@ -44,7 +44,7 @@
             <Command file="ntp_status">ntpq -p</Command>
             <Command file="lsmod">lsmod</Command>
             <Folder>~/var/log/output/</Folder>
-            <Folder>~/config/</Folder>
+            <Folder>~/catkin_ws/src/config/</Folder>
             <File>/var/log/bootstrap.log</File>
             <File>/boot/config.txt</File>
         </Architecture>
@@ -64,7 +64,7 @@
             <Command file="ntp_status">ntpq -p</Command>
             <Command file="lsmod">lsmod</Command>
             <Folder>~/var/log/output/</Folder>
-            <Folder>~/config/</Folder>
+            <Folder>~/catkin_ws/src/config/</Folder>
             <File>/var/log/syslog</File>
         </Architecture>
     </SnapshotConfig>

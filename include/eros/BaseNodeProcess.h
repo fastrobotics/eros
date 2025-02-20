@@ -162,7 +162,7 @@ class BaseNodeProcess
 
     json read_configuration(std::string device_name,
                             bool include_self = true,
-                            std::string file_path = "~/config/DeviceList.json");
+                            std::string file_path = "~/catkin_ws/src/config/DeviceList.json");
 
     static std::string sanitize_path(std::string path);
 

@@ -12,7 +12,7 @@
         <Folder>
             <Name>main_config</Name>
             <Type>Config</Type>
-            <Directory>~/config/</Directory>
+            <Directory>~/catkin_ws/src/config/</Directory>
             <Architecture>x86_64</Architecture>
             <Architecture>armv7l</Architecture>
             <Architecture>aarch64</Architecture>

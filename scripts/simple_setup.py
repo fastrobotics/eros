@@ -10,8 +10,7 @@ from os import path
 import socket
 from os.path import expanduser
 
-folder_list = [ '~/config/',
-                '~/var/log/output/',
+folder_list = [ '~/var/log/output/',
                 '~/storage/stage/',
                 '~/storage/DATALOGS/',
                 '~/storage/SNAPSHOT/DEVICESNAPSHOT/',
