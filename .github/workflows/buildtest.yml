@@ -20,7 +20,8 @@ jobs:
     - name: Setup eros_dev_app
       run: |
         cd ../
-        ln -s eros_dev_app/scenarios/dev/ config
+        mv eros_dev_app/scenarios/dev/ config/
+        rm -rf eros_dev_app/
       
     - uses: actions/checkout@v1
       with:
