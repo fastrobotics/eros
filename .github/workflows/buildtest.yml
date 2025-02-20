@@ -10,6 +10,11 @@ jobs:
       group: Default
 
     steps:   
+    - name: Cleanup
+      run: |
+        cd ../
+        rm -rf config/
+        rm -rf eros_dev_app
     - name: Check out eros_dev_app
       uses: actions/checkout@v1
       with:
@@ -19,9 +24,6 @@ jobs:
     
     - name: Setup eros_dev_app
       run: |
-        cd ../
-        rm -rf config/
-        rm -rf eros_dev_app
         mv eros_dev_app/scenarios/dev/ config/
         rm -rf eros_dev_app/
       
