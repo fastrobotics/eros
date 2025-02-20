@@ -47,7 +47,7 @@ package eros {
         +Logger* get_logger()
 
         -- Data Functions --
-        +json read_configuration(std::string device_name,bool include_self = true,std::string file_path = "~/config/DeviceList.json")
+        +json read_configuration(std::string device_name,bool include_self = true,std::string file_path = "~/catkin_ws/src/onfig/DeviceList.json")
         +{static} std::string sanitize_path(std::string path)
         +{static} FileHelper::FileInfo read_file(std::string file_path)
         +{static} FileHelper::FileInfo write_file(std::string full_path, char* bytes, uint64_t byte_count)

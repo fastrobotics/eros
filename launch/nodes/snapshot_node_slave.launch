@@ -11,6 +11,6 @@
         <param name="loop2_rate"            value="10"/>
         <param name="loop3_rate"            value="5"/>
         <param name="Mode"              value="SLAVE"/> <!-- MASTER,SLAVE-->
-        <param name="Config_Directory" value="~/config"/> <!-- Where the Snapshot.xml file is located -->
+        <param name="Config_Directory" value="~/catkin_ws/src/config"/> <!-- Where the Snapshot.xml file is located -->
 </node>
 </launch>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+<arg name="robot_namespace" default="/"/> 
+<arg name="verbosity_level" default="NOTICE"/>
+<remap from="snapshot_trigger" to="$(arg robot_namespace)/snapshot_trigger"/> 
+<node name="datalogger_node" pkg="eros" type="datalogger_node"  output="screen" clear_params="true">
+        <param name="robot_namespace" value="$(arg robot_namespace)"/>
+        <param name="startup_delay"       value="5.0"/>
+        <param name="verbosity_level"       value="$(arg verbosity_level)"/>
+        <param name="require_pps_to_start"  value="false"/> 
+        <param name="LogFile_Duration"      value="600.0"/>
+        <param name="LogFile_Directory"     value="~/storage/DATALOGS/"/> 
+        <param name="SnapshotMode"          value="true"/>
+</node>
+</launch>

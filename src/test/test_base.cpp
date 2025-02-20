@@ -226,7 +226,8 @@ TEST(ConfigurationTests, ConfigurationTestCases) {
         EXPECT_EQ(obj, empty);
     }
     {
-        std::string ConfigPath = std::string(getenv("HOME")) + "/config/DeviceList.json";
+        std::string ConfigPath =
+            std::string(getenv("HOME")) + "/catkin_ws/src/config/DeviceList.json";
         json empty;
         json obj;
 
@@ -254,7 +255,8 @@ TEST(FileReadTests, FileReadTestCases) {
         // Failure Tests: Unsupported File Types
         std::string ConfigPath =
             std::string(getenv("HOME")) +
-            "/config/DeviceList.json";  // File Exists, but this function isn't intended to support.
+            "/catkin_ws/src/config/DeviceList.json";  // File Exists, but this function isn't
+                                                      // intended to support.
         FileHelper::FileInfo info = tester->read_file(ConfigPath);
         EXPECT_EQ(info.fileStatus, FileHelper::FileStatus::FILE_ERROR);
         EXPECT_EQ(info.fileType, FileHelper::FileType::UNKNOWN);

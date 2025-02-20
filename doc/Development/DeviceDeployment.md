@@ -54,7 +54,6 @@ rosinstall_generator ros_comm rosbag actionlib sensor_msgs nav_msgs rosunit --ro
 
 # Manual Setup
 1. Create the following directories: \
-  `mkdir -p ~/config/ # For General Config`\
   `mkdir -p ~/var/log/output/ # For Log output files`\
   `mkdir -p ~/storage/stage/ # Stage directory for device and system snapshots.`\
   `mkdir -p ~/storage/DATALOGS/ # Directory to store ROS bag files.`\

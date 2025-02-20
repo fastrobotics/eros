@@ -36,7 +36,7 @@ TEST(BasicTest, TestOperation_Slave) {
     tester->set_mode(SnapshotProcess::Mode::SLAVE);
     tester->set_architecture(Architecture::Type::X86_64);
 
-    diag = tester->load_config("~/config/Some file that doesn't exist.xml", {});
+    diag = tester->load_config("~/catkin_ws/src/config/Some file that doesn't exist.xml", {});
     EXPECT_TRUE(diag.level >= Level::Type::ERROR);
 
     diag = tester->load_config(std::string(TESTDATA_DIR) + "/config/SnapshotConfig.xml", {});

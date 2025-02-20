@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <launch>
-<arg name="robot_namespace" default="/"/> 
+<arg name="robot_namespace" default="/"/>
+<arg name="device_hostname" default="Compute"/> 
 <arg name="verbosity_level" default="NOTICE"/>
-<node name="snapshot_node" pkg="eros" type="snapshot_node"  output="screen" clear_params="true">
+<node name="safety_node" pkg="eros" type="safety_node"  output="screen" clear_params="true">
         <param name="robot_namespace" value="$(arg robot_namespace)"/>
         <param name="startup_delay"       value="0.0"/>
 	<param name="verbosity_level"       value="$(arg verbosity_level)"/>
@@ -10,7 +11,8 @@
         <param name="loop1_rate"            value="1"/> 
         <param name="loop2_rate"            value="10"/>
         <param name="loop3_rate"            value="5"/>
-        <param name="Mode"              value="MASTER"/> <!-- MASTER,SLAVE-->
-        <param name="Config_Directory" value="~/catkin_ws/src/config"/> <!-- Where the Snapshot.xml file is located -->
+        <param name="ReadyToArm_Topic_000"   value="/diagnostic_node/ready_to_arm"/>
+        <param name="ReadyToArm_Topic_001"   value="/$(arg device_hostname)/snapshot_node/ready_to_arm"/>
+        <param name="ReadyToArm_Topic_002"   value="/$(arg device_hostname)/master_node/ready_to_arm"/>
 </node>
 </launch>

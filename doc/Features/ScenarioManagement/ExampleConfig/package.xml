@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>config</name>
+    <version>0.0.0</version>
+    <description>The app config package</description>
+    <maintainer email="davidgitz@gmail.com">David Gitz</maintainer>
+    <license>MIT</license>
+    
+    <buildtool_depend>catkin</buildtool_depend>
+    
+<export>
+    </export>
+</package>

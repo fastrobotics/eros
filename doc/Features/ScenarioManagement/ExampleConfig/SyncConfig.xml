@@ -2,7 +2,7 @@
 <SyncConfigFile>
     <Folders>
         <Folder>
-            <Name>eros</Name>
+            <Name>eROS</Name>
             <Type>Source</Type>
             <Directory>~/catkin_ws/src/eros/</Directory>
             <Architecture>x86_64</Architecture>
@@ -10,9 +10,17 @@
             <Architecture>aarch64</Architecture>
         </Folder>
         <Folder>
+            <Name>ros_hats</Name>
+            <Type>Source</Type>
+            <Directory>~/catkin_ws/src/ros_hats/</Directory>
+            <Architecture>x86_64</Architecture>
+            <Architecture>armv7l</Architecture>
+            <Architecture>aarch64</Architecture>
+        </Folder>
+        <Folder>
             <Name>main_config</Name>
             <Type>Config</Type>
-            <Directory>~/config/</Directory>
+            <Directory>~/catkin_ws/src/config/</Directory>
             <Architecture>x86_64</Architecture>
             <Architecture>armv7l</Architecture>
             <Architecture>aarch64</Architecture>

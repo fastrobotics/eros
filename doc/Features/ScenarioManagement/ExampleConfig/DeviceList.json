@@ -1,0 +1,20 @@
+{
+	"DeviceList": {
+		"DevComputer2": {
+			"Parent": "",
+			"Type": "ComputeModule",
+			"Architecture": "x86_64",
+			"Capability": "ROS",
+			"CatkinWS": "~/catkin_ws",
+			"Jobs": -1
+		},
+		"ComputeModule1": {
+			"Parent": "",
+			"Type": "ComputeModule",
+			"Architecture": "armv7l",
+			"Capability": "ROS",
+			"CatkinWS": "~/catkin_ws",
+			"Jobs": -1
+		}
+	}
+}

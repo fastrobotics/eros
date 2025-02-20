@@ -10,6 +10,7 @@ __TOC__
 - [Compatability](#compatability)
 - [Setup Instructions](#setup-instructions)
 - [Usage Instructions](#usage-in-your-package)
+- [Scenario Management](doc/Features/ScenarioManagement/ScenarioManagement.md)
 - [Development Instructions](#development-instructions)
 - [Test Plan](#test-plan)
 

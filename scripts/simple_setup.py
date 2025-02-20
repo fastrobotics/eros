@@ -10,8 +10,7 @@ from os import path
 import socket
 from os.path import expanduser
 
-folder_list = [ '~/config/',
-                '~/var/log/output/',
+folder_list = [ '~/var/log/output/',
                 '~/storage/stage/',
                 '~/storage/DATALOGS/',
                 '~/storage/SNAPSHOT/DEVICESNAPSHOT/',
@@ -94,14 +93,6 @@ def run_setup(mode):
         os.system("make")
         os.system("sudo make install")
         os.chdir(cwd)
-    print(CGREEN + "Generating Default Config Files..." + CEND)
-    for i in range(0,len(config_file_list)):
-        with open("config/" + config_file_list[i], 'r') as in_file:
-            str = in_file.read()
-            str = str.replace("<HOSTNAME>",hostname)
-            out_file = open(home + "/config/" + config_file_list[i], "w") 
-            out_file.write(str)
-            out_file.close()
     print(CGREEN + "Simple Setup Complete!!!" + CEND)
 
 
