@@ -9,8 +9,26 @@ jobs:
     runs-on:
       group: Default
 
-
     steps:   
+    - name: Pre-Clean
+      run: |
+        cd ../
+        rm -rf config/
+        rm -rf eros_dev_app
+
+    - name: Check out eros_dev_app
+      uses: actions/checkout@v1
+      with:
+        repository: fastrobotics/eros_dev_app
+        path: catkin_ws/src/eros_dev_app
+        ref: master
+    
+    - name: Setup eros_dev_app
+      run: |
+        cd ../
+        mv eros_dev_app/scenarios/dev/ config/
+        rm -rf eros_dev_app/
+      
     - uses: actions/checkout@v1
       with:
         path: catkin_ws/src/eros
