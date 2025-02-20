@@ -16,6 +16,10 @@ jobs:
         repository: fastrobotics/eros_dev_app
         path: catkin_ws/src/eros_dev_app
         ref: master
+    
+    - name: Setup eros_dev_app
+      run: |
+        ln -s eros_dev_app/scenarios/dev/ config
       
     - uses: actions/checkout@v1
       with:
