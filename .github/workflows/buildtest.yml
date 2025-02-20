@@ -19,8 +19,7 @@ jobs:
     
     - name: Setup eros_dev_app
       run: |
-        echo $PWD
-        cd catkin_ws/src/
+        cd ../
         ln -s eros_dev_app/scenarios/dev/ config
       
     - uses: actions/checkout@v1
