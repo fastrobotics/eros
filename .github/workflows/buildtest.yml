@@ -18,8 +18,8 @@ jobs:
     - name: Check out eros_dev_app
       uses: actions/checkout@v1
       with:
-        repository: fastrobotics/eros
-        path: ~/
+        repository: fastrobotics/eros_dev_app
+        path: ~/eros_dev_app
         ref: master
       
     - name: Eros Dev App Setup
