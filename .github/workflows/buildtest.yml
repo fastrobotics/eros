@@ -9,24 +9,14 @@ jobs:
     runs-on:
       group: Default
 
-    steps: 
-    - name: Cleanup
-      run: |
-        rm -rf ~/eros_dev_app/
-        rm -rf ~/catkin_ws/src/config/  
-  
+    steps:   
     - name: Check out eros_dev_app
       uses: actions/checkout@v1
       with:
         repository: fastrobotics/eros_dev_app
-        path: ~/eros_dev_app
+        path: catkin_ws/src/eros_dev_app
         ref: master
       
-    - name: Eros Dev App Setup
-      run: |
-        cd ~/catkin_ws/src/
-        ln ~/eros_dev_app/scenarios/dev/ config
-
     - uses: actions/checkout@v1
       with:
         path: catkin_ws/src/eros
