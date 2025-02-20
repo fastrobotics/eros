@@ -67,7 +67,7 @@ TEST(BasicTest, TestOperation_BaseNodeProcess) {
                 Logger::LoggerStatus::LOG_WRITTEN);
 
     json json_obj = tester->read_configuration(
-        "", true, std::string(ZIPFILETESTDATA_DIR) + "/catkin_ws/src/sconfig/DeviceList.json");
+        "", true, std::string(ZIPFILETESTDATA_DIR) + "/config/DeviceList.json");
     printf("host: %s\n", tester->get_hostname().c_str());
     EXPECT_TRUE(json_obj.size() > 0);
     printf("json:%s\n", json_obj.dump().c_str());
