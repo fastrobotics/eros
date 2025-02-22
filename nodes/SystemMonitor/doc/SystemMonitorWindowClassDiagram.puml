@@ -2,9 +2,9 @@
 title System Monitor Window Class Diagram
 package eros {
     class ArmDisarm
-    class heartbeat <<M,#FFFF00>>
-    class resource <<M,#FFFF00>>
-    class loadfactor <<M,#FFFF00>>
+    class heartbeat <<(M,#FFFF00)>>
+    class resource <<(M,#FFFF00)>>
+    class loadfactor <<(M,#FFFF00)>>
 }
 package eros_nodes::SystemMonitor {
     interface IWindow #LimeGreen {

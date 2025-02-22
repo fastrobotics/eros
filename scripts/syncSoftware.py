@@ -16,7 +16,7 @@ def sync_remote(syncconfig_file,device_name):
     folders = ReadSyncConfig(syncconfig_file)
     for folder in folders:
         if((folder.Type == 'Source') or (folder.Type == 'Config')):            
-            subprocess.call("rsync -iart " + folder.Directory + "/* robot@" + device_name + ":" + folder.Directory + "| grep '^<' | awk '{ print $2 }'",shell=True)
+            subprocess.call("rsync -iart " + folder.Directory + "/* robot@" + device_name + ":" + folder.Directory + " --exclude=*.html --exclude=*.js --exclude=*.png --exclude=*.map --exclude=*.md5 | grep '^<' | awk '{ print $2 }'",shell=True)
     print(CGREEN + "Sync Completed to: " + device_name  + CEND)
         
 

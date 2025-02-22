@@ -3,7 +3,6 @@ title Utility Class Diagram
 
 package eros {
     struct ExecResult
-    class file <<M>>
 
 namespace eros_utility {
     class CoreUtility #LimeGreen {

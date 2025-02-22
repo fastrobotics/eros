@@ -20,7 +20,7 @@ The following is a brief guide for setup operations on these different devices.
   `sudo apt install wiringpi python-smbus i2c-tools`
 1. Follow the [ROS Raspberry Pi Noetic install instructions](https://varhowto.com/install-ros-noetic-raspberry-pi-4/).  NOTE: In the section `Fetch & Install ROS Noetic dependencies` use the following command to install extra packages:
 ```bash
-rosinstall_generator ros_comm rosbag actionlib sensor_msgs nav_msgs rosunit --rosdistro noetic --deps --wet-only --tar > noetic-ros_comm-wet.rosinstall
+rosinstall_generator ros_comm rosbag actionlib sensor_msgs nav_msgs tf2_msgs tf2_tools tf2_geometry_msgs rosunit --rosdistro noetic --deps --wet-only --tar > noetic-ros_comm-wet.rosinstall
 ```
 1. Depending on what type of device this is (i.e. lower end Raspberry Pi or higher end) you may or may not want to use this device to actually build content, just to use pre-built content.  Note that if you want to use as only a No Build Target, you will still need to have another device on your network that has the same architecture that can be used as a Build Server.
 1. Create the necessary calls to perform startup scripts:  Edit the /etc/rc.local file and add the following line:\

@@ -75,7 +75,7 @@ def run_setup(mode):
     if(mode == "full"):
         os.system("python3 -m pip install --user cookiecutter")
         os.system("sudo snap install cookiecutter --edge")
-        os.system('sudo bash -c "curl -L https://raw.githubusercontent.com/riboseinc/plantuml-install/master/ubuntu.sh | bash"')
+        #os.system('sudo bash -c "curl -L https://raw.githubusercontent.com/riboseinc/plantuml-install/master/ubuntu.sh | bash"')
     print(CGREEN + "Installing other dependencies from source..." + CEND)
     home = expanduser("~")
     hostname = socket.gethostname()
@@ -83,6 +83,7 @@ def run_setup(mode):
     if(path.exists("/usr/local/include/nlohmann/json.hpp") == False):
         os.system("mkdir -p ~/other_packages/")
         os.chdir(home + "/other_packages/")
+        os.system("wget https://github.com/plantuml/plantuml/releases/download/v1.2025.1/plantuml-1.2025.1.jar")
         if(path.exists(home+"/other_packages/json") == True):
             shutil.rmtree(home + "/other_packages/json/")
         os.system("git clone https://github.com/nlohmann/json.git")
@@ -92,6 +93,7 @@ def run_setup(mode):
         os.system("cmake ..")
         os.system("make")
         os.system("sudo make install")
+        
         os.chdir(cwd)
     print(CGREEN + "Simple Setup Complete!!!" + CEND)
 
