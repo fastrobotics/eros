@@ -2,7 +2,7 @@
 title Diagnostic Utility Class Diagram
 
 package eros {
-    class diagnostic <<M,#FFFF00>>
+    class diagnostic <<(M,#FFFF00)>>
 namespace eros_diagnostic {
     enum DiagnosticType
     enum Message

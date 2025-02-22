@@ -1,18 +1,18 @@
 @startuml
 title eros Message Definitions
 package eros {
-    class armed_state <<M,#FFFF00>>
-    class command_state <<M,#FFFF00>>
-    class command <<M,#FFFF00>>
-    class diagnostic <<M,#FFFF00>>
-    class file <<M,#FFFF00>>
-    class heartbeat <<M,#FFFF00>>
-    class loadfactor <<M,#FFFF00>>
-    class mode_state <<M,#FFFF00>>
-    class ready_to_arm <<M,#FFFF00>>
-    class resource <<M,#FFFF00>>
-    class subsystem_diagnostic <<M,#FFFF00>>
-    class uptime <<M,#FFFF00>>
+    class armed_state <<(M,#FFFF00)>> 
+    class command_state <<(M,#FFFF00)>>
+    class command <<(M,#FFFF00)>>
+    class diagnostic <<(M,#FFFF00)>>
+    class file <<(M,#FFFF00)>>
+    class heartbeat <<(M,#FFFF00)>>
+    class loadfactor <<(M,#FFFF00)>>
+    class mode_state <<(M,#FFFF00)>>
+    class ready_to_arm <<(M,#FFFF00)>>
+    class resource <<(M,#FFFF00)>>
+    class subsystem_diagnostic <<(M,#FFFF00)>>
+    class uptime <<(M,#FFFF00)>>
 }
 
 @enduml

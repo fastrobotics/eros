@@ -3,7 +3,7 @@ title Resource Monitor Class Diagram
 package eros {
    
     struct ResourceInfo
-    class eros::loadfactor <<M,#FFFF00>>
+    class eros::loadfactor <<(M,#FFFF00)>>
     enum ResourceMonitor::Mode
     together {
         struct eros_diagnostic::Diagnostic

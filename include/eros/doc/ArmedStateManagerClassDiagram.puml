@@ -9,8 +9,8 @@ package eros {
         class System::Component
     }
     together {
-        class armed_state <<M,#FFFF00>>
-        class command <<M,#FFFF00>>
+        class armed_state <<(M,#FFFF00)>>
+        class command <<(M,#FFFF00)>>
     }
     namespace eros_diagnostic {
         class Diagnostic
