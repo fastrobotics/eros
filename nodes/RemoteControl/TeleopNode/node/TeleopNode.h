@@ -51,6 +51,7 @@ class TeleopNode : public eros::BaseNode
     // Initialization Functions
     bool start();
     eros::eros_diagnostic::Diagnostic finish_initialization();
+    bool init_screen();
 
     // Update Functions
     bool run_loop1();

@@ -1,8 +1,6 @@
 #include "TeleopNodeProcess.h"
 using namespace eros;
 using namespace eros_nodes::RemoteControl;
-TeleopNodeProcess::TeleopNodeProcess() {
-}
 
 TeleopNodeProcess::~TeleopNodeProcess() {
     cleanup();
@@ -31,4 +29,16 @@ std::vector<eros_diagnostic::Diagnostic> TeleopNodeProcess::check_programvariabl
 std::string TeleopNodeProcess::pretty() {
     std::string str = "Node State: " + Node::NodeStateString(get_nodestate());
     return str;
+}
+bool TeleopNodeProcess::initialize_windows() {
+    timeout(0);
+    keypad(stdscr, TRUE);
+    {
+        IWindow* window = new NodeWindow(
+            nodeHandle, robot_namespace, logger, 0, mainwindow_height, mainwindow_width);
+        window->set_focused(true);  // Window defaults to focused
+        highest_tab_index++;
+        windows.push_back(window);
+    }
+    return true;
 }

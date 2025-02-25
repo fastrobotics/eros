@@ -42,6 +42,7 @@ bool TeleopNode::changenodestate_service(eros::srv_change_nodestate::Request &re
     return true;
 }
 bool TeleopNode::start() {
+    set_no_launch_enabled(true);
     initialize_diagnostic(DIAGNOSTIC_SYSTEM, DIAGNOSTIC_SUBSYSTEM, DIAGNOSTIC_COMPONENT);
     bool status = false;
     process = new DataLoggerProcess();
@@ -90,6 +91,8 @@ bool TeleopNode::start() {
         diagnostic.description = "Node Configured.  Initializing.";
         get_logger()->log_diagnostic(diagnostic);
     }
+    logger->disable_consoleprint();  // Disabling as System Monitor will use console window.
+    status = init_screen();
     // No Practical way to Unit Test
     // LCOV_EXCL_START
     if (process->request_statechange(Node::State::RUNNING, true) == false) {
@@ -203,6 +206,50 @@ void TeleopNode::cleanup() {
     base_cleanup();
 }
 // LCOV_EXCL_STOP
+
+bool TeleopNode::init_screen() {
+    setlocale(LC_ALL, "");
+    mousemask(ALL_MOUSE_EVENTS, NULL);
+    initscr();
+    clear();
+    if (has_colors() == FALSE) {
+        endwin();
+        logger->enable_consoleprint();
+        logger->log_error("Terminal does not support colors. Exiting.");
+        return false;
+    }
+    curs_set(0);
+    noecho();
+    raw();
+
+    start_color();
+    init_color(COLOR_BLACK, 0, 0, 0);
+    init_color(COLOR_GREEN, 0, 600, 0);
+    init_color(10, 500, 0, 500);
+    init_pair((uint8_t)Color::NO_COLOR, COLOR_WHITE, COLOR_BLACK);
+    init_pair((uint8_t)Color::RED_COLOR, COLOR_WHITE, COLOR_RED);
+    init_pair((uint8_t)Color::YELLOW_COLOR, COLOR_WHITE, COLOR_YELLOW);
+    init_pair((uint8_t)Color::GREEN_COLOR, COLOR_WHITE, COLOR_GREEN);
+    init_pair((uint8_t)Color::BLUE_COLOR, COLOR_WHITE, COLOR_BLUE);
+    init_pair((uint8_t)Color::PURPLE_COLOR, COLOR_WHITE, 10);
+
+    uint16_t mainwindow_width, mainwindow_height;
+    getmaxyx(stdscr, mainwindow_height, mainwindow_width);
+    bool status = process->set_mainwindow(mainwindow_width, mainwindow_height);
+    if (status == false) {
+        logger->enable_consoleprint();
+        logger->log_error("Window: Width: " + std::to_string(mainwindow_width) + " Height: " +
+                          std::to_string(mainwindow_height) + " is too small. Exiting.");
+        return false;
+    }
+    status = process->initialize_windows();
+    if (status == false) {
+        logger->enable_consoleprint();
+        logger->log_error("Unable to initialize Windows. Exiting. ");
+        return false;
+    }
+    return true;
+}
 void signalinterrupt_handler(int sig) {
     printf("Killing TeleopNode with Signal: %d\n", sig);
     kill_node = true;
@@ -225,7 +272,6 @@ int main(int argc, char **argv) {
         status = node->update(node->get_process()->get_nodestate());
     }
 
-    thread2.join();
     // No Practical way to Unit Test
     // LCOV_EXCL_START
     thread.detach();

@@ -1,8 +1,8 @@
 /*! \file TeleopNodeProcess.h
  */
 #pragma once
+#include <curses.h>
 #include <eros/BaseNodeProcess.h>
-#include <sys/stat.h>
 namespace eros_nodes::Infrastructure {
 /*! \class TeleopNodeProcess TeleopNodeProcess.h "TeleopNodeProcess.h"
  *  \brief
@@ -11,9 +11,19 @@ namespace eros_nodes::Infrastructure {
 class TeleopNodeProcess : public eros::BaseNodeProcess
 {
    public:
-    DataLoggerProcess();
-    ~DataLoggerProcess();
+    TeleopNodeProcess()
+        : kill_me(false),
+          nodeHandle(nullptr),
+          robot_namespace("/"),
+          mainwindow_width(0),
+          mainwindow_height(0) {
+    }
+    ~TeleopNodeProcess();
     // Constants
+    /*! \brief The minimum width in pixels of the Main Window.*/
+    const uint16_t MINWINDOW_WIDTH = 140;
+    /*! \brief The minimum height in pixels of the Main Window.*/
+    const uint16_t MINWINDOW_HEIGHT = 240;
 
     // Enums
 
@@ -22,9 +32,18 @@ class TeleopNodeProcess : public eros::BaseNodeProcess
     // Initialization Functions
     eros::eros_diagnostic::Diagnostic finish_initialization();
     void reset();
+    bool initialize_windows();
 
     // Update Functions
     eros::eros_diagnostic::Diagnostic update(double t_dt, double t_ros_time);
+    bool set_mainwindow(uint16_t t_mainwindow_width, uint16_t t_mainwindow_height) {
+        mainwindow_width = t_mainwindow_width;
+        mainwindow_height = t_mainwindow_height;
+        if (mainwindow_width < MINWINDOW_WIDTH) {
+            return false;
+        }
+        return true;
+    }
 
     // Attribute Functions
 
@@ -46,6 +65,13 @@ class TeleopNodeProcess : public eros::BaseNodeProcess
     std::string pretty() override;
 
    private:
+    bool kill_me{false};
+    ros::NodeHandle* nodeHandle;
+    std::string robot_namespace;
+    uint16_t mainwindow_width;
+    uint16_t mainwindow_height;
+
+    std::vector<IWindow*> windows;
 };
 }  // namespace eros_nodes::Infrastructure
 #endif  // DataLoggerProcess_H
