@@ -1,0 +1,134 @@
+@startuml
+title Snapshot Node Class Diagram
+package eros {
+    class BaseNode
+    class BaseNodeProcess
+    namespace eros_diagnostic {
+        class Diagnostic
+    }
+}
+namespace eros_nodes::Infrastructure {
+    class SnapshotNode #LimeGreen {
+        -- Initialization Functions --
+        +bool start()
+        +eros_diagnostic::Diagnostic finish_initialization()
+
+        -- Update Functions --
+        +bool run_loop1()
+        +bool run_loop2()
+        +bool run_loop3()
+        +bool run_001hz()
+        +bool run_01hz()
+        +bool run_01hz_noisy()
+        +bool run_1hz()
+        +bool run_10hz()
+        +thread_loop()
+        +thread_snapshotcreation()
+
+        -- Attribute Functions --
+        +SnapshotProcess* get_process() 
+
+        -- Data Functions --
+
+        -- Message Functions --
+        +bool changenodestate_service(srv_change_nodestate::Request& req,srv_change_nodestate::Response& res)
+        +system_commandAction_Callback(const system_commandGoalConstPtr& goal)
+        +command_Callback(const command::ConstPtr& t_msg)
+        +commandState_Callback(const command_state::ConstPtr& t_msg)
+        +bool filetransfer_service(srv_filetransfer::Request& req,srv_filetransfer::Response& res)
+
+        -- Support Functions --
+
+        -- Convert Functions --
+        
+        -- Printing Functions --
+        +string pretty()
+
+        -- Destructors --
+        +cleanup()
+
+    }
+    class SnapshotNodeProcess #LimeGreen {
+        -- Initialization Functions --
+        +eros_diagnostic::Diagnostic finish_initialization()
+        +reset()
+
+        -- Update Functions --
+        +eros_diagnostic::Diagnostic update(double t_dt, double t_ros_time)
+
+        -- Attribute Functions --
+        +Mode get_mode()
+        +set_mode(Mode v)
+        +set_architecture(Architecture::Type v)
+        +SnapshotConfig get_snapshot_config()
+        +SnapshotState get_devicesnapshot_state()
+        +set_devicesnapshot_state(eros::SnapshotState v)
+        +SnapshotState get_systemsnapshot_state()
+        +set_systemsnapshot_state(SnapshotState v)
+        +double get_snapshotprogress_percentage()
+        + bool set_nodeHandle(ros::NodeHandle* nh, string _robot_namespace)
+
+        -- Data Functions --
+
+        -- Message Functions --
+        +eros_diagnostic::Diagnostic[] new_commandmsg(eros::command t_msg)
+        +eros_diagnostic::Diagnostic[] new_commandstatemsg(eros::command_state t_msg)
+
+        -- Support Functions --
+        +eros_diagnostic::Diagnostic[] createnew_snapshot()
+        +eros_diagnostic::Diagnostic[] clear_snapshots()
+        +eros_diagnostic::Diagnostic load_config(string file_path, string[] override_devicenames)
+        +{static} Mode ModeType(string v)
+        +{static} string ModeString(Mode v)
+        +eros_diagnostic::Diagnostic[] check_programvariables()
+
+        -- Convert Functions --
+        
+        -- Printing Functions --
+        +string pretty()
+
+        -- Destructors --
+        +cleanup()
+    }
+    enum Mode #LimeGreen {
+        UNKNOWN,
+        MASTER,
+        SLAVE,
+        END_OF_LIST
+    }
+    SnapshotNodeProcess +-- Mode
+
+    struct ExecCommand #LimeGreen {
+        +string command
+        +string output_file
+    }
+    SnapshotNodeProcess +-- ExecCommand
+
+    struct SlaveDevice #LimeGreen {
+        +string name
+        +bool device_snapshot_generated
+        +bool device_snapshot_processed
+        +double timer
+        +string devicesnapshot_path
+    }
+    SnapshotNodeProcess +-- SlaveDevice
+    struct SnapshotConfig #LimeGreen {
+        +string stage_directory
+        +SlaveDevice[] snapshot_devices
+        +string[] folders
+        +std::string[] files
+        +ExecCommand[] commands
+        +string[] scripts
+        +string systemsnapshot_path
+        +string device_snapshot_path
+        +string bagfile_directory
+        +string active_device_snapshot_completepath
+    }
+    SnapshotNodeProcess +-- SnapshotConfig
+
+    BaseNode <|-- SnapshotNode
+    BaseNodeProcess <|-- SnapshotNodeProcess
+    SnapshotNode -> SnapshotNodeProcess 
+}
+
+@enduml
