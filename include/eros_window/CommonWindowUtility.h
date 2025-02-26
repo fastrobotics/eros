@@ -1,13 +1,13 @@
 #pragma once
 #include <curses.h>
 
-#include "WindowDefinitions.h"
-namespace eros_nodes::SystemMonitor {
+#include "CommonWindowDefinitions.h"
+namespace eros_window {
 /**
- * @brief Various utility functions for System Monitor
+ * @brief Various utility functions for any Window UI
  *
  */
-class SystemMonitorUtility
+class CommonWindowUtility
 {
    public:
     static WINDOW* create_newwin(int height, int width, int starty, int startx);
@@ -16,4 +16,4 @@ class SystemMonitorUtility
                                                    uint16_t height_pix);
 };
 
-}  // namespace eros_nodes::SystemMonitor
+}  // namespace eros_window

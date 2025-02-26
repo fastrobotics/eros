@@ -1,0 +1,3 @@
+add_library(commonWindowUtility CommonWindowUtility.cpp)
+target_link_libraries(commonWindowUtility ${catkin_LIBRARIES} ${CURSES_LIBRARIES})
+add_dependencies(commonWindowUtility eros_generate_messages_cpp)

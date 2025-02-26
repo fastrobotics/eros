@@ -5,15 +5,14 @@
 
 #include <string>
 
-#include "IWindow.h"
-#include "WindowDefinitions.h"
+#include "ICommonWindow.h"
 #include "ros/ros.h"
-namespace eros_nodes::RemoteControl {
+namespace eros_window {
 /**
  * @brief Abstract class for Windows that supports some common implementation.
  *
  */
-class BaseWindow : public IWindow
+class BaseCommonWindow : public ICommonWindow
 {
    public:
     BaseWindow(const std::string _name,
@@ -89,4 +88,4 @@ class BaseWindow : public IWindow
    private:
     WINDOW* win_;
 };
-}  // namespace eros_nodes::RemoteControl
+}  // namespace eros_window

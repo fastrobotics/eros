@@ -3,7 +3,7 @@ target_link_libraries(systemMonitorUtility ${catkin_LIBRARIES} ${CURSES_LIBRARIE
 add_dependencies(systemMonitorUtility eros_generate_messages_cpp)
 
 add_library(baseWindow BaseWindow.cpp)
-target_link_libraries(baseWindow ${catkin_LIBRARIES} ${CURSES_LIBRARIES} systemMonitorUtility)
+target_link_libraries(baseWindow ${catkin_LIBRARIES} ${CURSES_LIBRARIES} commonWindowUtility)
 add_dependencies(baseWindow eros_generate_messages_cpp)
 
 add_subdirectory(HeaderWindow)

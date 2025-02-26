@@ -1,5 +1,6 @@
 add_subdirectory(eros_utility)
 add_subdirectory(eros_diagnostic)
+add_subdirectory(eros_window)
 
 
 add_library(logger Logger.cpp)
