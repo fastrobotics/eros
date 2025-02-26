@@ -3,7 +3,9 @@
 #pragma once
 #include <curses.h>
 #include <eros/BaseNodeProcess.h>
-namespace eros_nodes::Infrastructure {
+
+#include "IWindow.h"
+namespace eros_nodes::RemoteControl {
 /*! \class TeleopNodeProcess TeleopNodeProcess.h "TeleopNodeProcess.h"
  *  \brief
     The process utility for the DataLogger
@@ -46,6 +48,9 @@ class TeleopNodeProcess : public eros::BaseNodeProcess
     }
 
     // Attribute Functions
+    bool get_killme() {
+        return kill_me;
+    }
 
     // Utility Functions
 
@@ -58,6 +63,7 @@ class TeleopNodeProcess : public eros::BaseNodeProcess
     // Destructors
     void cleanup() {
         base_cleanup();
+        endwin();
         return;
     }
 
@@ -73,5 +79,4 @@ class TeleopNodeProcess : public eros::BaseNodeProcess
 
     std::vector<IWindow*> windows;
 };
-}  // namespace eros_nodes::Infrastructure
-#endif  // DataLoggerProcess_H
+}  // namespace eros_nodes::RemoteControl

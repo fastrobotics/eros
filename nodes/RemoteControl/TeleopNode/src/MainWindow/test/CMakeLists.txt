@@ -1,0 +1,3 @@
+catkin_add_gtest(test_deviceWindow test_devicewindow.cpp)
+target_link_libraries(test_deviceWindow ${catkin_LIBRARIES} ${Boost_LIBRARIES} deviceWindow logger)
+add_dependencies(test_deviceWindow eros_generate_messages_cpp)

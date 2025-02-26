@@ -1,18 +1,28 @@
 #include "TeleopNodeProcess.h"
+
+#include "MainWindow/MainWindow.h"
 using namespace eros;
 using namespace eros_nodes::RemoteControl;
 
 TeleopNodeProcess::~TeleopNodeProcess() {
+    for (auto window : windows) { delete window; }
     cleanup();
 }
 eros_diagnostic::Diagnostic TeleopNodeProcess::finish_initialization() {
     eros_diagnostic::Diagnostic diag;
     return diag;
 }
-void DataLoggerProcess::reset() {
+void TeleopNodeProcess::reset() {
 }
 eros_diagnostic::Diagnostic TeleopNodeProcess::update(double t_dt, double t_ros_time) {
     eros_diagnostic::Diagnostic diag = base_update(t_dt, t_ros_time);
+    int key_pressed = getch();
+    if ((key_pressed == KEY_q) || (key_pressed == KEY_Q)) {
+        kill_me = true;
+    }
+    if (key_pressed != -1) {
+        logger->log_warn(std::to_string(key_pressed));
+    }
     ready_to_arm.ready_to_arm = true;
     ready_to_arm.diag = eros_diagnostic::DiagnosticUtility::convert(diag);
     return diag;
@@ -34,10 +44,8 @@ bool TeleopNodeProcess::initialize_windows() {
     timeout(0);
     keypad(stdscr, TRUE);
     {
-        IWindow* window = new NodeWindow(
-            nodeHandle, robot_namespace, logger, 0, mainwindow_height, mainwindow_width);
-        window->set_focused(true);  // Window defaults to focused
-        highest_tab_index++;
+        IWindow* window = new MainWindow(
+            nodeHandle, robot_namespace, logger, mainwindow_height, mainwindow_width);
         windows.push_back(window);
     }
     return true;

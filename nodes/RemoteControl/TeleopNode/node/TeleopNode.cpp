@@ -1,4 +1,4 @@
-#include "TeleopNodeProcess.h"
+#include "TeleopNode.h"
 using namespace eros;
 using namespace eros_nodes::RemoteControl;
 bool kill_node = false;
@@ -9,7 +9,7 @@ TeleopNode::TeleopNode()
     : system_command_action_server(
           *n.get(),
           read_robotnamespace() + "SystemCommandAction",
-          boost::bind(&DataLoggerNode::system_commandAction_Callback, this, _1),
+          boost::bind(&TeleopNode::system_commandAction_Callback, this, _1),
           false) {
     system_command_action_server.start();
 }
@@ -45,7 +45,7 @@ bool TeleopNode::start() {
     set_no_launch_enabled(true);
     initialize_diagnostic(DIAGNOSTIC_SYSTEM, DIAGNOSTIC_SUBSYSTEM, DIAGNOSTIC_COMPONENT);
     bool status = false;
-    process = new DataLoggerProcess();
+    process = new TeleopNodeProcess();
     set_basenodename(BASE_NODE_NAME);
     initialize_firmware(
         MAJOR_RELEASE_VERSION, MINOR_RELEASE_VERSION, BUILD_NUMBER, FIRMWARE_DESCRIPTION);
@@ -91,7 +91,7 @@ bool TeleopNode::start() {
         diagnostic.description = "Node Configured.  Initializing.";
         get_logger()->log_diagnostic(diagnostic);
     }
-    logger->disable_consoleprint();  // Disabling as System Monitor will use console window.
+    logger->disable_consoleprint();  // Disabling as Teleop Node will use console window.
     status = init_screen();
     // No Practical way to Unit Test
     // LCOV_EXCL_START
@@ -190,6 +190,9 @@ bool TeleopNode::run_1hz() {
 }
 bool TeleopNode::run_10hz() {
     process->update(0.1, ros::Time::now().toSec());
+    if (process->get_killme() == true) {
+        kill_node = true;
+    }
     update_diagnostics(process->get_diagnostics());
     update_ready_to_arm(process->get_ready_to_arm());
     return true;
@@ -202,7 +205,8 @@ void TeleopNode::thread_loop() {
 void TeleopNode::cleanup() {
     process->request_statechange(Node::State::FINISHED);
     process->cleanup();
-    delete process;
+    logger->enable_consoleprint();
+    logger->log_notice("Closing System Teleop Node.");
     base_cleanup();
 }
 // LCOV_EXCL_STOP
@@ -267,7 +271,7 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
     // LCOV_EXCL_STOP
-    std::thread thread(&DataLoggerNode::thread_loop, node);
+    std::thread thread(&TeleopNode::thread_loop, node);
     while ((status == true) and (kill_node == false)) {
         status = node->update(node->get_process()->get_nodestate());
     }

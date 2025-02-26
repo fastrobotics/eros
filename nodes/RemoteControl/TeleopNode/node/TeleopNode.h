@@ -65,14 +65,13 @@ class TeleopNode : public eros::BaseNode
     void thread_loop();
 
     // Attribute Functions
-    DataLoggerProcess* get_process() {
+    TeleopNodeProcess* get_process() {
         return process;
     }
 
     // Utility Functions
 
     // Support Functions
-    void run_logger(DataLoggerNode* node);
 
     // Message Functions
     void snapshot_trigger_Callback(const std_msgs::Empty::ConstPtr& t_msg);
@@ -93,4 +92,3 @@ class TeleopNode : public eros::BaseNode
     actionlib::SimpleActionServer<eros::system_commandAction> system_command_action_server;
 };
 }  // namespace eros_nodes::RemoteControl
-#endif  // DataLoggerNode_H

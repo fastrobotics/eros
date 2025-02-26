@@ -5,6 +5,7 @@
 #include <string>
 
 #include "IWindow.h"
+#include "RemoteControlUtility.h"
 #include "WindowDefinitions.h"
 #include "ros/ros.h"
 namespace eros_nodes::RemoteControl {
@@ -16,7 +17,6 @@ class BaseWindow : public IWindow
 {
    public:
     BaseWindow(const std::string _name,
-               int16_t tab_order,
                double start_x_perc,
                double start_y_perc,
                double width_perc,
@@ -27,7 +27,6 @@ class BaseWindow : public IWindow
                uint16_t mainwindow_height,
                uint16_t mainwindow_width)
         : name(_name),
-          tab_order(tab_order),
           screen_coord_perc(start_x_perc, start_y_perc, width_perc, height_perc),
           screen_coord_pixel(0, 0, 0, 0),
           nodeHandle(nodeHandle),
@@ -52,7 +51,12 @@ class BaseWindow : public IWindow
     void set_screen_coordinates_pix(ScreenCoordinatePixel coord) {
         screen_coord_pixel = coord;
     }
-
+    ScreenCoordinatePerc get_screen_coordinates_perc() {
+        return screen_coord_perc;
+    }
+    ScreenCoordinatePixel get_screen_coordinates_pixel() {
+        return screen_coord_pixel;
+    }
     void set_window(WINDOW* win) {
         win_ = win;
     }
@@ -67,7 +71,8 @@ class BaseWindow : public IWindow
 
    protected:
     std::string name;
-
+    ScreenCoordinatePerc screen_coord_perc;
+    ScreenCoordinatePixel screen_coord_pixel;
     ros::NodeHandle* nodeHandle;
     std::string robot_namespace;
     eros::Logger* logger;

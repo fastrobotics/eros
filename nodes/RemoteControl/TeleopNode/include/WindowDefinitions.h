@@ -133,4 +133,8 @@ static constexpr int KEY_9 = 57;
 static constexpr int KEY_tab = 9;
 static constexpr int KEY_space = 32;
 static constexpr int KEY_esc = 27;
+static constexpr int KEY_UP = 259;
+static constexpr int KEY_DOWN = 258;
+static constexpr int KEY_LEFT = 260;
+static constexpr int KEY_RIGHT = 261;
 }  // namespace eros_nodes::RemoteControl
