@@ -230,12 +230,12 @@ bool TeleopNode::init_screen() {
     init_color(COLOR_BLACK, 0, 0, 0);
     init_color(COLOR_GREEN, 0, 600, 0);
     init_color(10, 500, 0, 500);
-    init_pair((uint8_t)Color::NO_COLOR, COLOR_WHITE, COLOR_BLACK);
-    init_pair((uint8_t)Color::RED_COLOR, COLOR_WHITE, COLOR_RED);
-    init_pair((uint8_t)Color::YELLOW_COLOR, COLOR_WHITE, COLOR_YELLOW);
-    init_pair((uint8_t)Color::GREEN_COLOR, COLOR_WHITE, COLOR_GREEN);
-    init_pair((uint8_t)Color::BLUE_COLOR, COLOR_WHITE, COLOR_BLUE);
-    init_pair((uint8_t)Color::PURPLE_COLOR, COLOR_WHITE, 10);
+    init_pair((uint8_t)eros_window::Color::NO_COLOR, COLOR_WHITE, COLOR_BLACK);
+    init_pair((uint8_t)eros_window::Color::RED_COLOR, COLOR_WHITE, COLOR_RED);
+    init_pair((uint8_t)eros_window::Color::YELLOW_COLOR, COLOR_WHITE, COLOR_YELLOW);
+    init_pair((uint8_t)eros_window::Color::GREEN_COLOR, COLOR_WHITE, COLOR_GREEN);
+    init_pair((uint8_t)eros_window::Color::BLUE_COLOR, COLOR_WHITE, COLOR_BLUE);
+    init_pair((uint8_t)eros_window::Color::PURPLE_COLOR, COLOR_WHITE, 10);
 
     uint16_t mainwindow_width, mainwindow_height;
     getmaxyx(stdscr, mainwindow_height, mainwindow_width);

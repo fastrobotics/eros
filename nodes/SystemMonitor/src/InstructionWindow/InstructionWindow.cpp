@@ -52,8 +52,8 @@ bool InstructionWindow::update_window() {
     return true;
     // GCOVR_EXCL_STOP
 }
-KeyEventContainer InstructionWindow::new_keyevent(int key) {
-    KeyEventContainer output;
+eros_window::KeyEventContainer InstructionWindow::new_keyevent(int key) {
+    eros_window::KeyEventContainer output;
     if (std::find(supported_keys.begin(), supported_keys.end(), key) != supported_keys.end()) {
         output.message.level =
             eros::Level::Type::ERROR;  // Set default Level to error, so if any supported keys
@@ -63,17 +63,17 @@ KeyEventContainer InstructionWindow::new_keyevent(int key) {
         return output;
     }
     // Keys that are always supported.
-    if ((key == KEY_esc)) {
-        output.command.type = WindowCommandType::VIEW_DIAGNOSTICS_SYSTEM;
+    if ((key == eros_window::KEY_esc)) {
+        output.command.type = eros_window::WindowCommandType::VIEW_DIAGNOSTICS_SYSTEM;
         std::string str = "Requesting Diagnostics for System";
-        MessageText message(str, eros::Level::Type::INFO);
+        eros_window::MessageText message(str, eros::Level::Type::INFO);
         logger->log_debug(str);
         output.message = message;
         return output;
     }
-    else if (key == KEY_space) {
+    else if (key == eros_window::KEY_space) {
         if (current_armed_state.state == eros::ArmDisarm::Type::DISARMED) {
-            MessageText message("Arming Robot...", eros::Level::Type::INFO);
+            eros_window::MessageText message("Arming Robot...", eros::Level::Type::INFO);
             eros::command command;
             command.stamp = ros::Time::now();
             command.Command = (uint16_t)eros::Command::Type::ARM;
@@ -82,7 +82,7 @@ KeyEventContainer InstructionWindow::new_keyevent(int key) {
             return output;
         }
         else if (current_armed_state.state == eros::ArmDisarm::Type::ARMED) {
-            MessageText message("Disarming Robot...", eros::Level::Type::INFO);
+            eros_window::MessageText message("Disarming Robot...", eros::Level::Type::INFO);
             eros::command command;
             command.stamp = ros::Time::now();
             command.Command = (uint16_t)eros::Command::Type::DISARM;
@@ -91,13 +91,14 @@ KeyEventContainer InstructionWindow::new_keyevent(int key) {
             return output;
         }
         else {
-            MessageText message("Arm/Disarm Command Not Allowed.", eros::Level::Type::WARN);
+            eros_window::MessageText message("Arm/Disarm Command Not Allowed.",
+                                             eros::Level::Type::WARN);
             output.message = message;
             return output;
         }
     }
-    else if ((key == KEY_s) || (key == KEY_S)) {
-        MessageText message("Requesting System Snapshot...", eros::Level::Type::INFO);
+    else if ((key == eros_window::KEY_s) || (key == eros_window::KEY_S)) {
+        eros_window::MessageText message("Requesting System Snapshot...", eros::Level::Type::INFO);
         eros::command command;
         command.stamp = ros::Time::now();
         command.Command = (uint16_t)eros::Command::Type::GENERATE_SNAPSHOT;
@@ -106,8 +107,8 @@ KeyEventContainer InstructionWindow::new_keyevent(int key) {
         output.message = message;
         return output;
     }
-    else if ((key == KEY_c) || (key == KEY_C)) {
-        MessageText message("Clearing All Snapshots...", eros::Level::Type::WARN);
+    else if ((key == eros_window::KEY_c) || (key == eros_window::KEY_C)) {
+        eros_window::MessageText message("Clearing All Snapshots...", eros::Level::Type::WARN);
         eros::command command;
         command.stamp = ros::Time::now();
         command.Command = (uint16_t)eros::Command::Type::GENERATE_SNAPSHOT;

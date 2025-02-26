@@ -1,7 +1,7 @@
 #pragma once
-#include <mutex>
+#include <eros_window/BaseWindow.h>
 
-#include "BaseWindow.h"
+#include <mutex>
 namespace eros_nodes::SystemMonitor {
 enum class NodeType { UNKNOWN = 0, EROS = 1, NON_EROS = 2 };
 enum class NodeFieldColumn {
@@ -52,7 +52,7 @@ struct NodeData {
     double last_heartbeat_delta;
     uint64_t restart_count;
 };
-class NodeWindow : public BaseWindow
+class NodeWindow : public eros_window::BaseWindow
 {
    public:
     static constexpr double START_X_PERC =
@@ -82,51 +82,52 @@ class NodeWindow : public BaseWindow
                      mainwindow_width) {
         supported_keys.push_back(KEY_UP);
         supported_keys.push_back(KEY_DOWN);
-        supported_keys.push_back(KEY_f);
-        supported_keys.push_back(KEY_F);
-        supported_keys.push_back(KEY_l);
-        supported_keys.push_back(KEY_L);
-        supported_keys.push_back(KEY_n);
-        supported_keys.push_back(KEY_N);
-        supported_keys.push_back(KEY_d);
-        supported_keys.push_back(KEY_D);
-        supported_keys.push_back(KEY_1);
-        supported_keys.push_back(KEY_2);
-        supported_keys.push_back(KEY_3);
-        supported_keys.push_back(KEY_4);
-        supported_keys.push_back(KEY_5);
-        supported_keys.push_back(KEY_6);
-        supported_keys.push_back(KEY_7);
-        supported_keys.push_back(KEY_8);
-        supported_keys.push_back(KEY_9);
+        supported_keys.push_back(eros_window::KEY_f);
+        supported_keys.push_back(eros_window::KEY_F);
+        supported_keys.push_back(eros_window::KEY_l);
+        supported_keys.push_back(eros_window::KEY_L);
+        supported_keys.push_back(eros_window::KEY_n);
+        supported_keys.push_back(eros_window::KEY_N);
+        supported_keys.push_back(eros_window::KEY_d);
+        supported_keys.push_back(eros_window::KEY_D);
+        supported_keys.push_back(eros_window::KEY_1);
+        supported_keys.push_back(eros_window::KEY_2);
+        supported_keys.push_back(eros_window::KEY_3);
+        supported_keys.push_back(eros_window::KEY_4);
+        supported_keys.push_back(eros_window::KEY_5);
+        supported_keys.push_back(eros_window::KEY_6);
+        supported_keys.push_back(eros_window::KEY_7);
+        supported_keys.push_back(eros_window::KEY_8);
+        supported_keys.push_back(eros_window::KEY_9);
         // Don't add Supported Keys for Numeric
         set_window_records_are_selectable(true);
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::MARKER, Field("", 3)));
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::ID, Field("ID", 4)));
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::HOSTNAME, Field(" Host ", 20)));
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::NODENAME, Field(" NodeName ", 30)));
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::STATUS, Field(" Status ", 10)));
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::RESTARTS, Field(" Restarts ", 10)));
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::PID, Field(" PID ", 8)));
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::CPU, Field(" CPU(%) ", 10)));
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::RAM, Field(" RAM(%) ", 10)));
-        node_window_fields.insert(
-            std::pair<NodeFieldColumn, Field>(NodeFieldColumn::RX, Field(" Rx ", 6)));
-        ScreenCoordinatePixel coord_pix = SystemMonitorUtility::convertCoordinate(
-            get_screen_coordinates_perc(), mainwindow_width, mainwindow_height);
-        WINDOW* win = SystemMonitorUtility::create_newwin(coord_pix.height_pix,
-                                                          coord_pix.width_pix,
-                                                          coord_pix.start_y_pix,
-                                                          coord_pix.start_x_pix);
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::MARKER, eros_window::Field("", 3)));
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::ID, eros_window::Field("ID", 4)));
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::HOSTNAME, eros_window::Field(" Host ", 20)));
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::NODENAME, eros_window::Field(" NodeName ", 30)));
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::STATUS, eros_window::Field(" Status ", 10)));
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::RESTARTS, eros_window::Field(" Restarts ", 10)));
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::PID, eros_window::Field(" PID ", 8)));
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::CPU, eros_window::Field(" CPU(%) ", 10)));
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::RAM, eros_window::Field(" RAM(%) ", 10)));
+        node_window_fields.insert(std::pair<NodeFieldColumn, eros_window::Field>(
+            NodeFieldColumn::RX, eros_window::Field(" Rx ", 6)));
+        eros_window::ScreenCoordinatePixel coord_pix =
+            eros_window::CommonWindowUtility::convertCoordinate(
+                get_screen_coordinates_perc(), mainwindow_width, mainwindow_height);
+        WINDOW* win = eros_window::CommonWindowUtility::create_newwin(coord_pix.height_pix,
+                                                                      coord_pix.width_pix,
+                                                                      coord_pix.start_y_pix,
+                                                                      coord_pix.start_x_pix);
         set_screen_coordinates_pix(coord_pix);
         set_window(win);
 
@@ -152,9 +153,9 @@ class NodeWindow : public BaseWindow
     }
     bool new_msg(eros::heartbeat heartbeat_msg) override;
     bool new_msg(eros::resource resource_used_msg) override;
-    KeyEventContainer new_keyevent(int key) override;
+    eros_window::KeyEventContainer new_keyevent(int key) override;
     std::string get_node_info(NodeData node, bool selected);
-    bool new_command(std::vector<WindowCommand> /* commands*/) override {  // Not Used
+    bool new_command(std::vector<eros_window::WindowCommand> /* commands*/) override {  // Not Used
         return true;
     }
     std::vector<std::string> get_node_info();
@@ -168,7 +169,7 @@ class NodeWindow : public BaseWindow
     bool update_window();
     int previous_key{-1};
     std::mutex node_list_mutex;
-    std::map<NodeFieldColumn, Field> node_window_fields;
+    std::map<NodeFieldColumn, eros_window::Field> node_window_fields;
     std::vector<NodeData> node_list;
 };
 }  // namespace eros_nodes::SystemMonitor

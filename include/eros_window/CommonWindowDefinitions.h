@@ -7,6 +7,12 @@
 //! Namespace for
 namespace eros_window {
 const double COMMTIMEOUT_THRESHOLD = 5.0f;
+enum class WindowCommandType {
+    UNKNOWN = 0,                 /*!< Uninitialized value. */
+    VIEW_DIAGNOSTICS_NODE = 1,   /*!< View Diagnostics for a Node. */
+    VIEW_DIAGNOSTICS_SYSTEM = 2, /*!< View Diagnostics for the System. */
+    END_OF_LIST = 3              /*!< Last item of list. Used for Range Checks. */
+};
 /**
  * @brief Colors supported
  *
@@ -21,6 +27,16 @@ enum class Color {
     GRAY_COLOR = 6,   /*!< Gray. */
     PURPLE_COLOR = 7, /*!< Purple. */
     END_OF_LIST = 8   /*!< Last item of list. Used for Range Checks. */
+};
+/**
+ * @brief WindowCommand container
+ *
+ */
+struct WindowCommand {
+    WindowCommand() : type(WindowCommandType::UNKNOWN) {
+    }
+    WindowCommandType type;
+    std::string option;
 };
 /*! \struct ScreenCoordinatePerc
     \brief ScreenCoordinatePerc container.
@@ -46,6 +62,15 @@ struct ScreenCoordinatePixel {
     uint16_t width_pix;
     uint16_t height_pix;
 };
+/*! \struct Field
+    \brief Field container, used for holding Field attributes.
+    */
+struct Field {
+    Field(std::string text, uint16_t width) : text(text), width(width) {
+    }
+    std::string text;
+    std::size_t width;
+};
 /**
  * @brief Text that's rendered to Message Window
  *
@@ -57,6 +82,14 @@ struct MessageText {
     }
     std::string text;
     eros::Level::Type level;
+};
+/**
+ * @brief Container for results of a Key Event
+ *
+ */
+struct KeyEventContainer {
+    WindowCommand command;
+    MessageText message;
 };
 // Keys
 static constexpr int KEY_q = 113;

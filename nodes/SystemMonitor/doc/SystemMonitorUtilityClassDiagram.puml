@@ -5,10 +5,10 @@ package curses {
 }
 package eros_nodes {
 package SystemMonitor {
-    struct ScreenCoordinatePixel
-    class SystemMonitorUtility #LimeGreen {
+    struct eros_window::ScreenCoordinatePixel
+    class eros_window::CommonWindowUtility #LimeGreen {
         {static} WINDOW* create_newwin(int height, int width, int starty, int startx)
-        {static} +ScreenCoordinatePixel create_newwin(int height, int width, int starty, int startx)
+        {static} +eros_window::ScreenCoordinatePixel create_newwin(int height, int width, int starty, int startx)
     }
 }
 }

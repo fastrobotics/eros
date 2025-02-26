@@ -1,7 +1,7 @@
 #pragma once
-#include "BaseWindow.h"
+#include <eros_window/BaseWindow.h>
 namespace eros_nodes::SystemMonitor {
-class InstructionWindow : public BaseWindow
+class InstructionWindow : public eros_window::BaseWindow
 {
    public:
     enum class InstructionMode {
@@ -38,18 +38,19 @@ class InstructionWindow : public BaseWindow
                      mainwindow_height,
                      mainwindow_width),
           command_pub(command_pub) {
-        supported_keys.push_back(KEY_esc);
-        supported_keys.push_back(KEY_space);
-        supported_keys.push_back(KEY_s);
-        supported_keys.push_back(KEY_S);
-        supported_keys.push_back(KEY_c);
-        supported_keys.push_back(KEY_C);
-        ScreenCoordinatePixel coord_pix = SystemMonitorUtility::convertCoordinate(
-            get_screen_coordinates_perc(), mainwindow_width, mainwindow_height);
-        WINDOW* win = SystemMonitorUtility::create_newwin(coord_pix.height_pix,
-                                                          coord_pix.width_pix,
-                                                          coord_pix.start_y_pix,
-                                                          coord_pix.start_x_pix);
+        supported_keys.push_back(eros_window::KEY_esc);
+        supported_keys.push_back(eros_window::KEY_space);
+        supported_keys.push_back(eros_window::KEY_s);
+        supported_keys.push_back(eros_window::KEY_S);
+        supported_keys.push_back(eros_window::KEY_c);
+        supported_keys.push_back(eros_window::KEY_C);
+        eros_window::ScreenCoordinatePixel coord_pix =
+            eros_window::CommonWindowUtility::convertCoordinate(
+                get_screen_coordinates_perc(), mainwindow_width, mainwindow_height);
+        WINDOW* win = eros_window::CommonWindowUtility::create_newwin(coord_pix.height_pix,
+                                                                      coord_pix.width_pix,
+                                                                      coord_pix.start_y_pix,
+                                                                      coord_pix.start_x_pix);
         set_screen_coordinates_pix(coord_pix);
         set_window(win);
 
@@ -84,8 +85,8 @@ class InstructionWindow : public BaseWindow
     void set_InstructionMode(InstructionMode cmd_mode) {
         instruction_mode = cmd_mode;
     }
-    KeyEventContainer new_keyevent(int key) override;
-    bool new_command(std::vector<WindowCommand> /* commands*/) override {  // Not Used
+    eros_window::KeyEventContainer new_keyevent(int key) override;
+    bool new_command(std::vector<eros_window::WindowCommand> /* commands*/) override {  // Not Used
         return true;
     }
 

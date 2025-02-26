@@ -87,10 +87,10 @@ eros::eros_diagnostic::Diagnostic SystemMonitorProcess::update_monitorlist(
 eros_diagnostic::Diagnostic SystemMonitorProcess::update(double t_dt, double t_ros_time) {
     eros_diagnostic::Diagnostic diag = base_update(t_dt, t_ros_time);
     int key_pressed = getch();
-    if ((key_pressed == KEY_q) || (key_pressed == KEY_Q)) {
+    if ((key_pressed == eros_window::KEY_q) || (key_pressed == eros_window::KEY_Q)) {
         kill_me = true;
     }
-    else if ((key_pressed == KEY_tab)) {
+    else if ((key_pressed == eros_window::KEY_tab)) {
         int16_t current_tab_index = tab_index;
         int16_t new_tab_index = current_tab_index + 1;
         if (new_tab_index >= highest_tab_index) {
@@ -98,8 +98,8 @@ eros_diagnostic::Diagnostic SystemMonitorProcess::update(double t_dt, double t_r
         }
         tab_index = new_tab_index;
     }
-    std::vector<MessageText> messages;
-    std::vector<WindowCommand> window_commands;
+    std::vector<eros_window::MessageText> messages;
+    std::vector<eros_window::WindowCommand> window_commands;
     std::string previous_selected_window;
     for (auto window : windows) {
         if (window->has_focus()) {
@@ -121,7 +121,7 @@ eros_diagnostic::Diagnostic SystemMonitorProcess::update(double t_dt, double t_r
         if (output.message.text != "") {
             messages.push_back(output.message);
         }
-        if (output.command.type != WindowCommandType::UNKNOWN) {
+        if (output.command.type != eros_window::WindowCommandType::UNKNOWN) {
             window_commands.push_back(output.command);
         }
     }
@@ -139,7 +139,7 @@ eros_diagnostic::Diagnostic SystemMonitorProcess::update(double t_dt, double t_r
     // Update Message Window only if there's new messages
     if (messages.size() > 0) {
         for (auto window : windows) {
-            auto* p = dynamic_cast<MessageWindow*>(
+            auto* p = dynamic_cast<eros_window::MessageWindow*>(
                 window);  // Figure out which window is actually a Message Window
             if (p) {
                 bool status = p->new_MessageTextList(messages);
@@ -189,46 +189,46 @@ bool SystemMonitorProcess::initialize_windows() {
     timeout(0);
     keypad(stdscr, TRUE);
     {
-        IWindow* window = new NodeWindow(
+        eros_window::IWindow* window = new NodeWindow(
             nodeHandle, robot_namespace, logger, 0, mainwindow_height, mainwindow_width);
         window->set_focused(true);  // Window defaults to focused
         highest_tab_index++;
         windows.push_back(window);
     }
     {
-        IWindow* window = new DiagnosticsWindow(
+        eros_window::IWindow* window = new eros_window::DiagnosticsWindow(
             nodeHandle, robot_namespace, logger, 1, mainwindow_height, mainwindow_width);
         highest_tab_index++;
         windows.push_back(window);
     }
     {
-        IWindow* window = new DeviceWindow(
+        eros_window::IWindow* window = new DeviceWindow(
             nodeHandle, robot_namespace, logger, 2, mainwindow_height, mainwindow_width);
         highest_tab_index++;
         windows.push_back(window);
     }
     {
-        IWindow* window = new HeaderWindow(
+        eros_window::IWindow* window = new eros_window::HeaderWindow(
             nodeHandle, robot_namespace, logger, -1, mainwindow_height, mainwindow_width);
         windows.push_back(window);
     }
     {
-        IWindow* window = new InstructionWindow(nodeHandle,
-                                                robot_namespace,
-                                                logger,
-                                                -1,
-                                                mainwindow_height,
-                                                mainwindow_width,
-                                                command_pub);
+        eros_window::IWindow* window = new InstructionWindow(nodeHandle,
+                                                             robot_namespace,
+                                                             logger,
+                                                             -1,
+                                                             mainwindow_height,
+                                                             mainwindow_width,
+                                                             command_pub);
         windows.push_back(window);
     }
     {
-        IWindow* window = new MessageWindow(
+        eros_window::IWindow* window = new eros_window::MessageWindow(
             nodeHandle, robot_namespace, logger, -1, mainwindow_height, mainwindow_width);
         windows.push_back(window);
     }
     {
-        IWindow* window = new StatusWindow(
+        eros_window::IWindow* window = new eros_window::StatusWindow(
             nodeHandle, robot_namespace, logger, -1, mainwindow_height, mainwindow_width);
         windows.push_back(window);
     }

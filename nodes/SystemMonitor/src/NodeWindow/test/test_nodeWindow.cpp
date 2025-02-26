@@ -1,10 +1,10 @@
 /*! \file test_nodeWindow.cpp
  */
+#include <eros_window/CommonWindowDefinitions.h>
 #include <gtest/gtest.h>
 #include <stdio.h>
 
 #include "NodeWindow/NodeWindow.h"
-#include "WindowDefinitions.h"
 using namespace eros_nodes::SystemMonitor;
 TEST(BasicTest, Test_Initialization) {
     eros::Logger* logger = new eros::Logger("INFO", "test_node_window");
@@ -14,7 +14,7 @@ TEST(BasicTest, Test_Initialization) {
     EXPECT_EQ(SUT.get_name(), "node_window");
     EXPECT_GT(SUT.get_supported_keys().size(), 0);
     EXPECT_TRUE(SUT.has_focus());
-    ScreenCoordinatePixel empty_coordinates_pixel(0.0, 0.0, 0.0, 0.0);
+    eros_window::ScreenCoordinatePixel empty_coordinates_pixel(0.0, 0.0, 0.0, 0.0);
     SUT.set_screen_coordinates_pix(empty_coordinates_pixel);
     auto screen_coord_perc = SUT.get_screen_coordinates_perc();
     EXPECT_EQ(screen_coord_perc.start_x_perc, NodeWindow::START_X_PERC);
@@ -55,7 +55,7 @@ TEST(BasicTest, Test_Initialization) {
         EXPECT_TRUE(SUT.new_msg(msg));
     }
     {
-        std::vector<WindowCommand> commands;
+        std::vector<eros_window::WindowCommand> commands;
         EXPECT_TRUE(SUT.new_command(commands));
     }
     EXPECT_FALSE(SUT.update(0.0, 0.0));  // Can't update Window, this requires Drawing.
@@ -137,20 +137,22 @@ TEST(BasicTest, Test_Keys_WithNodes) {
     // Check Keys
 
     for (auto key : SUT.get_supported_keys()) {
-        if ((key == KEY_1) || (key == KEY_2) || (key == KEY_3) || (key == KEY_4) ||
-            (key == KEY_5) || (key == KEY_6) || (key == KEY_7) || (key == KEY_8) ||
-            (key == KEY_9)) {}  // Do Nothing
+        if ((key == eros_window::KEY_1) || (key == eros_window::KEY_2) ||
+            (key == eros_window::KEY_3) || (key == eros_window::KEY_4) ||
+            (key == eros_window::KEY_5) || (key == eros_window::KEY_6) ||
+            (key == eros_window::KEY_7) || (key == eros_window::KEY_8) ||
+            (key == eros_window::KEY_9)) {}  // Do Nothing
         else {
-            if ((key == KEY_l) || (key == KEY_L)) {
+            if ((key == eros_window::KEY_l) || (key == eros_window::KEY_L)) {
                 auto result = SUT.new_keyevent(key);
                 EXPECT_TRUE(result.message.level <= eros::Level::Type::ERROR);
-                result = SUT.new_keyevent(KEY_3);
+                result = SUT.new_keyevent(eros_window::KEY_3);
                 EXPECT_TRUE(result.message.level <= eros::Level::Type::ERROR);
             }
-            if ((key == KEY_n) || (key == KEY_N)) {
+            if ((key == eros_window::KEY_n) || (key == eros_window::KEY_N)) {
                 auto result = SUT.new_keyevent(key);
                 EXPECT_TRUE(result.message.level <= eros::Level::Type::ERROR);
-                result = SUT.new_keyevent(KEY_5);
+                result = SUT.new_keyevent(eros_window::KEY_5);
                 EXPECT_TRUE(result.message.level <= eros::Level::Type::ERROR);
             }
             else {

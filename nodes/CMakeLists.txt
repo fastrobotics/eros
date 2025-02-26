@@ -1,3 +1,3 @@
 add_subdirectory(Infrastructure)
 add_subdirectory(RemoteControl)
-#add_subdirectory(SystemMonitor)
+add_subdirectory(SystemMonitor)

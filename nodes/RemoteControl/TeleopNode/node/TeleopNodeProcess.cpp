@@ -2,8 +2,7 @@
 
 #include "MainWindow/MainWindow.h"
 using namespace eros;
-using namespace eros_nodes::RemoteControl;
-
+namespace eros_nodes::RemoteControl {
 TeleopNodeProcess::~TeleopNodeProcess() {
     for (auto window : windows) { delete window; }
     cleanup();
@@ -17,7 +16,7 @@ void TeleopNodeProcess::reset() {
 eros_diagnostic::Diagnostic TeleopNodeProcess::update(double t_dt, double t_ros_time) {
     eros_diagnostic::Diagnostic diag = base_update(t_dt, t_ros_time);
     int key_pressed = getch();
-    if ((key_pressed == KEY_q) || (key_pressed == KEY_Q)) {
+    if ((key_pressed == eros_window::KEY_q) || (key_pressed == eros_window::KEY_Q)) {
         kill_me = true;
     }
     if (key_pressed != -1) {
@@ -44,9 +43,15 @@ bool TeleopNodeProcess::initialize_windows() {
     timeout(0);
     keypad(stdscr, TRUE);
     {
-        IWindow* window = new MainWindow(
-            nodeHandle, robot_namespace, logger, mainwindow_height, mainwindow_width);
+        eros_window::IWindow* window = new MainWindow(
+            nodeHandle, robot_namespace, logger, -1, mainwindow_height, mainwindow_width);
+        windows.push_back(window);
+    }
+    {
+        eros_window::IWindow* window = new eros_window::HeaderWindow(
+            nodeHandle, robot_namespace, logger, -1, mainwindow_height, mainwindow_width);
         windows.push_back(window);
     }
     return true;
 }
+}  // namespace eros_nodes::RemoteControl

@@ -1,9 +1,13 @@
 /*! \file test_base_window.cpp
  */
-#include <eros_window/BaseWindow.h>
-#include <eros_window/CommonWindowDefinitions.h>namespace eros_nodes::SystemMonitor {
+// Need gtest first
 #include <gtest/gtest.h>
+
+// Rest of Includes
+#include <eros_window/BaseWindow.h>
+#include <eros_window/CommonWindowDefinitions.h>
 #include <stdio.h>
+namespace eros_window {
 class TesterBaseWindow : public eros_window::BaseWindow
 {
    public:
@@ -37,20 +41,20 @@ class TesterBaseWindow : public eros_window::BaseWindow
     bool new_msg(eros::command_state /* command_state_msg */) override {
         return false;
     }
-    eros_window::KeyEventContainer new_keyevent(int key) override {
-        eros_window::KeyEventContainer output;
+    KeyEventContainer new_keyevent(int key) override {
+        KeyEventContainer output;
         if (key == KEY_UP) {
             decrement_selected_record();
         }
         else if (key == KEY_DOWN) {
             increment_selected_record();
         }
-        else if (key == eros_window::KEY_5) {
+        else if (key == KEY_5) {
             for (int i = 0; i < 5; ++i) { update_record_count(i); }
         }
         return output;
     }
-    bool new_command(std::vector<eros_window::WindowCommand> /* commands */) override {
+    bool new_command(std::vector<WindowCommand> /* commands */) override {
         return false;
     }
     bool update_window() {
@@ -59,14 +63,14 @@ class TesterBaseWindow : public eros_window::BaseWindow
 
    private:
 };
-}  // namespace eros_nodes::SystemMonitor
-using namespace eros_nodes::SystemMonitor;
+}  // namespace eros_window
+using namespace eros_window;
 TEST(BasicTest, Test_DefaultInitialization) {
     TesterBaseWindow SUT;
     EXPECT_EQ(SUT.get_name(), "tester_window");
     EXPECT_FALSE(SUT.has_focus());
     SUT.set_focused(false);
-    eros_window::ScreenCoordinatePixel empty_coordinates_pixel(0.0, 0.0, 0.0, 0.0);
+    ScreenCoordinatePixel empty_coordinates_pixel(0.0, 0.0, 0.0, 0.0);
     SUT.set_screen_coordinates_pix(empty_coordinates_pixel);
     auto screen_coord_perc = SUT.get_screen_coordinates_perc();
     EXPECT_EQ(screen_coord_perc.start_x_perc, 0);
@@ -86,7 +90,7 @@ TEST(BasicTest, Test_DefaultInitialization) {
     EXPECT_EQ(SUT.get_selected_record(), 0);
     auto output = SUT.new_keyevent(KEY_UP);
     output = SUT.new_keyevent(KEY_DOWN);
-    output = SUT.new_keyevent(eros_window::KEY_5);
+    output = SUT.new_keyevent(KEY_5);
     EXPECT_TRUE(SUT.update(0.0, 0.0));
 }
 

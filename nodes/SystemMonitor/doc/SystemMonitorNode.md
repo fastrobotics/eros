@@ -16,7 +16,7 @@ There is no configuration required for typical usage of the System Monitor.
 ## Class Diagrams
 ![](../../../doc/output/Legend.png)
 ![](output/SystemMonitorDefinitionClassDiagram.png)
-![](output/SystemMonitorUtilityClassDiagram.png)
+![](output/eros_window::CommonWindowUtilityClassDiagram.png)
 ![](output/SystemMonitorWindowClassDiagram.png)
 ![](output/SystemMonitorNodeClassDiagram.png)
 

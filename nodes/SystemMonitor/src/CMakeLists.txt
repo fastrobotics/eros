@@ -1,16 +1,4 @@
-add_library(systemMonitorUtility SystemMonitorUtility.cpp)
-target_link_libraries(systemMonitorUtility ${catkin_LIBRARIES} ${CURSES_LIBRARIES})
-add_dependencies(systemMonitorUtility eros_generate_messages_cpp)
 
-add_library(baseWindow BaseWindow.cpp)
-target_link_libraries(baseWindow ${catkin_LIBRARIES} ${CURSES_LIBRARIES} commonWindowUtility)
-add_dependencies(baseWindow eros_generate_messages_cpp)
-
-add_subdirectory(HeaderWindow)
 add_subdirectory(DeviceWindow)
 add_subdirectory(NodeWindow)
 add_subdirectory(InstructionWindow)
-add_subdirectory(DiagnosticsWindow)
-add_subdirectory(MessageWindow)
-add_subdirectory(StatusWindow)
-add_subdirectory(test)

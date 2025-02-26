@@ -1,7 +1,7 @@
 #pragma once
-#include <mutex>
+#include <eros_window/BaseWindow.h>
 
-#include "BaseWindow.h"
+#include <mutex>
 namespace eros_nodes::SystemMonitor {
 enum class DeviceFieldColumn {
     MARKER = 0,
@@ -38,7 +38,7 @@ struct DeviceData {
  * @brief A Window to render Device Information
  *
  */
-class DeviceWindow : public BaseWindow
+class DeviceWindow : public eros_window::BaseWindow
 {
    public:
     static constexpr double START_X_PERC =
@@ -68,29 +68,30 @@ class DeviceWindow : public BaseWindow
                      mainwindow_width) {
         // NO Supported Keys
 
-        device_window_fields.insert(
-            std::pair<DeviceFieldColumn, Field>(DeviceFieldColumn::MARKER, Field("", 3)));
-        device_window_fields.insert(
-            std::pair<DeviceFieldColumn, Field>(DeviceFieldColumn::ID, Field("ID", 3)));
-        device_window_fields.insert(
-            std::pair<DeviceFieldColumn, Field>(DeviceFieldColumn::NAME, Field(" Device ", 25)));
-        device_window_fields.insert(
-            std::pair<DeviceFieldColumn, Field>(DeviceFieldColumn::CPU, Field(" CPU Av ", 8)));
-        device_window_fields.insert(
-            std::pair<DeviceFieldColumn, Field>(DeviceFieldColumn::RAM, Field(" RAM Av ", 8)));
-        device_window_fields.insert(
-            std::pair<DeviceFieldColumn, Field>(DeviceFieldColumn::DISK, Field(" DISK Av ", 8)));
-        device_window_fields.insert(std::pair<DeviceFieldColumn, Field>(
-            DeviceFieldColumn::LOADFACTOR, Field(" LOAD FACTOR ", 18)));
-        device_window_fields.insert(
-            std::pair<DeviceFieldColumn, Field>(DeviceFieldColumn::RX, Field(" Rx ", 6)));
+        device_window_fields.insert(std::pair<DeviceFieldColumn, eros_window::Field>(
+            DeviceFieldColumn::MARKER, eros_window::Field("", 3)));
+        device_window_fields.insert(std::pair<DeviceFieldColumn, eros_window::Field>(
+            DeviceFieldColumn::ID, eros_window::Field("ID", 3)));
+        device_window_fields.insert(std::pair<DeviceFieldColumn, eros_window::Field>(
+            DeviceFieldColumn::NAME, eros_window::Field(" Device ", 25)));
+        device_window_fields.insert(std::pair<DeviceFieldColumn, eros_window::Field>(
+            DeviceFieldColumn::CPU, eros_window::Field(" CPU Av ", 8)));
+        device_window_fields.insert(std::pair<DeviceFieldColumn, eros_window::Field>(
+            DeviceFieldColumn::RAM, eros_window::Field(" RAM Av ", 8)));
+        device_window_fields.insert(std::pair<DeviceFieldColumn, eros_window::Field>(
+            DeviceFieldColumn::DISK, eros_window::Field(" DISK Av ", 8)));
+        device_window_fields.insert(std::pair<DeviceFieldColumn, eros_window::Field>(
+            DeviceFieldColumn::LOADFACTOR, eros_window::Field(" LOAD FACTOR ", 18)));
+        device_window_fields.insert(std::pair<DeviceFieldColumn, eros_window::Field>(
+            DeviceFieldColumn::RX, eros_window::Field(" Rx ", 6)));
 
-        ScreenCoordinatePixel coord_pix = SystemMonitorUtility::convertCoordinate(
-            get_screen_coordinates_perc(), mainwindow_width, mainwindow_height);
-        WINDOW* win = SystemMonitorUtility::create_newwin(coord_pix.height_pix,
-                                                          coord_pix.width_pix,
-                                                          coord_pix.start_y_pix,
-                                                          coord_pix.start_x_pix);
+        eros_window::ScreenCoordinatePixel coord_pix =
+            eros_window::CommonWindowUtility::convertCoordinate(
+                get_screen_coordinates_perc(), mainwindow_width, mainwindow_height);
+        WINDOW* win = eros_window::CommonWindowUtility::create_newwin(coord_pix.height_pix,
+                                                                      coord_pix.width_pix,
+                                                                      coord_pix.start_y_pix,
+                                                                      coord_pix.start_x_pix);
         set_screen_coordinates_pix(coord_pix);
         set_window(win);
         wrefresh(win);
@@ -111,11 +112,11 @@ class DeviceWindow : public BaseWindow
     }
     bool new_msg(eros::resource resource_msg) override;
     bool new_msg(eros::loadfactor loadfactor_msg) override;
-    KeyEventContainer new_keyevent(int /* key */) override {  // Not Used
-        KeyEventContainer output;
+    eros_window::KeyEventContainer new_keyevent(int /* key */) override {  // Not Used
+        eros_window::KeyEventContainer output;
         return output;
     }
-    bool new_command(std::vector<WindowCommand> /* commands*/) override {  // Not Used
+    bool new_command(std::vector<eros_window::WindowCommand> /* commands*/) override {  // Not Used
         return true;
     }
     std::string pretty();
@@ -127,7 +128,7 @@ class DeviceWindow : public BaseWindow
     bool update_window();
     std::string get_deviceheader();
     std::mutex device_list_mutex;
-    std::map<DeviceFieldColumn, Field> device_window_fields;
+    std::map<DeviceFieldColumn, eros_window::Field> device_window_fields;
     std::map<std::string, DeviceData> device_list;
 };
 }  // namespace eros_nodes::SystemMonitor

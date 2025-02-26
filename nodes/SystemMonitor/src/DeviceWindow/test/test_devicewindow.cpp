@@ -1,10 +1,10 @@
 /*! \file test_devicewindow.cpp
  */
+#include <eros_window/CommonWindowDefinitions.h>
 #include <gtest/gtest.h>
 #include <stdio.h>
 
 #include "DeviceWindow/DeviceWindow.h"
-#include "WindowDefinitions.h"
 using namespace eros_nodes::SystemMonitor;
 TEST(BasicTest, Test_Initialization) {
     eros::Logger* logger = new eros::Logger("INFO", "test_device_window");
@@ -14,7 +14,7 @@ TEST(BasicTest, Test_Initialization) {
     EXPECT_EQ(SUT.get_supported_keys().size(), 0);  // NO Supported Keys
     EXPECT_FALSE(SUT.has_focus());
     SUT.set_focused(false);
-    ScreenCoordinatePixel empty_coordinates_pixel(0.0, 0.0, 0.0, 0.0);
+    eros_window::ScreenCoordinatePixel empty_coordinates_pixel(0.0, 0.0, 0.0, 0.0);
     SUT.set_screen_coordinates_pix(empty_coordinates_pixel);
     auto screen_coord_perc = SUT.get_screen_coordinates_perc();
     EXPECT_EQ(screen_coord_perc.start_x_perc, DeviceWindow::START_X_PERC);
@@ -51,7 +51,7 @@ TEST(BasicTest, Test_Initialization) {
         SUT.new_keyevent(key);
     }
     {
-        std::vector<WindowCommand> commands;
+        std::vector<eros_window::WindowCommand> commands;
         EXPECT_TRUE(SUT.new_command(commands));
     }
     // Verify Events
@@ -60,7 +60,7 @@ TEST(BasicTest, Test_Initialization) {
     eros::resource resource_msg;
     EXPECT_FALSE(SUT.new_msg(resource_msg));
 
-    output = SUT.new_keyevent(KEY_5);
+    output = SUT.new_keyevent(eros_window::KEY_5);
     EXPECT_FALSE(SUT.update(0.0, 0.0));  // Can't update Window, this requires Drawing.
     delete logger;
 }

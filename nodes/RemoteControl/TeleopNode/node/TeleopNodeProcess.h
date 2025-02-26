@@ -3,8 +3,8 @@
 #pragma once
 #include <curses.h>
 #include <eros/BaseNodeProcess.h>
-
-#include "IWindow.h"
+#include <eros_window/HeaderWindow/HeaderWindow.h>
+#include <eros_window/IWindow.h>
 namespace eros_nodes::RemoteControl {
 /*! \class TeleopNodeProcess TeleopNodeProcess.h "TeleopNodeProcess.h"
  *  \brief
@@ -77,6 +77,6 @@ class TeleopNodeProcess : public eros::BaseNodeProcess
     uint16_t mainwindow_width;
     uint16_t mainwindow_height;
 
-    std::vector<IWindow*> windows;
+    std::vector<eros_window::IWindow*> windows;
 };
 }  // namespace eros_nodes::RemoteControl

@@ -6,16 +6,16 @@
 #include <curses.h>
 #include <eros/BaseNodeProcess.h>
 #include <eros/heartbeat.h>
+#include <eros_window/CommonWindowDefinitions.h>
+#include <eros_window/DiagnosticsWindow/DiagnosticsWindow.h>
+#include <eros_window/HeaderWindow/HeaderWindow.h>
+#include <eros_window/MessageWindow/MessageWindow.h>
+#include <eros_window/StatusWindow/StatusWindow.h>
 #include <ros/ros.h>
 
 #include "DeviceWindow/DeviceWindow.h"
-#include "DiagnosticsWindow/DiagnosticsWindow.h"
-#include "HeaderWindow/HeaderWindow.h"
 #include "InstructionWindow/InstructionWindow.h"
-#include "MessageWindow/MessageWindow.h"
 #include "NodeWindow/NodeWindow.h"
-#include "StatusWindow/StatusWindow.h"
-#include "WindowDefinitions.h"
 namespace eros_nodes::SystemMonitor {
 
 /*! \class SystemMonitorProcess SystemMonitorProcess.h "SystemMonitorProcess.h"
@@ -33,8 +33,6 @@ class SystemMonitorProcess : public eros::BaseNodeProcess
     ~SystemMonitorProcess();
     // Constants
     const bool DEBUG_MODE = false;
-    /*! \brief How long in seconds before marking a Node as Timed Out.*/
-    const double COMMTIMEOUT_THRESHOLD = 5.0f;
     /*! \brief The minimum width in pixels of the Main Window.*/
     const uint16_t MINWINDOW_WIDTH = 140;
     /*! \brief The minimum height in pixels of the Main Window.*/
@@ -125,7 +123,7 @@ class SystemMonitorProcess : public eros::BaseNodeProcess
     std::vector<std::string> monitored_resourceavailable_topics;
     std::vector<std::string> monitored_loadfactor_topics;
 
-    std::vector<IWindow*> windows;
+    std::vector<eros_window::IWindow*> windows;
     int16_t tab_index{0};
     int16_t highest_tab_index{0};
 };
