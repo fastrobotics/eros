@@ -23,8 +23,19 @@ package eros {
         class CoreUtility #LimeGreen
         class ConvertUtility #LimeGreen
     }
+    namespace eros_window {
+        interface IWindow #LimeGreen
+        class DiagnosticsWindow #LimeGreen
+        IWindow <|-- DiagnosticsWindow
+        class HeaderWindow #LimeGreen
+        IWindow <|-- HeaderWindow
+        class MessageWindow #LimeGreen
+        IWindow <|-- MessageWindow
+        class StatusWindow #LimeGreen
+        IWindow <|-- StatusWindow      
+        class CommonWindowUtility #LimeGreen
 
-
+    }
 }
 package eros_nodes {
     class DataLoggerNode #Cyan

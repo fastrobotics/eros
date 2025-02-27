@@ -13,6 +13,7 @@ alt initialize
     node -> process: enable_diagnostics()
     node -> process: finish_initialization()
     node -> node: finish_initialization()
+    node -> node++: init_screen()
     node -> process: request_statechange(RUNNING,override=true)
     node--
 end

@@ -1,0 +1,21 @@
+@startuml
+title Teleop Node Window Sequence Diagram
+actor TeleopNode as node
+participant IWindow as interface
+participant BaseWindow as base
+participant ConcreteWindow as concrete
+
+alt initialize
+end
+
+alt update
+node -> interface++: update()
+interface -> concrete++: update()
+concrete -> base++: update()
+base --> concrete--: diag
+concrete -> concrete++: update_window()
+concrete --> interface--: diag
+interface --> node--: diag
+end
+
+@enduml
