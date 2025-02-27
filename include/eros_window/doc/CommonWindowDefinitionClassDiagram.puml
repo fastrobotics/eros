@@ -1,0 +1,65 @@
+@startuml
+title Common Window Definition Class Diagram
+namespace eros {
+    enum Level::Type
+}
+namespace eros_window {
+    enum WindowCommandType #LimeGreen {
+        UNKNOWN
+        VIEW_DIAGNOSTICS_NODE
+        VIEW_DIAGNOSTICS_SYSTEM
+        END_OF_LIST
+    }
+    enum Color #LimeGreen {
+        UNKNOWN
+        NO_COLOR
+        RED_COLOR
+        YELLOW_COLOR
+        GREEN_COLOR
+        BLUE_COLOR
+        GRAY_COLOR
+        PURPLE_COLOR
+        END_OF_LIST
+    }
+    struct WindowCommand #LimeGreen {
+        +WindowCommand() : type(WindowCommandType::UNKNOWN)
+        +WindowCommandType type
+        +string option
+    }
+    WindowCommand --> WindowCommandType
+    struct ScreenCoordinatePerc #LimeGreen {
+        +ScreenCoordinatePerc(double start_x, double start_y, double width, double height)
+        +double start_x_perc
+        +double start_y_perc
+        +double width_perc
+        +double height_perc
+
+    }
+    struct ScreenCoordinatePixel #LimeGreen {
+        +ScreenCoordinatePixel(double start_x, double start_y, double width, double height)
+        +uint16_t start_x_pix
+        +uint16_t start_y_pix
+        +uint16_t width_pix
+        +uint16_t height_pix
+    }
+    struct Field #LimeGreen {
+        +Field(string text, uint16_t width)
+        +string text
+        +size_t width
+
+    }
+    struct MessageText #LimeGreen {
+        MessageText(string text, Level::Type level)
+        MessageText() : text(""), level(Level::Type::DEBUG)
+        string text
+        Level::Type level
+    }
+    MessageText -left-> Level::Type
+    struct KeyEventContainer #LimeGreen {
+        +WindowCommand command
+        +MessageText message
+    }
+    KeyEventContainer --> WindowCommand
+    KeyEventContainer --> MessageText
+}
+@enduml

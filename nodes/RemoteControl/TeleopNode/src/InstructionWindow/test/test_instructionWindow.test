@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <test test-name="test_instructionWindow" pkg="eros" type="test_instructionWindow"/>
+</launch>

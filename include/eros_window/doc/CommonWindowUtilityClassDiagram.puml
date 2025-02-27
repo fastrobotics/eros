@@ -1,0 +1,12 @@
+@startuml
+title Common Window Utility Class Diagram
+package curses {
+    class WINDOW
+}
+package eros_window {
+    class CommonWindowUtility #LimeGreen {
+        {static} WINDOW* create_newwin(int height, int width, int starty, int startx)
+        {static} +ScreenCoordinatePixel create_newwin(int height, int width, int starty, int startx)
+    }
+}
+@enduml

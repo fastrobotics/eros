@@ -34,6 +34,12 @@ void TeleopNode::command_Callback(const eros::command::ConstPtr &t_msg) {
         "Received unsupported Command: " + Command::CommandString((Command::Type)cmd.Command));
     logger->log_diagnostic(diag);
 }
+void TeleopNode::commandState_Callback(const eros::command_state::ConstPtr &t_msg) {
+    eros_diagnostic::Diagnostic diag = process->new_commandstate(t_msg);
+    if (diag.level > Level::Type::NOTICE) {
+        logger->log_diagnostic(diag);
+    }
+}
 bool TeleopNode::changenodestate_service(eros::srv_change_nodestate::Request &req,
                                          eros::srv_change_nodestate::Response &res) {
     Node::State req_state = Node::NodeState(req.RequestedNodeState);
@@ -77,6 +83,7 @@ bool TeleopNode::start() {
     diagnostic_types.push_back(eros_diagnostic::DiagnosticType::REMOTE_CONTROL);
     process->enable_diagnostics(diagnostic_types);
     process->finish_initialization();
+    process->set_nodeHandle((n.get()), get_robotnamespace());
     diagnostic = finish_initialization();
     // No Practical way to Unit Test
     // LCOV_EXCL_START
@@ -117,6 +124,9 @@ eros_diagnostic::Diagnostic TeleopNode::finish_initialization() {
     std::string srv_nodestate_topic = "srv_nodestate_change";
     nodestate_srv =
         n->advertiseService(srv_nodestate_topic, &TeleopNode::changenodestate_service, this);
+    std::string commandstate_topic = "/" + get_robotnamespace() + "/SystemCommandState";
+    commandstate_sub = n->subscribe<eros::command_state>(
+        commandstate_topic, 50, &TeleopNode::commandState_Callback, this);
     diag = process->update_diagnostic(eros_diagnostic::DiagnosticType::COMMUNICATIONS,
                                       Level::Type::INFO,
                                       eros_diagnostic::Message::NOERROR,
@@ -193,6 +203,7 @@ bool TeleopNode::run_10hz() {
     if (process->get_killme() == true) {
         kill_node = true;
     }
+    process->update_armedstate(eros_utility::ConvertUtility::convert(armed_state));
     update_diagnostics(process->get_diagnostics());
     update_ready_to_arm(process->get_ready_to_arm());
     return true;
@@ -262,7 +273,7 @@ void signalinterrupt_handler(int sig) {
 int main(int argc, char **argv) {
     signal(SIGINT, signalinterrupt_handler);
     signal(SIGTERM, signalinterrupt_handler);
-    ros::init(argc, argv, "teleop_node");
+    ros::init(argc, argv, "teleop_gui");
     TeleopNode *node = new TeleopNode();
     bool status = node->start();
     // No Practical way to Unit Test

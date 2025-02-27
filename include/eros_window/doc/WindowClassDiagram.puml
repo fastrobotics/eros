@@ -1,0 +1,73 @@
+@startuml
+title Common Window Class Diagram
+package eros {
+    class ArmDisarm
+    class heartbeat <<(M,#FFFF00)>>
+    class resource <<(M,#FFFF00)>>
+    class loadfactor <<(M,#FFFF00)>>
+}
+package eros_window {
+    interface IWindow #LimeGreen {
+        +{abstract} std::string get_name()
+        +{abstract} bool update(double dt, double t_ros_time)
+        +{abstract} bool new_msg(eros::ArmDisarm::State armed_state)
+        +{abstract} bool new_msg(eros::heartbeat heartbeat_msg)
+        +{abstract} bool new_msg(eros::resource resource_msg)
+        +{abstract} bool new_msg(eros::loadfactor loadfactor_msg)
+        +{abstract} bool has_focus()
+        +{abstract} void set_focused(bool cmd_focus)
+        +{abstract} int[] get_supported_keys()
+    }
+    abstract BaseWindow #LimeGreen {
+        +std::string get_name()
+        +{abstract} bool update_window()
+        +bool has_focus()
+        +set_focused(bool cmd_focus)
+        +int[] get_supported_keys()
+
+    }
+    IWindow <|.. BaseWindow
+    BaseWindow <|-- DeviceWindow
+    class HeaderWindow #LimeGreen {
+        +bool update(double dt, double t_ros_time)
+        +bool new_msg(eros::ArmDisarm::State armed_state)
+        +bool new_msg(eros::heartbeat heartbeat_msg) // NO-OP
+        +bool new_msg(eros::resource resource_msg) // NO-OP
+        +bool new_msg(eros::loadfactor loadfactor_msg) // NO-OP
+        -bool update_window()
+
+    }
+    BaseWindow <|-- HeaderWindow
+    class DiagnosticsWindow #LimeGreen {
+        +bool update(double dt, double t_ros_time)
+        +bool new_msg(eros::ArmDisarm::State armed_state) // NO-OP
+        +bool new_msg(eros::heartbeat heartbeat_msg)
+        +bool new_msg(eros::resource resource_msg)
+        +bool new_msg(eros::loadfactor loadfactor_msg) // NO-OP
+        -bool update_window()
+        
+    }
+    BaseWindow <|-- DiagnosticsWindow
+    class StatusWindow #LimeGreen {
+        +bool update(double dt, double t_ros_time)
+        +bool new_msg(eros::ArmDisarm::State armed_state) // NO-OP
+        +bool new_msg(eros::heartbeat heartbeat_msg)
+        +bool new_msg(eros::resource resource_msg)
+        +bool new_msg(eros::loadfactor loadfactor_msg) // NO-OP
+        -bool update_window()
+        
+    }
+    BaseWindow <|-- StatusWindow
+    class MessageWindow #LimeGreen {
+        # TODO
+        +bool update(double dt, double t_ros_time)
+        +bool new_msg(eros::ArmDisarm::State armed_state) // NO-OP
+        +bool new_msg(eros::heartbeat heartbeat_msg)
+        +bool new_msg(eros::resource resource_msg)
+        +bool new_msg(eros::loadfactor loadfactor_msg) // NO-OP
+        -bool update_window()
+        
+    }
+    BaseWindow <|-- MessageWindow
+}
+@enduml

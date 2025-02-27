@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <test test-name="test_teleopnode_process" pkg="eros" type="test_teleopnode_process"/>
+</launch>

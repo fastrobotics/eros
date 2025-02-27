@@ -21,7 +21,7 @@ class TeleopNode : public eros::BaseNode
     ~TeleopNode();
     // Constants
     /*! \brief The base name of the Node.*/
-    const std::string BASE_NODE_NAME = "teleop_node";
+    const std::string BASE_NODE_NAME = "teleop_gui";
 
     /*! \brief The Major Release Version of the Node.*/
     const uint16_t MAJOR_RELEASE_VERSION = 0;
@@ -79,6 +79,7 @@ class TeleopNode : public eros::BaseNode
                                  eros::srv_change_nodestate::Response& res);
     void system_commandAction_Callback(const eros::system_commandGoalConstPtr& goal);
     void command_Callback(const eros::command::ConstPtr& t_msg);
+    void commandState_Callback(const eros::command_state::ConstPtr& t_msg);
 
     // Destructors
     void cleanup();
@@ -90,5 +91,6 @@ class TeleopNode : public eros::BaseNode
     eros::eros_diagnostic::Diagnostic read_launchparameters();
     TeleopNodeProcess* process;
     actionlib::SimpleActionServer<eros::system_commandAction> system_command_action_server;
+    ros::Subscriber commandstate_sub;
 };
 }  // namespace eros_nodes::RemoteControl

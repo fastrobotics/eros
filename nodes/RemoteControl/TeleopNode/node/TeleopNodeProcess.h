@@ -3,8 +3,14 @@
 #pragma once
 #include <curses.h>
 #include <eros/BaseNodeProcess.h>
+// Windows
+#include <eros_window/DiagnosticsWindow/DiagnosticsWindow.h>
 #include <eros_window/HeaderWindow/HeaderWindow.h>
 #include <eros_window/IWindow.h>
+#include <eros_window/MessageWindow/MessageWindow.h>
+
+#include "InstructionWindow/InstructionWindow.h"
+#include "MainWindow/MainWindow.h"
 namespace eros_nodes::RemoteControl {
 /*! \class TeleopNodeProcess TeleopNodeProcess.h "TeleopNodeProcess.h"
  *  \brief
@@ -48,9 +54,18 @@ class TeleopNodeProcess : public eros::BaseNodeProcess
     }
 
     // Attribute Functions
+    bool set_nodeHandle(ros::NodeHandle* nh, std::string _robot_namespace) {
+        nodeHandle = nh;
+        robot_namespace = _robot_namespace;
+        std::string systemcommand_topic = robot_namespace + "SystemCommand";
+        command_pub = nodeHandle->advertise<eros::command>(systemcommand_topic, 1);
+
+        return true;
+    }
     bool get_killme() {
         return kill_me;
     }
+    void update_armedstate(eros::ArmDisarm::State armed_state);
 
     // Utility Functions
 
@@ -59,6 +74,7 @@ class TeleopNodeProcess : public eros::BaseNodeProcess
 
     // Message Functions
     std::vector<eros::eros_diagnostic::Diagnostic> new_commandmsg(eros::command msg);
+    eros::eros_diagnostic::Diagnostic new_commandstate(const eros::command_state::ConstPtr& t_msg);
 
     // Destructors
     void cleanup() {
@@ -73,10 +89,13 @@ class TeleopNodeProcess : public eros::BaseNodeProcess
    private:
     bool kill_me{false};
     ros::NodeHandle* nodeHandle;
+    ros::Publisher command_pub;
     std::string robot_namespace;
     uint16_t mainwindow_width;
     uint16_t mainwindow_height;
 
     std::vector<eros_window::IWindow*> windows;
+    int16_t tab_index{0};
+    int16_t highest_tab_index{0};
 };
 }  // namespace eros_nodes::RemoteControl
