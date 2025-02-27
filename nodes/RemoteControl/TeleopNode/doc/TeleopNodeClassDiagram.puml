@@ -11,7 +11,7 @@ package eros {
 namespace eros_nodes::RemoteControl {
     class MainWindow
     class InstructionWindow
-    class TeleopNode #Yellow {
+    class TeleopNode #LimeGreen {
         -- Initialization Functions --
         +bool start()
         +eros::eros_diagnostic::Diagnostic finish_initialization()
@@ -51,7 +51,7 @@ namespace eros_nodes::RemoteControl {
         +string pretty()
 
     }
-    class TeleopNodeProcess #Yellow {
+    class TeleopNodeProcess #LimeGreen {
         -- Initialization Functions --
         +eros_diagnostic::Diagnostic finish_initialization()
         +reset()

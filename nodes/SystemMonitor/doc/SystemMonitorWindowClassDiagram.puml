@@ -10,34 +10,48 @@ package eros_window {
     interface IWindow
     abstract BaseWindow
     IWindow <|.. BaseWindow
+    struct KeyEventContainer
+    struct WindowCommand
 }
 package eros_nodes::SystemMonitor {
     class DeviceWindow #LimeGreen {
+        +bool is_selectable()
         +bool update(double dt, double t_ros_time)
         +bool new_msg(eros::ArmDisarm::State armed_state) // NO-OP
         +bool new_msg(eros::heartbeat heartbeat_msg) // NO-OP
+        +bool new_msg(eros::command_state command_state_msg) // NO-OP
         +bool new_msg(eros::resource resource_msg)
         +bool new_msg(eros::loadfactor loadfactor_msg)
+        +eros_window::KeyEventContainer new_keyevent(int key) // NO-OP
+        +bool new_command(eros_window::WindowCommand[] commands) // NO-OP
         -bool update_window()
 
     }
     BaseWindow <|-- DeviceWindow
     class NodeWindow #LimeGreen {
+        +bool is_selectable()
         +bool update(double dt, double t_ros_time)
         +bool new_msg(eros::ArmDisarm::State armed_state) // NO-OP
         +bool new_msg(eros::heartbeat heartbeat_msg)
         +bool new_msg(eros::resource resource_msg)
         +bool new_msg(eros::loadfactor loadfactor_msg) // NO-OP
+        +bool new_msg(eros::command_state command_state_msg) // NO-OP
+        +eros_window::KeyEventContainer new_keyevent(int key)
+        +bool new_command(eros_window::WindowCommand commands) // NO-OP
         -bool update_window()
         
     }
     BaseWindow <|-- NodeWindow
     class InstructionWindow #LimeGreen {
+        +bool is_selectable()
         +bool update(double dt, double t_ros_time)
         +bool new_msg(eros::ArmDisarm::State armed_state) // NO-OP
-        +bool new_msg(eros::heartbeat heartbeat_msg)
-        +bool new_msg(eros::resource resource_msg)
+        +bool new_msg(eros::heartbeat heartbeat_msg) // NO-OP
+        +bool new_msg(eros::resource resource_msg) // NO-OP
         +bool new_msg(eros::loadfactor loadfactor_msg) // NO-OP
+        +bool new_msg(eros::command_state command_state_msg) // NO-OP
+        +eros_window::KeyEventContainer new_keyevent(int key)
+        +bool new_command(eros_window::WindowCommand[] commands)
         -bool update_window()
         
     }

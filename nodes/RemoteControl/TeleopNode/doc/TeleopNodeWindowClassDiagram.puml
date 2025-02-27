@@ -10,8 +10,8 @@ package eros_window {
     interface IWindow
     abstract BaseWindow
     IWindow <|.. BaseWindow
-    class KeyEventContainer
-    class WindowCommand
+    struct KeyEventContainer
+    struct WindowCommand
 }
 package eros_nodes::RemoteControl {
     class MainWindow #LimeGreen {
