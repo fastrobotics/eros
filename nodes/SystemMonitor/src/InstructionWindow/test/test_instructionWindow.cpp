@@ -1,10 +1,10 @@
 /*! \file test_instructionwindow.cpp
  */
+#include <eros_window/CommonWindowDefinitions.h>
 #include <gtest/gtest.h>
 #include <stdio.h>
 
 #include "InstructionWindow/InstructionWindow.h"
-#include "WindowDefinitions.h"
 using namespace eros_nodes::SystemMonitor;
 uint64_t command_receive_counter = 0;
 void command_Callback(const eros::command& /* msg */) {
@@ -20,7 +20,7 @@ TEST(BasicTest, Test_Initialization) {
     EXPECT_GT(SUT.get_supported_keys().size(), 0);  // Has multiple Supported Keys
     EXPECT_FALSE(SUT.has_focus());
     SUT.set_focused(false);
-    ScreenCoordinatePixel empty_coordinates_pixel(0.0, 0.0, 0.0, 0.0);
+    eros_window::ScreenCoordinatePixel empty_coordinates_pixel(0.0, 0.0, 0.0, 0.0);
     SUT.set_screen_coordinates_pix(empty_coordinates_pixel);
     auto screen_coord_perc = SUT.get_screen_coordinates_perc();
     EXPECT_EQ(screen_coord_perc.start_x_perc, InstructionWindow::START_X_PERC);
@@ -62,7 +62,7 @@ TEST(BasicTest, Test_Initialization) {
     }
 
     {
-        std::vector<WindowCommand> commands;
+        std::vector<eros_window::WindowCommand> commands;
         EXPECT_TRUE(SUT.new_command(commands));
     }
     EXPECT_FALSE(SUT.update(0.0, 0.0));  // Can't update Window, this requires Drawing.
@@ -81,7 +81,7 @@ TEST(BasicTest, Test_Keys) {
 
     // Check Keys
     for (auto key : SUT.get_supported_keys()) {
-        if (key == KEY_space) {  // Arm/Disarm Key result depends on state
+        if (key == eros_window::KEY_space) {  // Arm/Disarm Key result depends on state
             eros::ArmDisarm::State armed_state;
             armed_state.state = eros::ArmDisarm::Type::ARMED;
             EXPECT_TRUE(SUT.new_msg(armed_state));
@@ -96,7 +96,8 @@ TEST(BasicTest, Test_Keys) {
             result = SUT.new_keyevent(key);
             EXPECT_TRUE(result.message.level >= eros::Level::Type::WARN);
         }
-        else if ((key == KEY_C) || (key == KEY_c)) {  // Snapshot Clear should indicate a Warning
+        else if ((key == eros_window::KEY_C) ||
+                 (key == eros_window::KEY_c)) {  // Snapshot Clear should indicate a Warning
             auto result = SUT.new_keyevent(key);
             EXPECT_TRUE(result.message.level == eros::Level::Type::WARN);
         }

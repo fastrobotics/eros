@@ -1,0 +1,88 @@
+@startuml
+title Teleop Node Node Class Diagram
+package eros {
+    class BaseNode
+    class BaseNodeProcess
+    namespace eros_diagnostic {
+        class Diagnostic
+    }
+}
+
+namespace eros_nodes::RemoteControl {
+    class MainWindow
+    class InstructionWindow
+    class TeleopNode #LimeGreen {
+        -- Initialization Functions --
+        +bool start()
+        +eros::eros_diagnostic::Diagnostic finish_initialization()
+
+        -- Update Functions --
+        +bool run_loop1()
+        +bool run_loop2()
+        +bool run_loop3()
+        +bool run_001hz()
+        +bool run_01hz()
+        +bool run_01hz_noisy()
+        +bool run_1hz()
+        +bool run_10hz()
+        +thread_loop()
+
+        -- Attribute Functions --
+        +TeleopNodeProcess* get_process()
+
+        -- Data Functions --
+
+        -- Message Functions --
+        +bool changenodestate_service(eros::srv_change_nodestate::Request& req,
+                                    eros::srv_change_nodestate::Response& res)
+        +system_commandAction_Callback(const eros::system_commandGoalConstPtr& goal)
+        +command_Callback(const eros::command::ConstPtr& t_msg)
+
+        -- Support Functions --
+
+        -- Convert Functions --
+        
+        -- Printing Functions --
+
+        -- Destructors --
+        +cleanup()
+
+        -- Printing Functions --
+        +string pretty()
+
+    }
+    class TeleopNodeProcess #LimeGreen {
+        -- Initialization Functions --
+        +eros_diagnostic::Diagnostic finish_initialization()
+        +reset()
+
+        -- Update Functions --
+        +eros_diagnostic::Diagnostic update(double t_dt, double t_ros_time)
+
+        -- Attribute Functions --
+
+        -- Data Functions --
+
+        -- Message Functions --
+        +eros_diagnostic::Diagnostic[] new_commandmsg(eros::command msg)
+
+        -- Support Functions --
+        +eros::eros_diagnostic::Diagnostic[] check_programvariables()
+
+        -- Convert Functions --
+        
+        -- Printing Functions --
+
+        -- Destructors --
+        +cleanup()
+
+        -- Printing Functions --
+        +string pretty()
+    }
+
+    BaseNode <|-- TeleopNode
+    BaseNodeProcess <|-- TeleopNodeProcess
+    TeleopNode -> TeleopNodeProcess 
+}
+
+@enduml

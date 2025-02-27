@@ -7,7 +7,19 @@ package eros {
         class Diagnostic
     }
 }
+namespace eros_window {
+    interface IWindow
+    class DiagnosticsWindow
+    class HeaderWindow
+    class MessageWindow
+    class StatusWindow
+}
 namespace eros_nodes {
+    namespace SystemMonitor {
+        class NodeWindow
+        class DeviceWindow
+        class InstructionWindow
+    }
     class SystemMonitorNode #LimeGreen {
         -- Initialization Functions --
         +bool start()

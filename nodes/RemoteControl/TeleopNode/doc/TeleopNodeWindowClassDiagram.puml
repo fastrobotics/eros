@@ -1,0 +1,48 @@
+@startuml
+title Teleop Node Window Class Diagram
+package eros {
+    class ArmDisarm
+    class heartbeat <<(M,#FFFF00)>>
+    class resource <<(M,#FFFF00)>>
+    class loadfactor <<(M,#FFFF00)>>
+}
+package eros_window {
+    interface IWindow
+    abstract BaseWindow
+    IWindow <|.. BaseWindow
+    struct KeyEventContainer
+    struct WindowCommand
+}
+package eros_nodes::RemoteControl {
+    class MainWindow #LimeGreen {
+        +bool is_selectable()
+        +bool update(double dt, double t_ros_time)
+        +bool new_msg(eros::ArmDisarm::State armed_state)
+        +bool new_msg(eros::heartbeat heartbeat_msg) // NO-OP
+        +bool new_msg(eros::resource resource_msg)
+        +bool new_msg(eros::loadfactor loadfactor_msg)
+        +bool new_msg(eros::command_state command_state_msg) // NO-OP
+        +bool new_command(eros_window::WindowCommand[] commands) // NO-OP
+        +eros_window::KeyEventContainer new_keyevent(int key)
+        +string pretty()
+        -bool update_window()
+
+    }
+    BaseWindow <|-- MainWindow
+    class InstructionWindow #LimeGreen {
+        +bool is_selectable()
+        +bool update(double dt, double t_ros_time)
+        +bool new_msg(eros::ArmDisarm::State armed_state) // NO-OP
+        +bool new_msg(eros::heartbeat heartbeat_msg) // NO-OP
+        +bool new_msg(eros::resource resource_msg) // NO-OP
+        +bool new_msg(eros::loadfactor loadfactor_msg) // NO-OP
+        +bool new_msg(eros::command_state command_state_msg) // NO-OP
+        +void set_InstructionMode(InstructionMode cmd_mode)
+        +eros_window::KeyEventContainer new_keyevent(int key)
+        +bool new_command(eros_window::WindowCommand[] commands) // NO-OP
+        -bool update_window()
+        
+    }
+    BaseWindow <|-- InstructionWindow
+}
+@enduml

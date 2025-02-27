@@ -15,8 +15,6 @@ There is no configuration required for typical usage of the System Monitor.
 # Software Architecture
 ## Class Diagrams
 ![](../../../doc/output/Legend.png)
-![](output/SystemMonitorDefinitionClassDiagram.png)
-![](output/SystemMonitorUtilityClassDiagram.png)
 ![](output/SystemMonitorWindowClassDiagram.png)
 ![](output/SystemMonitorNodeClassDiagram.png)
 

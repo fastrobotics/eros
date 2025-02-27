@@ -1,0 +1,4 @@
+add_library(instructionRCWindow InstructionWindow.cpp)
+target_link_libraries(instructionRCWindow ${catkin_LIBRARIES} ${CURSES_LIBRARIES} baseWindow)
+add_dependencies(instructionRCWindow eros_generate_messages_cpp)
+add_subdirectory(test)

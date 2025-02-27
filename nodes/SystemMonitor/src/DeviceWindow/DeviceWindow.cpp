@@ -14,7 +14,7 @@ bool DeviceWindow::update(double dt, double t_ros_time) {
     std::map<std::string, DeviceData>::iterator device_it = device_list.begin();
     while (device_it != device_list.end()) {
         device_it->second.last_heartbeat_delta += dt;
-        if (device_it->second.last_heartbeat_delta >= 4.0 * COMMTIMEOUT_THRESHOLD) {
+        if (device_it->second.last_heartbeat_delta >= 4.0 * eros_window::COMMTIMEOUT_THRESHOLD) {
             device_it->second.state = eros::Node::State::UNKNOWN;
         }
         ++device_it;
@@ -36,17 +36,17 @@ bool DeviceWindow::update_window() {
     uint16_t index = 0;
     std::map<std::string, DeviceData>::iterator device_it;
     for (device_it = device_list.begin(); device_it != device_list.end(); device_it++) {
-        Color color = Color::UNKNOWN;
+        eros_window::Color color = eros_window::Color::UNKNOWN;
         switch (device_it->second.state) {
-            case eros::Node::State::UNKNOWN: color = Color::RED_COLOR; break;
-            case eros::Node::State::START: color = Color::YELLOW_COLOR; break;
-            case eros::Node::State::INITIALIZING: color = Color::YELLOW_COLOR; break;
-            case eros::Node::State::INITIALIZED: color = Color::YELLOW_COLOR; break;
-            case eros::Node::State::RUNNING: color = Color::BLUE_COLOR; break;
-            case eros::Node::State::PAUSED: color = Color::GREEN_COLOR; break;
-            case eros::Node::State::RESET: color = Color::YELLOW_COLOR; break;
-            case eros::Node::State::FINISHED: color = Color::YELLOW_COLOR; break;
-            default: color = Color::RED_COLOR; break;
+            case eros::Node::State::UNKNOWN: color = eros_window::Color::RED_COLOR; break;
+            case eros::Node::State::START: color = eros_window::Color::YELLOW_COLOR; break;
+            case eros::Node::State::INITIALIZING: color = eros_window::Color::YELLOW_COLOR; break;
+            case eros::Node::State::INITIALIZED: color = eros_window::Color::YELLOW_COLOR; break;
+            case eros::Node::State::RUNNING: color = eros_window::Color::BLUE_COLOR; break;
+            case eros::Node::State::PAUSED: color = eros_window::Color::GREEN_COLOR; break;
+            case eros::Node::State::RESET: color = eros_window::Color::YELLOW_COLOR; break;
+            case eros::Node::State::FINISHED: color = eros_window::Color::YELLOW_COLOR; break;
+            default: color = eros_window::Color::RED_COLOR; break;
         }
         std::string str = get_device_info(device_it->second, false);
         wattron(get_window(), COLOR_PAIR(color));
@@ -268,7 +268,7 @@ std::string DeviceWindow::get_device_info(DeviceData device, bool selected) {
 }
 std::string DeviceWindow::get_deviceheader() {
     std::string str = "";
-    std::map<DeviceFieldColumn, Field>::iterator it = device_window_fields.begin();
+    std::map<DeviceFieldColumn, eros_window::Field>::iterator it = device_window_fields.begin();
     while (it != device_window_fields.end()) {
         // Check if field name is too long:
         if (it->second.text.size() > it->second.width) {

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="teleop_gui" pkg="eros" type="teleop_gui"  output="screen" clear_params="true">
+        </node>
+    <test test-name="test_teleop_node" pkg="eros" type="test_teleop_node"/>
+</launch>
