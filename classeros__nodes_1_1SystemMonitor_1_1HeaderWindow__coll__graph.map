@@ -1,9 +1,0 @@
-<map id="eros_nodes::SystemMonitor::HeaderWindow" name="eros_nodes::SystemMonitor::HeaderWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="729,141,932,183"/>
-<area shape="rect" id="node2" href="$classeros__nodes_1_1SystemMonitor_1_1BaseWindow.html" title="Abstract class for Windows that supports some common implementation." alt="" coords="385,100,588,141"/>
-<area shape="rect" id="node3" href="$classeros__nodes_1_1SystemMonitor_1_1IWindow.html" title="Interface class for generic Windows." alt="" coords="5,5,208,47"/>
-<area shape="rect" id="node4" href="$structeros__nodes_1_1SystemMonitor_1_1ScreenCoordinatePerc.html" title="ScreenCoordinatePerc container." alt="" coords="5,71,208,112"/>
-<area shape="rect" id="node5" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="55,137,158,163"/>
-<area shape="rect" id="node6" href="$structeros__nodes_1_1SystemMonitor_1_1ScreenCoordinatePixel.html" title="ScreenCoordinatePixel container." alt="" coords="5,188,208,229"/>
-<area shape="rect" id="node7" href="$structeros_1_1ArmDisarm_1_1State.html" title="ArmDisarm Container Holds information about ArmDisarm." alt="" coords="399,166,574,193"/>
-</map>

@@ -1,5 +1,5 @@
 <map id="eros_nodes::SystemMonitor::NodeWindow" name="eros_nodes::SystemMonitor::NodeWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="5,184,208,225"/>
-<area shape="rect" id="node2" href="$classeros__nodes_1_1SystemMonitor_1_1BaseWindow.html" title="Abstract class for Windows that supports some common implementation." alt="" coords="5,95,208,136"/>
-<area shape="rect" id="node3" href="$classeros__nodes_1_1SystemMonitor_1_1IWindow.html" title="Interface class for generic Windows." alt="" coords="5,5,208,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,155,208,196"/>
+<area shape="rect" id="node2" href="$classeros__window_1_1BaseWindow.html" title="Abstract class for Windows that supports some common implementation." alt="" coords="7,80,206,107"/>
+<area shape="rect" id="node3" href="$classeros__window_1_1IWindow.html" title="Interface class for generic Windows." alt="" coords="21,5,192,32"/>
 </map>

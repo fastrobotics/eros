@@ -1,4 +1,0 @@
-<map id="eros_nodes::SafetyNode" name="eros_nodes::SafetyNode">
-<area shape="rect" id="node1" title="The SafetyNode is used to control a system Safely." alt="" coords="5,80,185,107"/>
-<area shape="rect" id="node2" href="$classeros_1_1BaseNode.html" title="This is a BaseNode class. All Nodes should be a derived class from this Base Class." alt="" coords="33,5,157,32"/>
-</map>

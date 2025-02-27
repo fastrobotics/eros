@@ -1,5 +1,0 @@
-<map id="eros_nodes::DiagnosticNodeProcess" name="eros_nodes::DiagnosticNodeProcess">
-<area shape="rect" id="node1" title="The process utility for the DiagnosticNode." alt="" coords="9,80,216,121"/>
-<area shape="rect" id="node3" href="$classDiagnosticNodeProcessTester.html" title=" " alt="" coords="5,169,220,196"/>
-<area shape="rect" id="node2" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="25,5,200,32"/>
-</map>

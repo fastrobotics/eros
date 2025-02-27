@@ -1,5 +1,5 @@
-<map id="nodes/MasterNode/include/MasterNode.h" name="nodes/MasterNode/include/MasterNode.h">
-<area shape="rect" id="node1" title=" " alt="" coords="496,5,691,47"/>
+<map id="nodes/Infrastructure/MasterNode/include/MasterNode.h" name="nodes/Infrastructure/MasterNode/include/MasterNode.h">
+<area shape="rect" id="node1" title=" " alt="" coords="468,5,719,47"/>
 <area shape="rect" id="node2" href="$BaseNode_8h.html" title=" " alt="" coords="442,95,574,121"/>
 <area shape="rect" id="node50" href="$MasterNodeProcess_8h.html" title=" " alt="" coords="943,95,1105,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="3781,423,3848,449"/>

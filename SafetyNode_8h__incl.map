@@ -1,5 +1,5 @@
-<map id="nodes/SafetyNode/include/SafetyNode.h" name="nodes/SafetyNode/include/SafetyNode.h">
-<area shape="rect" id="node1" title=" " alt="" coords="2697,5,2889,47"/>
+<map id="nodes/Infrastructure/SafetyNode/include/SafetyNode.h" name="nodes/Infrastructure/SafetyNode/include/SafetyNode.h">
+<area shape="rect" id="node1" title=" " alt="" coords="2670,5,2916,47"/>
 <area shape="rect" id="node2" href="$BaseNode_8h.html" title=" " alt="" coords="3891,95,4023,121"/>
 <area shape="rect" id="node49" href="$SafetyNodeProcess_8h.html" title=" " alt="" coords="2510,95,2670,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="3648,423,3714,449"/>

@@ -1,0 +1,14 @@
+<map id="include/eros_window" name="include/eros_window">
+<area shape="rect" id="node6" href="dir_51c9ec86b365bf851debf00262ff713e.html" title="eros" alt="" coords="633,159,705,207"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000004_000001.html" title="4" alt="" coords="688,138,698,152"/>
+<area shape="rect" id="node7" href="dir_ba597e1f0953a0742e8fefd06636c826.html" title="eros_diagnostic" alt="" coords="607,255,731,303"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000004_000002.html" title="2" alt="" coords="703,238,712,252"/>
+<area shape="rect" id="node2" href="dir_ee855f97e7cbc4be6133c84aef265cde.html" title="DiagnosticsWindow" alt="" coords="478,63,629,111"/>
+<area shape="rect" id="node3" href="dir_0bd5f7bf312eaba3bcbb568c8d247f13.html" title="HeaderWindow" alt="" coords="333,63,454,111"/>
+<area shape="rect" id="node4" href="dir_70c0e3350a57c63800486c3442b88ab8.html" title="MessageWindow" alt="" coords="177,63,309,111"/>
+<area shape="rect" id="node5" href="dir_d068a71bb6d30fcc9788ea4217396332.html" title="StatusWindow" alt="" coords="37,63,152,111"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000001_000002.html" title="4" alt="" coords="664,229,673,243"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000002_000001.html" title="2" alt="" coords="665,218,675,233"/>
+<area shape="rect" id="clust2" href="dir_c64c1695285bfeb47fc77d580c3cba08.html" alt="" coords="27,52,771,121"/>
+<area shape="rect" id="clust1" href="dir_d44c64559bbebec7f509842c48db8b23.html" title="include" alt="" coords="16,16,781,132"/>
+</map>

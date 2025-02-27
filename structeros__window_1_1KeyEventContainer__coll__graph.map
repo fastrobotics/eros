@@ -1,0 +1,5 @@
+<map id="eros_window::KeyEventContainer" name="eros_window::KeyEventContainer">
+<area shape="rect" id="node1" title="Container for results of a Key Event." alt="" coords="106,95,345,121"/>
+<area shape="rect" id="node2" href="$structeros__window_1_1MessageText.html" title="Text that&#39;s rendered to Message Window." alt="" coords="5,5,205,32"/>
+<area shape="rect" id="node3" href="$structeros__window_1_1WindowCommand.html" title="WindowCommand container." alt="" coords="229,5,464,32"/>
+</map>

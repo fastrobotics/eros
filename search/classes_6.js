@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['headerwindow_348',['HeaderWindow',['../classeros__nodes_1_1SystemMonitor_1_1HeaderWindow.html',1,'eros_nodes::SystemMonitor']]]
+  ['headerwindow_354',['HeaderWindow',['../classeros__window_1_1HeaderWindow.html',1,'eros_window']]]
 ];

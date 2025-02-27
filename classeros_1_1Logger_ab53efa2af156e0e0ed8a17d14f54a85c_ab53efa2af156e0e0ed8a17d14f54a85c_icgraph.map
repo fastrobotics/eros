@@ -1,4 +1,5 @@
 <map id="eros::Logger::disable_consoleprint" name="eros::Logger::disable_consoleprint">
-<area shape="rect" id="node1" title="Disable Console Output." alt="" coords="256,5,413,47"/>
-<area shape="rect" id="node2" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html#acea27c0124412815b1afad670cff7f6c" title="Start the Node." alt="" coords="5,5,208,47"/>
+<area shape="rect" id="node1" title="Disable Console Output." alt="" coords="256,39,413,80"/>
+<area shape="rect" id="node2" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html#af628cd15755a35ac359af5166e7576fb" title="Start the Node." alt="" coords="5,5,208,47"/>
+<area shape="rect" id="node3" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html#acea27c0124412815b1afad670cff7f6c" title="Start the Node." alt="" coords="5,71,208,112"/>
 </map>

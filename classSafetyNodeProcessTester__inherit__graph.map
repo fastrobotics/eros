@@ -1,5 +1,5 @@
 <map id="SafetyNodeProcessTester" name="SafetyNodeProcessTester">
-<area shape="rect" id="node1" title=" " alt="" coords="27,155,214,181"/>
-<area shape="rect" id="node2" href="$classeros__nodes_1_1SafetyNodeProcess.html" title="The process utility for the Safety Node." alt="" coords="5,80,236,107"/>
-<area shape="rect" id="node3" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="33,5,208,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="8,169,195,196"/>
+<area shape="rect" id="node2" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNodeProcess.html" title="The process utility for the Safety Node." alt="" coords="5,80,197,121"/>
+<area shape="rect" id="node3" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="14,5,189,32"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['blue_5fcolor_551',['BLUE_COLOR',['../namespaceeros__nodes_1_1SystemMonitor_aadd0987ee63d7baa4c763f29eb45d200.html#aadd0987ee63d7baa4c763f29eb45d200a6afbf6c79a1413494d060fb4a356debd',1,'eros_nodes::SystemMonitor']]]
+  ['blue_5fcolor_559',['BLUE_COLOR',['../namespaceeros__window_a3f65dac68240481e73f697d52f18d006.html#a3f65dac68240481e73f697d52f18d006a6afbf6c79a1413494d060fb4a356debd',1,'eros_window']]]
 ];

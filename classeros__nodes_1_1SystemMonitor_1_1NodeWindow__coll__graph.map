@@ -1,8 +1,8 @@
 <map id="eros_nodes::SystemMonitor::NodeWindow" name="eros_nodes::SystemMonitor::NodeWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="637,100,840,141"/>
-<area shape="rect" id="node2" href="$classeros__nodes_1_1SystemMonitor_1_1BaseWindow.html" title="Abstract class for Windows that supports some common implementation." alt="" coords="385,100,588,141"/>
-<area shape="rect" id="node3" href="$classeros__nodes_1_1SystemMonitor_1_1IWindow.html" title="Interface class for generic Windows." alt="" coords="5,5,208,47"/>
-<area shape="rect" id="node4" href="$structeros__nodes_1_1SystemMonitor_1_1ScreenCoordinatePerc.html" title="ScreenCoordinatePerc container." alt="" coords="5,71,208,112"/>
-<area shape="rect" id="node5" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="55,137,158,163"/>
-<area shape="rect" id="node6" href="$structeros__nodes_1_1SystemMonitor_1_1ScreenCoordinatePixel.html" title="ScreenCoordinatePixel container." alt="" coords="5,188,208,229"/>
+<area shape="rect" id="node1" title=" " alt="" coords="689,86,892,127"/>
+<area shape="rect" id="node2" href="$classeros__window_1_1BaseWindow.html" title="Abstract class for Windows that supports some common implementation." alt="" coords="441,93,640,120"/>
+<area shape="rect" id="node3" href="$classeros__window_1_1IWindow.html" title="Interface class for generic Windows." alt="" coords="49,5,220,32"/>
+<area shape="rect" id="node4" href="$structeros__window_1_1ScreenCoordinatePixel.html" title="ScreenCoordinatePixel container." alt="" coords="19,57,250,98"/>
+<area shape="rect" id="node5" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="83,123,186,149"/>
+<area shape="rect" id="node6" href="$structeros__window_1_1ScreenCoordinatePerc.html" title="ScreenCoordinatePerc container." alt="" coords="5,173,264,200"/>
 </map>

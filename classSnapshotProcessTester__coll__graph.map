@@ -1,9 +1,9 @@
 <map id="SnapshotProcessTester" name="SnapshotProcessTester">
-<area shape="rect" id="node1" title=" " alt="" coords="193,393,364,420"/>
-<area shape="rect" id="node2" href="$classeros__nodes_1_1SnapshotProcess.html" title="The process utility for the Snapshot Node." alt="" coords="171,317,386,344"/>
+<area shape="rect" id="node1" title=" " alt="" coords="203,408,373,435"/>
+<area shape="rect" id="node2" href="$classeros__nodes_1_1Infrastructure_1_1SnapshotProcess.html" title="The process utility for the Snapshot Node." alt="" coords="192,317,384,359"/>
 <area shape="rect" id="node3" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="82,221,257,247"/>
 <area shape="rect" id="node4" href="$classeros_1_1eros__diagnostic_1_1DiagnosticManager.html" title=" " alt="" coords="5,109,165,151"/>
 <area shape="rect" id="node5" href="$structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic." alt="" coords="5,5,165,47"/>
 <area shape="rect" id="node6" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="202,117,305,143"/>
-<area shape="rect" id="node7" href="$structeros__nodes_1_1SnapshotProcess_1_1SnapshotConfig.html" title="SnapshotConfig container, used for holding Snapshot Configuration parameters." alt="" coords="281,213,495,255"/>
+<area shape="rect" id="node7" href="$structeros__nodes_1_1Infrastructure_1_1SnapshotProcess_1_1SnapshotConfig.html" title="SnapshotConfig container, used for holding Snapshot Configuration parameters." alt="" coords="281,213,532,255"/>
 </map>

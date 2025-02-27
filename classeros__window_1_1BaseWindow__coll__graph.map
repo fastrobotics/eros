@@ -1,0 +1,7 @@
+<map id="eros_window::BaseWindow" name="eros_window::BaseWindow">
+<area shape="rect" id="node1" title="Abstract class for Windows that supports some common implementation." alt="" coords="441,93,640,120"/>
+<area shape="rect" id="node2" href="$classeros__window_1_1IWindow.html" title="Interface class for generic Windows." alt="" coords="49,5,220,32"/>
+<area shape="rect" id="node3" href="$structeros__window_1_1ScreenCoordinatePixel.html" title="ScreenCoordinatePixel container." alt="" coords="19,57,250,98"/>
+<area shape="rect" id="node4" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="83,123,186,149"/>
+<area shape="rect" id="node5" href="$structeros__window_1_1ScreenCoordinatePerc.html" title="ScreenCoordinatePerc container." alt="" coords="5,173,264,200"/>
+</map>

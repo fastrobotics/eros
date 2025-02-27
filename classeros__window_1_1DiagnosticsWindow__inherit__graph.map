@@ -1,0 +1,5 @@
+<map id="eros_window::DiagnosticsWindow" name="eros_window::DiagnosticsWindow">
+<area shape="rect" id="node1" title="A window to render Diagnostic Information." alt="" coords="9,155,200,196"/>
+<area shape="rect" id="node2" href="$classeros__window_1_1BaseWindow.html" title="Abstract class for Windows that supports some common implementation." alt="" coords="5,80,204,107"/>
+<area shape="rect" id="node3" href="$classeros__window_1_1IWindow.html" title="Interface class for generic Windows." alt="" coords="19,5,190,32"/>
+</map>

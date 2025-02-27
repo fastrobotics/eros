@@ -1,6 +1,6 @@
 <map id="DataLoggerProcessTester" name="DataLoggerProcessTester">
-<area shape="rect" id="node1" title=" " alt="" coords="76,365,263,392"/>
-<area shape="rect" id="node2" href="$classeros__nodes_1_1DataLoggerProcess.html" title="The process utility for the DataLogger." alt="" coords="55,289,284,316"/>
+<area shape="rect" id="node1" title=" " alt="" coords="76,380,263,407"/>
+<area shape="rect" id="node2" href="$classeros__nodes_1_1Infrastructure_1_1DataLoggerProcess.html" title="The process utility for the DataLogger." alt="" coords="73,289,265,331"/>
 <area shape="rect" id="node3" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="82,213,257,240"/>
 <area shape="rect" id="node4" href="$classeros_1_1eros__diagnostic_1_1DiagnosticManager.html" title=" " alt="" coords="5,109,165,151"/>
 <area shape="rect" id="node5" href="$structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic." alt="" coords="5,5,165,47"/>

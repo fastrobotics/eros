@@ -1,6 +1,6 @@
 <map id="include/eros/ArmedStateManager.h" name="include/eros/ArmedStateManager.h">
-<area shape="rect" id="node1" title=" " alt="" coords="96,5,347,32"/>
-<area shape="rect" id="node2" href="$SafetyNodeProcess_8h.html" title=" " alt="" coords="125,80,317,121"/>
-<area shape="rect" id="node3" href="$SafetyNode_8h.html" title=" " alt="" coords="5,169,197,211"/>
-<area shape="rect" id="node4" href="$test__SafetyNodeProcess_8cpp.html" title=" " alt="" coords="221,169,461,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="128,5,379,32"/>
+<area shape="rect" id="node2" href="$SafetyNodeProcess_8h.html" title=" " alt="" coords="137,80,370,136"/>
+<area shape="rect" id="node3" href="$SafetyNode_8h.html" title=" " alt="" coords="5,191,251,233"/>
+<area shape="rect" id="node4" href="$test__SafetyNodeProcess_8cpp.html" title=" " alt="" coords="275,184,485,240"/>
 </map>

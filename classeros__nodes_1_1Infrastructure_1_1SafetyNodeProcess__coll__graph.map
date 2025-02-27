@@ -1,0 +1,9 @@
+<map id="eros_nodes::Infrastructure::SafetyNodeProcess" name="eros_nodes::Infrastructure::SafetyNodeProcess">
+<area shape="rect" id="node1" title="The process utility for the Safety Node." alt="" coords="969,30,1161,71"/>
+<area shape="rect" id="node2" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="745,68,920,95"/>
+<area shape="rect" id="node3" href="$classeros_1_1eros__diagnostic_1_1DiagnosticManager.html" title=" " alt="" coords="384,109,544,150"/>
+<area shape="rect" id="node4" href="$structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic." alt="" coords="13,74,173,115"/>
+<area shape="rect" id="node6" href="$classeros_1_1ArmedStateManager.html" title="ArmedStateManager class is responsible for managing the robot&#39;s Armed State." alt="" coords="368,7,560,33"/>
+<area shape="rect" id="node5" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="413,57,515,84"/>
+<area shape="rect" id="node7" href="$structeros_1_1ArmDisarm_1_1State.html" title="ArmDisarm Container Holds information about ArmDisarm." alt="" coords="5,7,180,33"/>
+</map>

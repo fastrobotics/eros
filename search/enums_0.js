@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['color_530',['Color',['../namespaceeros__nodes_1_1SystemMonitor_aadd0987ee63d7baa4c763f29eb45d200.html#aadd0987ee63d7baa4c763f29eb45d200',1,'eros_nodes::SystemMonitor']]],
-  ['component_531',['Component',['../group__eros_ga34a61840c9cd6ede13ed123e6facf338.html#ga34a61840c9cd6ede13ed123e6facf338',1,'eros::System']]]
+  ['color_538',['Color',['../namespaceeros__window_a3f65dac68240481e73f697d52f18d006.html#a3f65dac68240481e73f697d52f18d006',1,'eros_window']]],
+  ['component_539',['Component',['../group__eros_ga34a61840c9cd6ede13ed123e6facf338.html#ga34a61840c9cd6ede13ed123e6facf338',1,'eros::System']]]
 ];

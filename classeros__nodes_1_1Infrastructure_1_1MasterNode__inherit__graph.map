@@ -1,0 +1,4 @@
+<map id="eros_nodes::Infrastructure::MasterNode" name="eros_nodes::Infrastructure::MasterNode">
+<area shape="rect" id="node1" title="MasterNode is used to provide information about a host device." alt="" coords="5,80,197,121"/>
+<area shape="rect" id="node2" href="$classeros_1_1BaseNode.html" title="This is a BaseNode class. All Nodes should be a derived class from this Base Class." alt="" coords="39,5,163,32"/>
+</map>

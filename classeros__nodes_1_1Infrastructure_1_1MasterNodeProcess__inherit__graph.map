@@ -1,0 +1,5 @@
+<map id="eros_nodes::Infrastructure::MasterNodeProcess" name="eros_nodes::Infrastructure::MasterNodeProcess">
+<area shape="rect" id="node1" title="The process utility for the Master Node." alt="" coords="5,80,197,121"/>
+<area shape="rect" id="node3" href="$classMasterNodeProcessTester.html" title=" " alt="" coords="6,169,197,196"/>
+<area shape="rect" id="node2" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="14,5,189,32"/>
+</map>

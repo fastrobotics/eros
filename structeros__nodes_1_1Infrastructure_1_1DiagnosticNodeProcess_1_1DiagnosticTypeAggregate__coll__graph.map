@@ -1,0 +1,4 @@
+<map id="eros_nodes::Infrastructure::DiagnosticNodeProcess::DiagnosticTypeAggregate" name="eros_nodes::Infrastructure::DiagnosticNodeProcess::DiagnosticTypeAggregate">
+<area shape="rect" id="node1" title="DiagnosticTypeAggregate Container Container to aggregate Diagnostic Information." alt="" coords="5,109,201,165"/>
+<area shape="rect" id="node2" href="$structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic." alt="" coords="23,5,183,47"/>
+</map>

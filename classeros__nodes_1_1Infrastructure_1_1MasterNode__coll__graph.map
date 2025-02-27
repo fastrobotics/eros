@@ -1,0 +1,13 @@
+<map id="eros_nodes::Infrastructure::MasterNode" name="eros_nodes::Infrastructure::MasterNode">
+<area shape="rect" id="node1" title="MasterNode is used to provide information about a host device." alt="" coords="1328,116,1520,157"/>
+<area shape="rect" id="node2" href="$classeros_1_1BaseNode.html" title="This is a BaseNode class. All Nodes should be a derived class from this Base Class." alt="" coords="1067,233,1191,259"/>
+<area shape="rect" id="node3" href="$structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic." alt="" coords="5,228,165,269"/>
+<area shape="rect" id="node4" href="$classeros_1_1ResourceMonitor.html" title="ResourceMonitor class ResourceMonitor class used to collect resource information on a process or devi..." alt="" coords="681,150,849,177"/>
+<area shape="rect" id="node11" href="$classeros_1_1eros__diagnostic_1_1DiagnosticManager.html" title=" " alt="" coords="319,5,479,47"/>
+<area shape="rect" id="node5" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="347,158,450,185"/>
+<area shape="rect" id="node10" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="678,49,853,75"/>
+<area shape="rect" id="node6" href="$structeros_1_1ResourceInfo.html" title="ResourceInfo Information: Holds information about a Node&#39;s Resource Usage." alt="" coords="327,71,470,98"/>
+<area shape="rect" id="node7" href="$structeros_1_1Firmware.html" title="Firmware Information: Holds information about Firmware Version." alt="" coords="706,365,825,391"/>
+<area shape="rect" id="node8" href="$structeros_1_1BaseNode_1_1DeviceInfo.html" title="DeviceInfo Logic Container and logic for DeviceInfo processing." alt="" coords="664,263,867,290"/>
+<area shape="rect" id="node9" href="$classeros__nodes_1_1Infrastructure_1_1MasterNodeProcess.html" title="The process utility for the Master Node." alt="" coords="1033,41,1225,83"/>
+</map>

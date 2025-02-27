@@ -1,0 +1,5 @@
+<map id="eros_window::HeaderWindow" name="eros_window::HeaderWindow">
+<area shape="rect" id="node1" title=" " alt="" coords="5,155,220,181"/>
+<area shape="rect" id="node2" href="$classeros__window_1_1BaseWindow.html" title="Abstract class for Windows that supports some common implementation." alt="" coords="13,80,212,107"/>
+<area shape="rect" id="node3" href="$classeros__window_1_1IWindow.html" title="Interface class for generic Windows." alt="" coords="27,5,198,32"/>
+</map>
