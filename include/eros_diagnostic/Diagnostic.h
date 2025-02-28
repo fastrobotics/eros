@@ -51,7 +51,11 @@ struct Diagnostic {
         : device_name(""),
           node_name(""),
           system(System::MainSystem::UNKNOWN),
-          subsystem(System::SubSystem::UNKNOWN) {
+          subsystem(System::SubSystem::UNKNOWN),
+          component(System::Component::UNKNOWN),
+          type(DiagnosticType::UNKNOWN),
+          message(Message::UNKNOWN),
+          level(Level::Type::ERROR) {
     }
     Diagnostic(std::string _device_name,
                std::string _node_name,

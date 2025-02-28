@@ -62,7 +62,7 @@ std::vector<Diagnostic> DiagnosticManager::get_latest_diagnostics() {
 Diagnostic DiagnosticManager::read_diagnostic(DiagnosticType diagnostic_type) {
     for (std::size_t i = 0; i < diagnostics.size(); ++i) {
         if (diagnostic_type == diagnostics.at(i).type) {
-            // return diagnostics.at(i); Don't do this yet, use TDD
+            return diagnostics.at(i);
         }
     }
     Diagnostic not_found;
