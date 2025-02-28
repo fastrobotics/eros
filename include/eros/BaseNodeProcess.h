@@ -153,6 +153,9 @@ class BaseNodeProcess
     std::vector<eros_diagnostic::Diagnostic> get_latest_diagnostics() {
         return diagnostic_manager.get_latest_diagnostics();
     }
+    eros_diagnostic::Diagnostic get_diagnostic(eros_diagnostic::DiagnosticType diagnostic_type) {
+        return diagnostic_manager.read_diagnostic(diagnostic_type);
+    }
 
     Logger* get_logger() {
         return logger;

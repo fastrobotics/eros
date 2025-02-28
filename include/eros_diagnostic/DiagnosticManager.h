@@ -35,7 +35,13 @@ class DiagnosticManager
         return diagnostics;
     }
     std::vector<Diagnostic> get_latest_diagnostics();
-
+    /**
+     * @brief Read Diagnostic by Type
+     *
+     * @param diagnostic_type
+     * @return Diagnostic
+     */
+    Diagnostic read_diagnostic(DiagnosticType diagnostic_type);
     //! Update Diagnostic
     /*!
         \brief Updates an enabled diagnostic with the provided diagnostic.

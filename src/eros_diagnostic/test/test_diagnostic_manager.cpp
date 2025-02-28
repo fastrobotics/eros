@@ -78,6 +78,11 @@ TEST(FailureTests, Test_FailureCases) {
         EXPECT_EQ(str, "NO DIAGNOSTICS DEFINED YET.");
         EXPECT_FALSE(diagnostic_manager.enable_diagnostics(emptyDiagnosticTypeList));
     }
+    {  // Read Diagnostic for Type that isn't defined yet.
+        DiagnosticManager diagnostic_manager;
+        auto diag = diagnostic_manager.read_diagnostic(DiagnosticType::DATA_STORAGE);
+        EXPECT_TRUE(diag.level >= Level::Type::ERROR);
+    }
 }
 
 int main(int argc, char** argv) {

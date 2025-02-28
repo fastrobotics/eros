@@ -121,6 +121,16 @@ eros::mode_state ConvertUtility::convert_fromptr(const eros::mode_state::ConstPt
     msg.mode_state = t_ptr->mode_state;
     return msg;
 }
+geometry_msgs::Twist ConvertUtility::convert_fromptr(const geometry_msgs::Twist::ConstPtr &t_ptr) {
+    geometry_msgs::Twist msg;
+    msg.linear.x = t_ptr->linear.x;
+    msg.linear.y = t_ptr->linear.y;
+    msg.linear.z = t_ptr->linear.z;
+    msg.angular.x = t_ptr->angular.x;
+    msg.angular.y = t_ptr->angular.y;
+    msg.angular.z = t_ptr->angular.z;
+    return msg;
+}
 eros::resource ConvertUtility::convert(eros::ResourceInfo res_info) {
     eros::resource res;
     res.stamp = res_info.stamp;

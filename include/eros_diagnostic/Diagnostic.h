@@ -47,7 +47,11 @@ enum class Message {
 
 */
 struct Diagnostic {
-    Diagnostic() {
+    Diagnostic()
+        : device_name(""),
+          node_name(""),
+          system(System::MainSystem::UNKNOWN),
+          subsystem(System::SubSystem::UNKNOWN) {
     }
     Diagnostic(std::string _device_name,
                std::string _node_name,
