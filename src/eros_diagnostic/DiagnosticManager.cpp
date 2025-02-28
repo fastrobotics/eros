@@ -59,6 +59,15 @@ std::vector<Diagnostic> DiagnosticManager::get_latest_diagnostics() {
     }
     return latest_diagnostics;
 }
+Diagnostic DiagnosticManager::read_diagnostic(DiagnosticType diagnostic_type) {
+    for (std::size_t i = 0; i < diagnostics.size(); ++i) {
+        if (diagnostic_type == diagnostics.at(i).type) {
+            return diagnostics.at(i);
+        }
+    }
+    Diagnostic not_found;
+    return not_found;
+}
 //! Update Diagnostic
 /*!
     \brief Updates an enabled diagnostic with the provided diagnostic.

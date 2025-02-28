@@ -12,6 +12,7 @@ namespace eros_diagnostic {
         +Diagnostic get_root_diagnostic()
         +Diagnostic[] get_diagnostics()
         +Diagnostic[] get_latest_diagnostics()
+        +Diagnostic read_diagnostic(DiagnosticType diagnostic_type)
         +Diagnostic update_diagnostic(DiagnosticType diagnostic_type, Level::Type level,Message message,string description)
         +Diagnostic update_diagnostic(Diagnostic diagnostic)
         +Diagnostic update_diagnostic(string device_name, DiagnosticType diagnostic_type,Level::Type level,Message message,string description)

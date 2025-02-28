@@ -25,6 +25,7 @@ TEST(BasicTest, TestOperation) {
     diagnostic_types.push_back(eros_diagnostic::DiagnosticType::DATA_STORAGE);
     diagnostic_types.push_back(eros_diagnostic::DiagnosticType::SYSTEM_RESOURCE);
     diagnostic_types.push_back(eros_diagnostic::DiagnosticType::COMMUNICATIONS);
+    diagnostic_types.push_back(eros_diagnostic::DiagnosticType::REMOTE_CONTROL);
     SUT.enable_diagnostics(diagnostic_types);
     EXPECT_TRUE(SUT.get_logger()->log_warn("A Log to Write") == Logger::LoggerStatus::LOG_WRITTEN);
     eros_diagnostic::Diagnostic diag = SUT.finish_initialization();

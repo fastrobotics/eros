@@ -45,16 +45,22 @@ TEST(BasicTest, Test_DiagnosticManager) {
                                                                "No Error");
         printf("Diag: %s\n", DiagnosticUtility::pretty("\t", diag).c_str());
         EXPECT_TRUE(diag.level <= Level::Type::WARN);
+        diag = diagnostic_manager.read_diagnostic(DiagnosticType::SOFTWARE);
+        EXPECT_TRUE(diag.level <= Level::Type::WARN);
     }
     {
         Diagnostic diag = diagnostic_manager.update_diagnostic(
             DiagnosticType::COMMUNICATIONS, Level::Type::INFO, Message::NOERROR, "Running.");
         EXPECT_TRUE(diag.level <= Level::Type::NOTICE);
+        diag = diagnostic_manager.read_diagnostic(DiagnosticType::COMMUNICATIONS);
+        EXPECT_TRUE(diag.level <= Level::Type::WARN);
     }
     {
         Diagnostic diag = diagnostic_manager.update_diagnostic(
             DiagnosticType::DATA_STORAGE, Level::Type::INFO, Message::NOERROR, "Running.");
         EXPECT_TRUE(diag.level <= Level::Type::NOTICE);
+        diag = diagnostic_manager.read_diagnostic(DiagnosticType::DATA_STORAGE);
+        EXPECT_TRUE(diag.level <= Level::Type::WARN);
     }
     {
         Diagnostic diag = diagnostic_manager.update_diagnostic(
@@ -77,6 +83,11 @@ TEST(FailureTests, Test_FailureCases) {
         std::string str = diagnostic_manager.pretty();
         EXPECT_EQ(str, "NO DIAGNOSTICS DEFINED YET.");
         EXPECT_FALSE(diagnostic_manager.enable_diagnostics(emptyDiagnosticTypeList));
+    }
+    {  // Read Diagnostic for Type that isn't defined yet.
+        DiagnosticManager diagnostic_manager;
+        auto diag = diagnostic_manager.read_diagnostic(DiagnosticType::DATA_STORAGE);
+        EXPECT_TRUE(diag.level >= Level::Type::ERROR);
     }
 }
 

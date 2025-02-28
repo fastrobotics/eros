@@ -7,7 +7,12 @@ TeleopNodeProcess::~TeleopNodeProcess() {
     cleanup();
 }
 eros_diagnostic::Diagnostic TeleopNodeProcess::finish_initialization() {
-    eros_diagnostic::Diagnostic diag;
+    eros_diagnostic::Diagnostic diag =
+        diagnostic_manager.update_diagnostic(eros_diagnostic::DiagnosticType::REMOTE_CONTROL,
+                                             Level::Type::INFO,
+                                             eros_diagnostic::Message::NOERROR,
+                                             "Teleop Node Initialized.");
+
     return diag;
 }
 void TeleopNodeProcess::reset() {
