@@ -69,3 +69,5 @@ rosinstall_generator ros_comm rosbag actionlib sensor_msgs nav_msgs tf2_msgs tf2
   `make`\
   `sudo make install`
 1. Install the following dependencies: `sudo apt install libncurses5-dev libncursesw5-dev libtinyxml-dev gpsd libgps-dev gpsd-clients python-gps zip ntp`
+
+# Autostart

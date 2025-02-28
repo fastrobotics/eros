@@ -1,0 +1,11 @@
+[Unit]
+Description=Autostart my Application
+After=multi-user.target
+
+[Service]
+ExecStart=bash /home/robot/catkin_ws/src/config/user_autostart.sh
+User=robot
+
+[Install]
+WantedBy=multi-user.target
+

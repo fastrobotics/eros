@@ -82,7 +82,7 @@ For x86 Setup, perform the following:
 1. Setup [ROS Network Environment](https://wiki.ros.org/ROS/NetworkSetup).
 
 ### Other Targets
-For other targets, follow [Device Deployment](doc/Development/DeviceDeployment.md)
+For other targets, follow [Device Deployment](doc/Development/DeviceDeployment/DeviceDeployment.md)
 
 
 ## Usage in your Package
