@@ -5,8 +5,7 @@ After=multi-user.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=bash /home/robot/catkin_ws/src/config/autostart/user_autostart.sh
-User=robot
+ExecStart=bash /home/robot/catkin_ws/src/config/autostart/root_autostart.sh
 
 [Install]
 WantedBy=multi-user.target

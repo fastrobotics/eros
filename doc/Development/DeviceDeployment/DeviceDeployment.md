@@ -71,3 +71,13 @@ rosinstall_generator ros_comm rosbag actionlib sensor_msgs nav_msgs tf2_msgs tf2
 1. Install the following dependencies: `sudo apt install libncurses5-dev libncursesw5-dev libtinyxml-dev gpsd libgps-dev gpsd-clients python-gps zip ntp`
 
 # Autostart
+To enable autostart on a Raspberry Pi, perform the following:
+1. Copy the files under [RaspberryPiAutoStart](RaspberryPiAutoStart/) to the Raspberry Pi's folder: `/lib/systemd/system/`
+2. On the Raspberry Pi Run:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable autostart_root.service
+sudo systemctl enable autostart_user.service
+```
+3. Use `raspi-config` to enable Auto Login
+4. >> TODO: Help on Autostart Scripts
