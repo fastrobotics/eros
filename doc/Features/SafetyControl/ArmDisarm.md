@@ -30,6 +30,12 @@ The following state machine describes the operation of the Arm/Disarm Logic:
     Disarmed --> | Any Ready To Arm == False OR timeout  | DisarmedCannotArm
     Disarming --> | Any Ready To Arm == False OR timeout  | DisarmedCannotArm
 
+    style DisarmedCannotArm fill:#f00,stroke:#000,color:#000,stroke-width:4px
+    style Disarmed fill:#0f0,stroke:#000,color:#000,stroke-width:4px
+    style Arming fill:#ff8000,stroke:#000,color:#000,stroke-width:4px
+    style Armed fill:#00f,stroke:#000,color:#000,stroke-width:4px
+    style Disarming fill:#ff8000,stroke:#000,color:#000,stroke-width:4px
+
     click DisarmedCannotArm href "https://mermaid.js.org/syntax/flowchart.html" " "
     click Disarming href "https://mermaid.js.org/syntax/flowchart.html" " "
     click Disarmed href "https://mermaid.js.org/syntax/flowchart.html" " "
