@@ -15,25 +15,24 @@ class SampleNodeProcess : public eros::BaseNodeProcess
     // Enums
 
     // Structs
-    
+
     // Initialization Functions
     eros::eros_diagnostic::Diagnostic finish_initialization();
     void reset();
 
     // Update Functions
     eros::eros_diagnostic::Diagnostic update(double t_dt, double t_ros_time);
-      
+
     // Attribute Functions
-    
+
     // Utility Functions
-    
+
     // Support Functions
     std::vector<eros::eros_diagnostic::Diagnostic> check_programvariables();
-    
+
     // Message Functions
-    std::vector<eros::eros_diagnostic::Diagnostic> new_commandmsg(
-        eros::command msg);
-    
+    std::vector<eros::eros_diagnostic::Diagnostic> new_commandmsg(eros::command msg);
+
     // Destructors
     void cleanup() {
         base_cleanup();
@@ -43,6 +42,6 @@ class SampleNodeProcess : public eros::BaseNodeProcess
     // Printing Functions
     std::string pretty() override;
 
-    private:
+   private:
 };
 }  // namespace SamplePackage

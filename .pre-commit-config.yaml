@@ -3,6 +3,10 @@
 repos:
 -   repo: local
     hooks:
+    -   id: regen
+        name: Regenerate AutoCode
+        entry: ./scripts/dev_tools.sh regen
+        language: script
     -   id: check-format
         name: check-format
         entry: ./scripts/formatter.sh dry-run

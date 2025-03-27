@@ -7,6 +7,7 @@
 // ROS Messages
 // Project
 #include <eros/BaseNode.h>
+
 #include "{{cookiecutter.process_classname}}.h"
 
 namespace {{cookiecutter.package_name}} {
@@ -70,10 +71,10 @@ class {{cookiecutter.node_classname}} : public eros::BaseNode
     // Support Functions
 
     // Message Functions
-    bool changenodestate_service(eros::srv_change_nodestate::Request &req,
-        eros::srv_change_nodestate::Response &res);
+    bool changenodestate_service(eros::srv_change_nodestate::Request& req,
+                                 eros::srv_change_nodestate::Response& res);
     void system_commandAction_Callback(const eros::system_commandGoalConstPtr& goal);
-    void command_Callback(const eros::command::ConstPtr &t_msg);
+    void command_Callback(const eros::command::ConstPtr& t_msg);
 
     // Destructors
     void cleanup();
