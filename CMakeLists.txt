@@ -75,8 +75,7 @@ install(
   DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
-add_subdirectory(sample)
-
+add_subdirectory(auto_code)
 # Doxygen
 
 # look for Doxygen package

@@ -1,5 +1,5 @@
 #!/bin/bash
-FILES=$(find include/ src/ nodes/ -name "*.h" -o -name "*.c" -o -name "*.cpp")
+FILES=$(find include/ src/ nodes/ auto_code/ -name "*.h" -o -name "*.c" -o -name "*.cpp")
 function print_usage()
 {
     echo "Usage Instructions"
