@@ -40,7 +40,7 @@ std::vector<eros::eros_diagnostic::Diagnostic> TeleopJoyNodeProcess::new_joymsg(
     eros_diagnostic::Diagnostic diag = get_root_diagnostic();
     geometry_msgs::Twist twist;
     twist.linear.x = 100.0 * msg.axes[1];
-    twist.angular.z = -100.0 * msg.axes[0];
+    twist.angular.z = 100.0 * msg.axes[0];
     cmd_vel_perc = twist;
 
     diag_list.push_back(diag);

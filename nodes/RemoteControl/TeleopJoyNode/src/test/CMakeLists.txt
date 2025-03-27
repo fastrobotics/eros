@@ -1,5 +1,5 @@
 catkin_add_gtest(test_TeleopJoyNodeProcess test_teleopJoyNodeProcess.cpp)
-target_link_libraries(test_TeleopJoyNodeProcess ${catkin_LIBRARIES} ${Boost_LIBRARIES} logger TeleopJoyNodeProcess)
+target_link_libraries(test_TeleopJoyNodeProcess ${catkin_LIBRARIES} ${Boost_LIBRARIES} logger teleopJoyNodeProcess)
 add_dependencies(test_TeleopJoyNodeProcess eros_generate_messages_cpp)
 
 add_rostest_gtest(test_teleopJoyNode

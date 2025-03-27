@@ -6,6 +6,6 @@
             <arg name="robot_namespace" value="$(arg robot_namespace)"/>
             <arg name="verbosity_level" value="INFO"/>
         </include>
-        <test test-name="test_TeleopJoyNode" pkg="eros" type="test_TeleopJoyNode"/>
+        <test test-name="test_teleopJoyNode" pkg="eros" type="test_teleopJoyNode"/>
     </group>
 </launch>
