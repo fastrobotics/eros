@@ -6,10 +6,13 @@
 #include "{{cookiecutter.process_classname}}.h"
 using namespace eros;
 using namespace {{cookiecutter.package_name}};
-class {{cookiecutter.process_classname}}Tester : public {{cookiecutter.process_classname}} {
-    public :
-        {{cookiecutter.process_classname}}Tester(){}
-        ~{{cookiecutter.process_classname}}Tester(){}
+class {{cookiecutter.process_classname}}Tester : public {{cookiecutter.process_classname}}
+{
+   public:
+    {{cookiecutter.process_classname}}Tester() {
+    }
+    ~{{cookiecutter.process_classname}}Tester() {
+    }
 };
 TEST(BasicTest, TestOperation) {
     Logger* logger = new Logger("DEBUG", "UnitTest{{cookiecutter.process_classname}}");
@@ -53,8 +56,7 @@ TEST(BasicTest, TestOperation) {
     }
     logger->log_warn("Testing Unsupported Program Variables Check");
     {
-        std::vector<eros::eros_diagnostic::Diagnostic> diag_list =
-            tester->check_programvariables();
+        std::vector<eros::eros_diagnostic::Diagnostic> diag_list = tester->check_programvariables();
         EXPECT_EQ(diag_list.size(), 0);
     }
     tester->cleanup();

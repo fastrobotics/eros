@@ -53,7 +53,7 @@ function code_coverage_scan {
 }
 function generate_plantuml {
 
-    plantuml -tpng -r -o output "*/**.puml"
+    plantuml -x "auto_template*/**/*.puml" -tpng -r  -o output "*/**.puml"
     status=$?
     exit $status
 }

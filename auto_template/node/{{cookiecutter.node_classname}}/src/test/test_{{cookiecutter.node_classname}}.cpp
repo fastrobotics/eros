@@ -1,8 +1,9 @@
-#include "{{cookiecutter.node_classname}}.h"
-#include <gtest/gtest.h>
-#include <ros/ros.h>
 #include <actionlib/client/simple_action_client.h>
 #include <eros/system_commandAction.h>
+#include <gtest/gtest.h>
+#include <ros/ros.h>
+
+#include "{{cookiecutter.node_classname}}.h"
 
 using namespace eros;
 using namespace {{cookiecutter.package_name}};

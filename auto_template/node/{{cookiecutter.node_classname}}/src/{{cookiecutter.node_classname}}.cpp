@@ -35,8 +35,7 @@ void {{cookiecutter.node_classname}}::command_Callback(const eros::command::Cons
     logger->log_diagnostic(diag);
 }
 bool {{cookiecutter.node_classname}}::changenodestate_service(eros::srv_change_nodestate::Request &req,
-                             eros::srv_change_nodestate::Response &res)
-{
+                                         eros::srv_change_nodestate::Response &res) {
     Node::State req_state = Node::NodeState(req.RequestedNodeState);
     process->request_statechange(req_state);
     res.NodeState = Node::NodeStateString(process->get_nodestate());
@@ -128,7 +127,8 @@ eros_diagnostic::Diagnostic {{cookiecutter.node_classname}}::read_launchparamete
 eros_diagnostic::Diagnostic {{cookiecutter.node_classname}}::finish_initialization() {
     eros_diagnostic::Diagnostic diag = diagnostic;
     std::string srv_nodestate_topic = "srv_nodestate_change";
-    nodestate_srv = n->advertiseService(srv_nodestate_topic, &{{cookiecutter.node_classname}}::changenodestate_service, this);
+    nodestate_srv =
+        n->advertiseService(srv_nodestate_topic, &{{cookiecutter.node_classname}}::changenodestate_service, this);
     diag = process->update_diagnostic(eros_diagnostic::DiagnosticType::COMMUNICATIONS,
                                       Level::Type::INFO,
                                       eros_diagnostic::Message::NOERROR,
@@ -140,7 +140,7 @@ eros_diagnostic::Diagnostic {{cookiecutter.node_classname}}::finish_initializati
     diag = process->update_diagnostic(eros_diagnostic::DiagnosticType::DATA_STORAGE,
                                       Level::Type::INFO,
                                       eros_diagnostic::Message::NOERROR,
-                                      "All Configuration Files Loaded.");    
+                                      "All Configuration Files Loaded.");
     return diag;
 }
 bool {{cookiecutter.node_classname}}::run_loop1() {
@@ -165,11 +165,11 @@ bool {{cookiecutter.node_classname}}::run_01hz_noisy() {
     return true;
 }
 bool {{cookiecutter.node_classname}}::run_1hz() {
-    std::vector<eros_diagnostic::Diagnostic> latest_diagnostics =
-        process->get_latest_diagnostics();
+    std::vector<eros_diagnostic::Diagnostic> latest_diagnostics = process->get_latest_diagnostics();
     for (std::size_t i = 0; i < latest_diagnostics.size(); ++i) {
         logger->log_diagnostic(latest_diagnostics.at(i));
-        diagnostic_pub.publish(eros_diagnostic::DiagnosticUtility::convert(latest_diagnostics.at(i)));
+        diagnostic_pub.publish(
+            eros_diagnostic::DiagnosticUtility::convert(latest_diagnostics.at(i)));
     }
     eros_diagnostic::Diagnostic diag = process->get_root_diagnostic();
     if (process->get_nodestate() == Node::State::RESET) {
@@ -208,7 +208,7 @@ void {{cookiecutter.node_classname}}::cleanup() {
     delete process;
     base_cleanup();
 }
-} // namespace {{cookiecutter.package_name}}
+}  // namespace {{cookiecutter.package_name}}
 // No practical way to unit test
 // LCOV_EXCL_START
 void signalinterrupt_handler(int sig) {

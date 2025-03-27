@@ -1,7 +1,7 @@
 #include "{{cookiecutter.process_classname}}.h"
 
 using namespace eros;
-namespace  {{cookiecutter.package_name}} {
+namespace {{cookiecutter.package_name}} {
 {{cookiecutter.process_classname}}::{{cookiecutter.process_classname}}() {
 }
 {{cookiecutter.process_classname}}::~{{cookiecutter.process_classname}}() {
@@ -16,8 +16,7 @@ eros_diagnostic::Diagnostic {{cookiecutter.process_classname}}::update(double t_
     eros_diagnostic::Diagnostic diag = base_update(t_dt, t_ros_time);
     return diag;
 }
-std::vector<eros_diagnostic::Diagnostic> {{cookiecutter.process_classname}}::new_commandmsg(
-    eros::command msg) {
+std::vector<eros_diagnostic::Diagnostic> {{cookiecutter.process_classname}}::new_commandmsg(eros::command msg) {
     (void)msg;
     std::vector<eros_diagnostic::Diagnostic> diag_list;
     logger->log_warn("No Command Messages Supported at this time.");
@@ -31,6 +30,5 @@ std::vector<eros_diagnostic::Diagnostic> {{cookiecutter.process_classname}}::che
 std::string {{cookiecutter.process_classname}}::pretty() {
     std::string str = "{{cookiecutter.process_classname}}";
     return str;
-
 }
-} // namespace {{cookiecutter.package_name}}
+}  // namespace {{cookiecutter.package_name}}
