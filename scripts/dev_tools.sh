@@ -20,7 +20,6 @@ function update {
     ./scripts/create_from_template.py -t auto_template/node/ -o sample/SampleNode/ -i 0
 }
 function regen_autocode {
-    rm -rf auto_code/SampleNode
     cookiecutter -f auto_template/node -o auto_code --no-input
 }
 # Code Coverage Scan
