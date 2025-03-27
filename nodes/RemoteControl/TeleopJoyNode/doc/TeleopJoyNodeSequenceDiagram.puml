@@ -1,0 +1,74 @@
+@startuml
+title Safety Node Sequence Diagram
+actor User as user
+participant TeleopJoyNode as node
+participant TeleopJoyNodeProcess as process
+participant Logger as logger
+
+alt initialize
+    activate node
+    node -> node++: start()
+    node -> node: initialize_diagnostic
+    node -> process++: TeleopJoyNodeProcess()
+    node -> node: preinitialize_basenode()
+    node -> process: enable_diagnostics()
+    node -> process: finish_initialization()
+    node -> node: finish_initialization()
+    node -> node: rescan_nodes()
+    node -> process: request_statechange(RUNNING,override=true)
+    node--
+end
+
+alt message_callback
+    alt ReadyToArmCallback(msg,topic)
+        node -> process: new_message_readytoarm(msg,topic)
+    end
+end
+
+alt loops
+    alt loop1
+        node -> node++: run_loop1
+        node--
+    end
+    alt loop2
+        node -> node++: run_loop2
+        node--
+    end
+    alt loop3
+        node -> node++: run_loop3
+        node--
+    end
+    alt run_001hz
+        node -> node++: run_001hz
+        node--
+    end
+    alt run_01hz
+        node -> node++: run_001hz
+        node--
+    end
+    alt run_01hz_noisy
+        node -> process: pretty()
+        process --> node: str
+        node -> logger: log_debug(str)
+    end
+    alt run_1hz
+        node -> process: get_latest_diagnostics()
+        process --> node: latest_diagnostics
+        node -> user: publish(latest_diagnostics)
+    end
+    alt run_10hz
+        node -> process: update(0.1, now)
+        process --> node: diag
+        alt if diag.level >= NOTICE
+            node -> logger: log_diagnostic(diag)
+        end
+        node -> process: get_diagnostics()
+        process --> node: diagnostics
+        node -> node: update_diagnostics(diagnostics)
+        node -> process++: get_armed_state()
+        process --> node--: armed_state
+        node -> user: publish(armed_state)
+
+    end
+end
+@enduml

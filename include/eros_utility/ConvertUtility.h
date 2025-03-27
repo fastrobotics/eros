@@ -15,6 +15,7 @@
 #include <eros/resource.h>
 #include <eros/uptime.h>
 #include <geometry_msgs/Twist.h>
+#include <sensor_msgs/Joy.h>
 #include <std_msgs/Bool.h>
 #include <time.h>
 
@@ -78,5 +79,6 @@ class ConvertUtility
     static eros::armed_state convert_fromptr(const eros::armed_state::ConstPtr& t_ptr);
     static eros::mode_state convert_fromptr(const eros::mode_state::ConstPtr& t_ptr);
     static geometry_msgs::Twist convert_fromptr(const geometry_msgs::Twist::ConstPtr& t_ptr);
+    static sensor_msgs::Joy convert_fromptr(const sensor_msgs::Joy::ConstPtr& t_ptr);
 };
 }  // namespace eros::eros_utility
