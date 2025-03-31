@@ -31,7 +31,7 @@ class {{cookiecutter.class_name}}
     // Enums
     enum class Enum1 {
         UNKNOWN = 0,    /*!< Uninitialized value. */
-        VALUE1 = 1,     /*!< Last item of list. Used for Range Checks. */
+        VALUE1 = 1,     /*!< Some Value. */
         END_OF_LIST = 2 /*!< Last item of list. Used for Range Checks. */
     };
     //! Convert {{cookiecutter.class_name}}::Enum1 to human readable string
