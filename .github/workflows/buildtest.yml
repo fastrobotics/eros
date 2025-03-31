@@ -35,7 +35,7 @@ jobs:
 
     - name: Autogen
       run: |
-        rm -rf auto_code/
+        rm -rf auto_code/SampleNode
         ./scripts/dev_tools.sh regen
 
     - name: Check Format
