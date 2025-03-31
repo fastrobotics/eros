@@ -10,6 +10,10 @@
 
 #include "{{cookiecutter.process_classname}}.h"
 
+/**
+ * @brief {{cookiecutter.package_name}} Namespace
+ *
+ */
 namespace {{cookiecutter.package_name}} {
 /*! \class {{cookiecutter.node_classname}} {{cookiecutter.node_classname}}.h "{{cookiecutter.node_classname}}.h"
  *  \brief */

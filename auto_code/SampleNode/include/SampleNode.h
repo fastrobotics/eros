@@ -10,6 +10,10 @@
 
 #include "SampleNodeProcess.h"
 
+/**
+ * @brief SamplePackage Namespace
+ *
+ */
 namespace SamplePackage {
 /*! \class SampleNode SampleNode.h "SampleNode.h"
  *  \brief */
