@@ -1,4 +1,5 @@
-#include <{{cookiecutter.package_name}}/{{cookiecutter.class_name}}/{{cookiecutter.class_name}}.h>
+#include "{{cookiecutter.class_name}}.h"
+namespace {{cookiecutter.package_name}} {
 bool {{cookiecutter.class_name}}::init(eros::Logger* _logger) {
     logger = _logger;
     return reset();
@@ -13,4 +14,5 @@ bool {{cookiecutter.class_name}}::update(double dt) {
 }
 bool {{cookiecutter.class_name}}::finish() {
     return true;
+}
 }

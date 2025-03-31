@@ -9,6 +9,11 @@
 // ROS Actions
 // Project Includes
 #include <eros/Logger.h>
+/**
+ * @brief {{cookiecutter.package_name}} Namespace
+ *
+ */
+namespace {{cookiecutter.package_name}} {
 /*! \class {{cookiecutter.class_name}}
     \brief {{cookiecutter.class_name}}
     A description of your new Class.
@@ -97,4 +102,4 @@ class {{cookiecutter.class_name}} {
         double run_time;
 };
 
-#endif // {{cookiecutter.class_name}}_H
+}  // {{cookiecutter.package_name}}

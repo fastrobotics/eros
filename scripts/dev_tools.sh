@@ -21,6 +21,7 @@ function update {
 }
 function regen_autocode {
     cookiecutter -f auto_template/node -o auto_code --no-input
+    cookiecutter -f auto_template/class -o auto_code --no-input
 }
 # Code Coverage Scan
 function code_coverage_scan {
