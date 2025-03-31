@@ -19,8 +19,17 @@ eros_diagnostic::Diagnostic MasterNodeProcess::update(double t_dt, double t_ros_
 }
 std::vector<eros_diagnostic::Diagnostic> MasterNodeProcess::new_commandmsg(eros::command msg) {
     (void)msg;  // Currently Unused
-    std::vector<eros_diagnostic::Diagnostic> diag_list;
-    logger->log_warn("No Command Messages Supported at this time.");
+    std::vector<eros_diagnostic::Diagnostic> diag_list = base_new_commandmsg(msg);
+    if (diag_list.size() == 0) {
+        // No currently supported commands.
+    }
+    else {
+        for (auto diag : diag_list) {
+            if (diag.level >= Level::Type::INFO) {
+                diagnostic_manager.update_diagnostic(diag);
+            }
+        }
+    }
     return diag_list;
 }
 std::vector<eros_diagnostic::Diagnostic> MasterNodeProcess::check_programvariables() {
