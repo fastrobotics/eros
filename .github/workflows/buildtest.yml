@@ -35,7 +35,11 @@ jobs:
 
     - name: Autogen
       run: |
+<<<<<<< HEAD
         rm -rf auto_code/
+=======
+        rm -rf auto_code/SampleNode
+>>>>>>> origin/master
         ./scripts/dev_tools.sh regen
 
     - name: Check Format
