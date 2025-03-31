@@ -12,7 +12,11 @@ bool {{cookiecutter.class_name}}::update(double dt) {
     run_time += dt;
     return true;
 }
+std::string {{cookiecutter.class_name}}::pretty() {
+    std::string str = "{{cookiecutter.class_name}}";
+    return str;
+}
 bool {{cookiecutter.class_name}}::finish() {
     return true;
 }
-}
+}  // namespace {{cookiecutter.package_name}}

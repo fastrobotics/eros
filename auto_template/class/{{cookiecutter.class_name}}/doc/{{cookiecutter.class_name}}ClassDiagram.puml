@@ -1,0 +1,52 @@
+@startuml
+title {{cookiecutter.class_name}} Class Diagram
+package eros {
+    class Logger
+}
+namespace {{cookiecutter.package_name}} {
+    enum Enum1 {
+        UNKNOWN,
+        VALUE1,
+        END_OF_LIST
+    }
+    struct Struct1 {
+        +uint16_t Param1
+        +std::string Param2
+    }
+    class {{cookiecutter.class_name}} {
+        -- Constants --
+
+        -- Enums --
+        +{static} string Enum1String(Enum1 v)
+        +{static} Enum1 Enum1Type(string v)
+
+        -- Structs --
+
+        -- Initializing & Reset Functions --
+        +bool init(Logger logger)
+        +bool reset()
+
+        -- Update Functions --
+        +bool update(double dt)
+        
+        -- Attribute Functions --
+        +double get_runtime()
+
+        -- Message Functions --
+
+        -- Support Functions --
+
+        -- Printing Functions --
+        +string pretty()
+
+        -- Finish Functions --
+        +bool finish()
+
+    }
+
+    {{cookiecutter.class_name}} +-- Enum1
+    {{cookiecutter.class_name}} +-- Struct1
+
+}
+
+@enduml

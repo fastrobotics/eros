@@ -2,13 +2,13 @@
  */
 #include <gtest/gtest.h>
 #include <stdio.h>
+
 #include "SampleClass.h"
 using namespace eros;
-using namespace SamplePackage
+using namespace SamplePackage;
 TEST(BasicTest, TestDefintions) {
     // Test Type: Enum1
     for (uint8_t i = 0; i <= (uint8_t)(SampleClass::Enum1::END_OF_LIST); ++i) {
-
         if ((i == 0) || (i == (uint8_t)(SampleClass::Enum1::END_OF_LIST))) {
             EXPECT_TRUE(SampleClass::Enum1String((SampleClass::Enum1)(i)) == "UNKNOWN");
         }

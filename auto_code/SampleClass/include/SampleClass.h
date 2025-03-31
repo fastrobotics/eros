@@ -18,13 +18,11 @@ namespace SamplePackage {
     \brief SampleClass
     A description of your new Class.
 */
-class SampleClass {
-    public:
+class SampleClass
+{
+   public:
     // Constructors & Deconstructors
-    SampleClass() : 
-        logger(nullptr),
-        run_time(0.0) {
-
+    SampleClass() : logger(nullptr), run_time(0.0) {
     }
     virtual ~SampleClass() {
     }
@@ -32,9 +30,9 @@ class SampleClass {
 
     // Enums
     enum class Enum1 {
-        UNKNOWN = 0,        /*!< Uninitialized value. */
+        UNKNOWN = 0,    /*!< Uninitialized value. */
         VALUE1 = 1,     /*!< Last item of list. Used for Range Checks. */
-        END_OF_LIST = 2     /*!< Last item of list. Used for Range Checks. */
+        END_OF_LIST = 2 /*!< Last item of list. Used for Range Checks. */
     };
     //! Convert SampleClass::Enum1 to human readable string
     /*!
@@ -54,12 +52,10 @@ class SampleClass {
       \return SampleClass::Enum1 type
     */
     static SampleClass::Enum1 Enum1Type(std::string v) {
-        if(v == "VALUE1")
-        {
+        if (v == "VALUE1") {
             return SampleClass::Enum1::VALUE1;
         }
-        else
-        {
+        else {
             return SampleClass::Enum1::UNKNOWN;
         }
     }
@@ -71,14 +67,14 @@ class SampleClass {
     */
     struct Struct1 {
         /*@{*/
-        uint16_t Param1;        /**< Parmam1. */
-        std::string Param2;   /**< Param2. */
+        uint16_t Param1;    /**< Parmam1. */
+        std::string Param2; /**< Param2. */
         /*@}*/
     };
 
     // Initializing & Reset Functions
     /*! \brief Initialize Object. */
-    bool init(eros::Logger* _logger);
+    bool init(eros::Logger* logger);
     /*! \brief Reset Object */
     bool reset();
 
@@ -87,19 +83,23 @@ class SampleClass {
     bool update(double dt);
 
     // Attribute Functions
-    double get_runtime() { return run_time; }
+    double get_runtime() {
+        return run_time;
+    }
 
     // Message Functions
 
     // Support Functions
 
     // Printing Functions
+    std::string pretty();
 
     // Finish Functions
     bool finish();
-    private:
-        eros::Logger* logger;
-        double run_time;
+
+   private:
+    eros::Logger* logger;
+    double run_time;
 };
 
-}  // SamplePackage
+}  // namespace SamplePackage
