@@ -72,13 +72,13 @@ $(function() {
         <table>
           <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger_ab53efa2af156e0e0ed8a17d14f54a85c.html#ab53efa2af156e0e0ed8a17d14f54a85c">disable_consoleprint</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger_a9b6bc28b1056fc75720ec3f4f3a5246d.html#a9b6bc28b1056fc75720ec3f4f3a5246d">enable_ROS_logger</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a007a3bcb5ce99de9461d9d58bc65477b">LOG_DEBUG</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a8cf4812d2f1fcd8858603b15620858c9">LOG_DIAGNOSTIC</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a66fc4665224901af06d390ff053a001b">LOG_ERROR</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a884fa62658c1f988b724aecce1aa2658">LOG_FATAL</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#ae26e81c08faeb745ad747a1ade319314">LOG_INFO</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#aa32b733e138af80b4011b3b02c1b5f6f">LOG_NOTICE</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a15b93836d0aa5e56a927447ff40cb18d">LOG_WARN</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#ae05cacdeb3b4fc6588a235ff7170af17">LOG_DEBUG</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a9014f68fb5a9381223734e95e2fdba6e">LOG_DIAGNOSTIC</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a6c35a6e2a5b764ddca2154466fa18b8e">LOG_ERROR</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a38617620d57aba7d54c4cf8d8df329de">LOG_FATAL</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a15f82e22dcfdab871ab96a9ad54231a8">LOG_INFO</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a5ec10dceb4ac483c0d94a9a4fe549a7f">LOG_NOTICE</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger.html#a4291e7ade096b5d3e3956704e8896239">LOG_WARN</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger_a0fefb6088c7644daba2b90ed1e2c46fe.html#a0fefb6088c7644daba2b90ed1e2c46fe">Logger</a></td></tr>
           <tr><td class="navtab"><a class="qindexHL" href="classeros_1_1Logger_ae6373abb707086aec6b3dfaf0ed3f34d.html#ae6373abb707086aec6b3dfaf0ed3f34d">Logger</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="classeros_1_1Logger_ae09869e0345da7e623b505c31fed7572.html#ae09869e0345da7e623b505c31fed7572">LoggerStatus</a></td></tr>
@@ -128,28 +128,7 @@ $(function() {
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                                                                   : logger_ok(<span class="keyword">false</span>) {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    console_print = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    use_ROS_logger = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    verbosity = Level::LevelType(level);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    line_counter = 0;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    replace(name.begin(), name.end(), <span class="charliteral">&#39;/&#39;</span>, <span class="charliteral">&#39;_&#39;</span>);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">char</span> buffer[100];</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    sprintf(buffer, <span class="stringliteral">&quot;%s.out&quot;</span>, name.c_str());</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    sprintf(file_path, <span class="stringliteral">&quot;%s/%s&quot;</span>, directory.c_str(), buffer);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::ofstream log_file;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    log_file.open(file_path);  <span class="comment">// Overwrite file.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (log_file.is_open() == <span class="keyword">false</span>) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        printf(<span class="stringliteral">&quot;%sWARN: Unable to open Logger at Filepath: %s%s\n&quot;</span>,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;               YELLOW_FOREGROUND.c_str(),</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;               file_path,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;               END_COLOR.c_str());</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    log_file.close();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    logger_ok = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
     </td>

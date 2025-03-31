@@ -1,12 +1,11 @@
 <map id="eros::BaseNode" name="eros::BaseNode">
-<area shape="rect" id="node1" title="This is a BaseNode class. All Nodes should be a derived class from this Base Class." alt="" coords="5,260,129,287"/>
-<area shape="rect" id="node2" href="$classBaseNodeTester.html" title=" " alt="" coords="223,5,349,32"/>
-<area shape="rect" id="node3" href="$classeros__nodes_1_1Infrastructure_1_1DataLoggerNode.html" title="A Node that can be used to collect bag files. Configured as either always logging to disk,..." alt="" coords="190,57,382,98"/>
-<area shape="rect" id="node4" href="$classeros__nodes_1_1Infrastructure_1_1DiagnosticNode.html" title="A node used to collect diagnostic information." alt="" coords="190,122,382,163"/>
-<area shape="rect" id="node5" href="$classeros__nodes_1_1Infrastructure_1_1MasterNode.html" title="MasterNode is used to provide information about a host device." alt="" coords="190,187,382,229"/>
-<area shape="rect" id="node6" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNode.html" title="The SafetyNode is used to control a system Safely." alt="" coords="190,253,382,294"/>
-<area shape="rect" id="node7" href="$classeros__nodes_1_1Infrastructure_1_1SnapshotNode.html" title="The SnapshotNode is used to collect diagnostic information about a device for future analysis." alt="" coords="190,318,382,359"/>
-<area shape="rect" id="node8" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html" title=" " alt="" coords="185,383,387,425"/>
-<area shape="rect" id="node9" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html" title="The SystemMonitorNode is used to monitor the state of the System." alt="" coords="185,449,387,490"/>
-<area shape="rect" id="node10" href="$classSamplePackage_1_1SampleNode.html" title=" " alt="" coords="177,515,395,541"/>
+<area shape="rect" id="node1" title="This is a BaseNode class. All Nodes should be a derived class from this Base Class." alt="" coords="5,242,129,269"/>
+<area shape="rect" id="node2" href="$classeros__nodes_1_1Infrastructure_1_1DataLoggerNode.html" title="A Node that can be used to collect bag files. Configured as either always logging to disk,..." alt="" coords="190,5,382,47"/>
+<area shape="rect" id="node3" href="$classeros__nodes_1_1Infrastructure_1_1DiagnosticNode.html" title="A node used to collect diagnostic information." alt="" coords="190,71,382,112"/>
+<area shape="rect" id="node4" href="$classeros__nodes_1_1Infrastructure_1_1MasterNode.html" title="MasterNode is used to provide information about a host device." alt="" coords="190,136,382,177"/>
+<area shape="rect" id="node5" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNode.html" title="The SafetyNode is used to control a system Safely." alt="" coords="190,201,382,243"/>
+<area shape="rect" id="node6" href="$classeros__nodes_1_1Infrastructure_1_1SnapshotNode.html" title="The SnapshotNode is used to collect diagnostic information about a device for future analysis." alt="" coords="190,267,382,308"/>
+<area shape="rect" id="node7" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html" title=" " alt="" coords="185,332,387,373"/>
+<area shape="rect" id="node8" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html" title="The SystemMonitorNode is used to monitor the state of the System." alt="" coords="185,397,387,439"/>
+<area shape="rect" id="node9" href="$classSamplePackage_1_1SampleNode.html" title=" " alt="" coords="177,463,395,490"/>
 </map>

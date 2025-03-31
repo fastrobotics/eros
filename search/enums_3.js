@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['loggerstatus_588',['LoggerStatus',['../classeros_1_1Logger_ae09869e0345da7e623b505c31fed7572.html#ae09869e0345da7e623b505c31fed7572',1,'eros::Logger']]]
+  ['filestatus_580',['FileStatus',['../group__eros_gae84e3a0048327940ce83a1f633753e5d.html#gae84e3a0048327940ce83a1f633753e5d',1,'eros::FileHelper']]],
+  ['filetype_581',['FileType',['../group__eros_ga1a42c6c133ff49e441052cebdfb5b4c2.html#ga1a42c6c133ff49e441052cebdfb5b4c2',1,'eros::FileHelper']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['snapshotstate_592',['SnapshotState',['../group__eros_ga209031320c478c9ba5fd268b317e4508.html#ga209031320c478c9ba5fd268b317e4508',1,'eros']]],
-  ['state_593',['State',['../group__eros_gacdaf97604bbb90b853f095781557754a.html#gacdaf97604bbb90b853f095781557754a',1,'eros::Node']]],
-  ['subsystem_594',['SubSystem',['../group__eros_ga3adcdfcbabd1045cf45829dff620b1ab.html#ga3adcdfcbabd1045cf45829dff620b1ab',1,'eros::System']]]
+  ['mainsystem_583',['MainSystem',['../group__eros_ga7c607a1224b68fbf12782f6969aa5c4b.html#ga7c607a1224b68fbf12782f6969aa5c4b',1,'eros::System']]],
+  ['message_584',['Message',['../namespaceeros_1_1eros__diagnostic_abe8edabb73fbbde65c46a2f392cf4cef.html#abe8edabb73fbbde65c46a2f392cf4cef',1,'eros::eros_diagnostic']]],
+  ['mode_585',['Mode',['../classeros_1_1ResourceMonitor_a164922763a56f5e72435889853120bf6.html#a164922763a56f5e72435889853120bf6',1,'eros::ResourceMonitor::Mode()'],['../classeros__nodes_1_1Infrastructure_1_1SnapshotProcess_a1f5cb51cbc869c2a5d557563cd0bee69.html#a1f5cb51cbc869c2a5d557563cd0bee69',1,'eros_nodes::Infrastructure::SnapshotProcess::Mode()']]]
 ];

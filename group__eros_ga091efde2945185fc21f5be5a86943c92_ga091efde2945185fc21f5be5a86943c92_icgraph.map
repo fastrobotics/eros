@@ -1,6 +1,0 @@
-<map id="eros::System::MainSystemString" name="eros::System::MainSystemString">
-<area shape="rect" id="node1" title="Convert System::MainSystem to human readable string." alt="" coords="492,31,688,73"/>
-<area shape="rect" id="node2" href="$classeros_1_1Logger.html#a8cf4812d2f1fcd8858603b15620858c9" title="Log a Diagnostic. Do not use, use: log_diagnostic." alt="" coords="217,5,444,32"/>
-<area shape="rect" id="node3" href="$classeros_1_1eros__diagnostic_1_1DiagnosticUtility_ae6914fe1545c566ff39a8020747ed3b1.html#ae6914fe1545c566ff39a8020747ed3b1" title="Generate human readable string of a diagnostic." alt="" coords="251,56,411,112"/>
-<area shape="rect" id="node4" href="$classeros_1_1eros__diagnostic_1_1DiagnosticManager_aac517af889427e74abff090b9840b281.html#aac517af889427e74abff090b9840b281" title="Generate human readable string of a vector of diagnostics." alt="" coords="5,56,169,112"/>
-</map>
