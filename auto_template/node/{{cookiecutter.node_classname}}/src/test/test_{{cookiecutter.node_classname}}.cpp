@@ -17,6 +17,7 @@ void heartbeat_Callback(const eros::heartbeat& msg) {
     heartbeat_count++;
 }
 TEST({{cookiecutter.node_classname}}, TestBasics) {
+    ASSERT_TRUE(false);
     ros::NodeHandle nh("~");
     Logger* logger = new Logger("DEBUG", "test_{{cookiecutter.node_classname}}");
     logger->enable_ROS_logger();

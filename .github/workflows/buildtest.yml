@@ -33,6 +33,11 @@ jobs:
       with:
         path: catkin_ws/src/eros
 
+    - name: Autogen
+      run: |
+        rm -rf auto_code/SampleNode/
+        ./scripts/dev_tools.sh regen
+
     - name: Check Format
       run: |
         ./scripts/formatter.sh dry-run
