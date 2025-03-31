@@ -20,3 +20,4 @@ In order to integrate this content into your package, do the following:
 5. In the generated Node Class cpp file, update the following entries:
     * diagnostic_types.push_back(...) // See [eros_Definitions.h](../../include/eros/eros_Definitions.h) for appropriate values.
 6. In the generated Node Launch file, change the package name of the node to your package.
+7. Make the node your own!  Add whatever code you like.
