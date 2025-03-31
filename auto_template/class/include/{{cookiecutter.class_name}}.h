@@ -1,7 +1,6 @@
 /*! \file {{cookiecutter.class_name}}.h
  */
-#ifndef {{cookiecutter.class_name}}_H
-#define {{cookiecutter.class_name}}_H
+#pragma once
 // C System Files
 // C++ System Files
 // ROS Base Functionality
