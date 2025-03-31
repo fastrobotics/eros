@@ -18,3 +18,7 @@ cookiecutter <template> -o <output_directory> -f --no-input # template: node, cl
 
 
 ## Supported Templates
+| Status | Template |
+| --- | --- |
+| NOT SUPPORTED | Class |
+| SUPPORTED | [Node](node/Description.md) |

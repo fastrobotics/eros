@@ -21,3 +21,6 @@ git push
 cd <eros directory>
 ./scripts/dev_tools.sh code_coverage
 ```
+
+# Template Code
+Various Templates are provided to enable easy use of eROS content in your application.  See [Templates](../../auto_template/TemplateCode.md) for more information.
