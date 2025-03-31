@@ -1,0 +1,12 @@
+<map id="eros::eros_utility::ConvertUtility::convert_fromptr" name="eros::eros_utility::ConvertUtility::convert_fromptr">
+<area shape="rect" id="node1" title="Convert eros::command message (as received via a ROS Node) to the regular datatype." alt="" coords="783,162,960,218"/>
+<area shape="rect" id="node2" href="$classeros_1_1BaseNode.html#a686d6abcbdb509634009c48ff859f460" title="Process an eros::armed_state." alt="" coords="528,136,735,177"/>
+<area shape="rect" id="node10" href="$classeros_1_1BaseNode.html#ab3f70796d9adc4d9dce74c9316e8f445" title="Process an eros::mode_state." alt="" coords="530,201,733,243"/>
+<area shape="rect" id="node3" href="$classeros_1_1BaseNode.html#a3ab0a69c9166512a3b71651d87cf8833" title="Pre&#45;initialization of node. This section will create the default pub/subs for the node,..." alt="" coords="271,169,480,211"/>
+<area shape="rect" id="node4" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNode.html#a984f442063e562aa490b6e2d4b13e440" title="Start the Node." alt="" coords="18,5,210,47"/>
+<area shape="rect" id="node5" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html#af628cd15755a35ac359af5166e7576fb" title="Start the Node." alt="" coords="13,71,215,112"/>
+<area shape="rect" id="node6" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html#acea27c0124412815b1afad670cff7f6c" title="Start the Node." alt="" coords="13,136,215,177"/>
+<area shape="rect" id="node7" href="$classSamplePackage_1_1SampleNode.html#a5bec3255ca69f34f0e067f32d614edb2" title="Start the Node." alt="" coords="5,201,223,243"/>
+<area shape="rect" id="node8" href="$classeros__nodes_1_1Infrastructure_1_1DataLoggerNode.html#ab54f4d9631b2d6f047852b1ea736db48" title="Start the Node." alt="" coords="18,267,210,308"/>
+<area shape="rect" id="node9" href="$group__eros__nodes.html#ga89103b8d074f2862e7e0669330c7e7a7" title="Start the Node." alt="" coords="18,332,210,373"/>
+</map>

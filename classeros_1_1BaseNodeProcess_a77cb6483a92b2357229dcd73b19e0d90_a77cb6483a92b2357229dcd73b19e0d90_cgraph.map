@@ -1,0 +1,4 @@
+<map id="eros::BaseNodeProcess::request_statechange" name="eros::BaseNodeProcess::request_statechange">
+<area shape="rect" id="node1" title="Request a Node State Change." alt="" coords="5,5,180,47"/>
+<area shape="rect" id="node2" href="$group__eros_ga7be0e9cd1ea8fff5bb94a5f867e6b56d.html#ga7be0e9cd1ea8fff5bb94a5f867e6b56d" title="Convert Node::State to human readable string." alt="" coords="228,13,435,39"/>
+</map>

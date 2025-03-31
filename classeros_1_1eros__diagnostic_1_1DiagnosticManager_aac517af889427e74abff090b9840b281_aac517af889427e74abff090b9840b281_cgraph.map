@@ -1,0 +1,10 @@
+<map id="eros::eros_diagnostic::DiagnosticManager::pretty" name="eros::eros_diagnostic::DiagnosticManager::pretty">
+<area shape="rect" id="node1" title="Generate human readable string of a vector of diagnostics." alt="" coords="5,169,169,225"/>
+<area shape="rect" id="node2" href="$classeros_1_1eros__diagnostic_1_1DiagnosticUtility_ae6914fe1545c566ff39a8020747ed3b1.html#ae6914fe1545c566ff39a8020747ed3b1" title="Generate human readable string of a diagnostic." alt="" coords="217,169,377,225"/>
+<area shape="rect" id="node3" href="$group__eros_gae3f124e8e92a41d5313647e61bda5b64.html#gae3f124e8e92a41d5313647e61bda5b64" title="Convert System::Component to human readable string." alt="" coords="425,5,653,32"/>
+<area shape="rect" id="node4" href="$classeros_1_1eros__diagnostic_1_1DiagnosticUtility_ab253f094cd0639b30903f0ab6612ebf9.html#ab253f094cd0639b30903f0ab6612ebf9" title="Convert Message to human readable string." alt="" coords="446,56,633,112"/>
+<area shape="rect" id="node5" href="$classeros_1_1eros__diagnostic_1_1DiagnosticUtility_a0866c63ef12454960870ffdfbcd2157f.html#a0866c63ef12454960870ffdfbcd2157f" title="Convert DiagnosticType to human readable string." alt="" coords="459,136,619,192"/>
+<area shape="rect" id="node6" href="$group__eros_gaf0b1e5cafda35e4defd205e5dac44b04.html#gaf0b1e5cafda35e4defd205e5dac44b04" title="Convert Level::Type to human readable string." alt="" coords="452,216,627,243"/>
+<area shape="rect" id="node7" href="$group__eros_ga091efde2945185fc21f5be5a86943c92.html#ga091efde2945185fc21f5be5a86943c92" title="Convert System::MainSystem to human readable string." alt="" coords="441,267,637,309"/>
+<area shape="rect" id="node8" href="$group__eros_gae8acad357e22e8742b74ea7026aff323.html#gae8acad357e22e8742b74ea7026aff323" title="Convert System::SubSystem to human readable string." alt="" coords="426,333,653,360"/>
+</map>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['level_359',['Level',['../classeros_1_1Level.html',1,'eros']]],
-  ['logger_360',['Logger',['../classeros_1_1Logger.html',1,'eros']]]
+  ['level_383',['Level',['../classeros_1_1Level.html',1,'eros']]],
+  ['logger_384',['Logger',['../classeros_1_1Logger.html',1,'eros']]]
 ];

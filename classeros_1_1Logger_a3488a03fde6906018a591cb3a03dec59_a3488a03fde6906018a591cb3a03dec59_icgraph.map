@@ -1,4 +1,11 @@
 <map id="eros::Logger::set_logverbosity" name="eros::Logger::set_logverbosity">
-<area shape="rect" id="node1" title=" " alt="" coords="256,13,475,39"/>
-<area shape="rect" id="node2" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html#acea27c0124412815b1afad670cff7f6c" title="Start the Node." alt="" coords="5,5,208,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="781,274,1000,301"/>
+<area shape="rect" id="node2" href="$classeros_1_1BaseNode.html#aaf2518d82b516f1f877ab38dec098e96" title="A logger level service, used to change the Node&#39;s logger level." alt="" coords="528,237,733,279"/>
+<area shape="rect" id="node6" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html#acea27c0124412815b1afad670cff7f6c" title="Start the Node." alt="" coords="13,332,215,373"/>
+<area shape="rect" id="node3" href="$classeros_1_1BaseNode.html#a3ab0a69c9166512a3b71651d87cf8833" title="Pre&#45;initialization of node. This section will create the default pub/subs for the node,..." alt="" coords="271,201,480,243"/>
+<area shape="rect" id="node4" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNode.html#a984f442063e562aa490b6e2d4b13e440" title="Start the Node." alt="" coords="18,5,210,47"/>
+<area shape="rect" id="node5" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html#af628cd15755a35ac359af5166e7576fb" title="Start the Node." alt="" coords="13,71,215,112"/>
+<area shape="rect" id="node7" href="$classSamplePackage_1_1SampleNode.html#a5bec3255ca69f34f0e067f32d614edb2" title="Start the Node." alt="" coords="5,136,223,177"/>
+<area shape="rect" id="node8" href="$classeros__nodes_1_1Infrastructure_1_1DataLoggerNode.html#ab54f4d9631b2d6f047852b1ea736db48" title="Start the Node." alt="" coords="18,201,210,243"/>
+<area shape="rect" id="node9" href="$group__eros__nodes.html#ga89103b8d074f2862e7e0669330c7e7a7" title="Start the Node." alt="" coords="18,267,210,308"/>
 </map>

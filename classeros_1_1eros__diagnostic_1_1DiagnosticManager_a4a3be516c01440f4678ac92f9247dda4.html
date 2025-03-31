@@ -72,7 +72,7 @@ $(function() {
         <table>
           <tr><td class="navtab"><a class="qindex" href="classeros_1_1eros__diagnostic_1_1DiagnosticManager_a3ad135e8319c3adc6da8b4f939b63adf.html#a3ad135e8319c3adc6da8b4f939b63adf">enable_diagnostics</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="classeros_1_1eros__diagnostic_1_1DiagnosticManager_a7d277b88de4c0f6ea97bbb77dc403e6f.html#a7d277b88de4c0f6ea97bbb77dc403e6f">pretty</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="classeros_1_1eros__diagnostic_1_1DiagnosticManager_a41743f2b66d35b851de247724e50eda4.html#a41743f2b66d35b851de247724e50eda4">pretty</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="classeros_1_1eros__diagnostic_1_1DiagnosticManager_aac517af889427e74abff090b9840b281.html#aac517af889427e74abff090b9840b281">pretty</a></td></tr>
           <tr><td class="navtab"><a class="qindexHL" href="classeros_1_1eros__diagnostic_1_1DiagnosticManager_a4a3be516c01440f4678ac92f9247dda4.html#a4a3be516c01440f4678ac92f9247dda4">read_diagnostic</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="classeros_1_1eros__diagnostic_1_1DiagnosticManager_af80fe158fbd570a9a0169b9a492fdc02.html#af80fe158fbd570a9a0169b9a492fdc02">update_diagnostic</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="classeros_1_1eros__diagnostic_1_1DiagnosticManager_ae5671b0829144ea083110169b11f32bb.html#ae5671b0829144ea083110169b11f32bb">update_diagnostic</a></td></tr>
@@ -105,7 +105,16 @@ $(function() {
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic.">Diagnostic</a> </dd></dl>
-
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                                                            {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; diagnostics.size(); ++i) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> (diagnostic_type == diagnostics.at(i).type) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> diagnostics.at(i);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    Diagnostic not_found;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> not_found;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
     </td>

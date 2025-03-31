@@ -1,0 +1,20 @@
+<map id="eros::BaseNodeProcess::request_statechange" name="eros::BaseNodeProcess::request_statechange">
+<area shape="rect" id="node1" title="Request a Node State Change." alt="" coords="336,603,511,645"/>
+<area shape="rect" id="node2" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNode.html#a80e860385512e8cd7f3f6267266aad92" title="A Node State service, used to change the Node&#39;s state." alt="" coords="33,5,260,61"/>
+<area shape="rect" id="node3" href="$classSamplePackage_1_1SampleNode.html#a220ee69b7b070d2b9b2da7e7a55bf992" title="A Node State service, used to change the Node&#39;s state." alt="" coords="38,86,255,127"/>
+<area shape="rect" id="node4" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html#a84135e8d12a1bdd57bc81340122a9e62" title="A Node State service, used to change the Node&#39;s state." alt="" coords="33,152,260,208"/>
+<area shape="rect" id="node5" href="$classeros__nodes_1_1Infrastructure_1_1DataLoggerNode.html#ae67b09f9ef0b2e3eb37e172e3699f54c" title="A Node State service, used to change the Node&#39;s state." alt="" coords="17,232,276,288"/>
+<area shape="rect" id="node6" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html#a9a2869303e95a5444d90ed46361018b2" title="A Node State service, used to change the Node&#39;s state." alt="" coords="5,312,288,368"/>
+<area shape="rect" id="node7" href="$group__eros__nodes.html#gae365a6bbc15329adadd278bcd2e5aa78" title="A Node State service, used to change the Node&#39;s state." alt="" coords="32,392,261,448"/>
+<area shape="rect" id="node8" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNode.html#a414b48c3a73251a4bebe24a0b3a44e65" title="Run code at .1 Hz. Loop 1Hz Must be Implemented in Derived Node." alt="" coords="51,473,243,514"/>
+<area shape="rect" id="node9" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html#aaafb4df2c9533426b27887d8fab4333f" title="Run code at .1 Hz. Loop 1Hz Must be Implemented in Derived Node." alt="" coords="35,538,258,579"/>
+<area shape="rect" id="node10" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html#af8d05b7ca63d4fd26b17e8062d5d8030" title="Run code at .1 Hz. Loop 1Hz Must be Implemented in Derived Node." alt="" coords="45,603,248,645"/>
+<area shape="rect" id="node11" href="$classSamplePackage_1_1SampleNode.html#a870539ba8f319730c80d3b5f761c7d94" title="Run code at .1 Hz. Loop 1Hz Must be Implemented in Derived Node." alt="" coords="38,669,255,710"/>
+<area shape="rect" id="node12" href="$classeros__nodes_1_1Infrastructure_1_1DataLoggerNode.html#ab0dc17bfeadcab048e40919671fd3da2" title="Run code at .1 Hz. Loop 1Hz Must be Implemented in Derived Node." alt="" coords="47,734,246,775"/>
+<area shape="rect" id="node13" href="$group__eros__nodes.html#gad1fb5746349dae7337bf72139258d26c" title="Run code at .1 Hz. Loop 1Hz Must be Implemented in Derived Node." alt="" coords="51,799,243,841"/>
+<area shape="rect" id="node14" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNode.html#a984f442063e562aa490b6e2d4b13e440" title="Start the Node." alt="" coords="51,865,243,906"/>
+<area shape="rect" id="node15" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html#af628cd15755a35ac359af5166e7576fb" title="Start the Node." alt="" coords="45,930,248,971"/>
+<area shape="rect" id="node16" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html#acea27c0124412815b1afad670cff7f6c" title="Start the Node." alt="" coords="45,995,248,1037"/>
+<area shape="rect" id="node17" href="$classSamplePackage_1_1SampleNode.html#a5bec3255ca69f34f0e067f32d614edb2" title="Start the Node." alt="" coords="38,1061,255,1102"/>
+<area shape="rect" id="node18" href="$group__eros__nodes.html#ga89103b8d074f2862e7e0669330c7e7a7" title="Start the Node." alt="" coords="51,1126,243,1167"/>
+</map>
