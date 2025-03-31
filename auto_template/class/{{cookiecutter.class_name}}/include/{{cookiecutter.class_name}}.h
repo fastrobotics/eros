@@ -1,7 +1,6 @@
 /*! \file {{cookiecutter.class_name}}.h
  */
-#ifndef {{cookiecutter.class_name}}_H
-#define {{cookiecutter.class_name}}_H
+#pragma once
 // C System Files
 // C++ System Files
 // ROS Base Functionality
@@ -10,17 +9,20 @@
 // ROS Actions
 // Project Includes
 #include <eros/Logger.h>
+/**
+ * @brief {{cookiecutter.package_name}} Namespace
+ *
+ */
+namespace {{cookiecutter.package_name}} {
 /*! \class {{cookiecutter.class_name}}
     \brief {{cookiecutter.class_name}}
     A description of your new Class.
 */
-class {{cookiecutter.class_name}} {
-    public:
+class {{cookiecutter.class_name}}
+{
+   public:
     // Constructors & Deconstructors
-    {{cookiecutter.class_name}}() : 
-        logger(nullptr),
-        run_time(0.0) {
-
+    {{cookiecutter.class_name}}() : logger(nullptr), run_time(0.0) {
     }
     virtual ~{{cookiecutter.class_name}}() {
     }
@@ -28,9 +30,9 @@ class {{cookiecutter.class_name}} {
 
     // Enums
     enum class Enum1 {
-        UNKNOWN = 0,        /*!< Uninitialized value. */
-        VALUE1 = 1,     /*!< Last item of list. Used for Range Checks. */
-        END_OF_LIST = 2     /*!< Last item of list. Used for Range Checks. */
+        UNKNOWN = 0,    /*!< Uninitialized value. */
+        VALUE1 = 1,     /*!< Some Value. */
+        END_OF_LIST = 2 /*!< Last item of list. Used for Range Checks. */
     };
     //! Convert {{cookiecutter.class_name}}::Enum1 to human readable string
     /*!
@@ -50,12 +52,10 @@ class {{cookiecutter.class_name}} {
       \return {{cookiecutter.class_name}}::Enum1 type
     */
     static {{cookiecutter.class_name}}::Enum1 Enum1Type(std::string v) {
-        if(v == "VALUE1")
-        {
+        if (v == "VALUE1") {
             return {{cookiecutter.class_name}}::Enum1::VALUE1;
         }
-        else
-        {
+        else {
             return {{cookiecutter.class_name}}::Enum1::UNKNOWN;
         }
     }
@@ -67,14 +67,14 @@ class {{cookiecutter.class_name}} {
     */
     struct Struct1 {
         /*@{*/
-        uint16_t Param1;        /**< Parmam1. */
-        std::string Param2;   /**< Param2. */
+        uint16_t Param1;    /**< Parmam1. */
+        std::string Param2; /**< Param2. */
         /*@}*/
     };
 
     // Initializing & Reset Functions
     /*! \brief Initialize Object. */
-    bool init(eros::Logger* _logger);
+    bool init(eros::Logger* logger);
     /*! \brief Reset Object */
     bool reset();
 
@@ -83,19 +83,23 @@ class {{cookiecutter.class_name}} {
     bool update(double dt);
 
     // Attribute Functions
-    double get_runtime() { return run_time; }
+    double get_runtime() {
+        return run_time;
+    }
 
     // Message Functions
 
     // Support Functions
 
     // Printing Functions
+    std::string pretty();
 
     // Finish Functions
     bool finish();
-    private:
-        eros::Logger* logger;
-        double run_time;
+
+   private:
+    eros::Logger* logger;
+    double run_time;
 };
 
-#endif // {{cookiecutter.class_name}}_H
+}  // namespace {{cookiecutter.package_name}}
