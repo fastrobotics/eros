@@ -20,23 +20,28 @@ void TeleopJoyNodeProcess::reset() {
 
 eros_diagnostic::Diagnostic TeleopJoyNodeProcess::update(double t_dt, double t_ros_time) {
     eros_diagnostic::Diagnostic diag = base_update(t_dt, t_ros_time);
+    // GCOVR_EXCL_START
     if (diag.level > Level::Type::WARN) {
         return diag;
     }
+    // GCOVR_EXCL_STOP
     ready_to_arm.ready_to_arm = true;
     ready_to_arm.diag = eros_diagnostic::DiagnosticUtility::convert(diag);
     return diag;
 }
 std::vector<eros_diagnostic::Diagnostic> TeleopJoyNodeProcess::new_commandmsg(eros::command cmd) {
     std::vector<eros_diagnostic::Diagnostic> diag_list = base_new_commandmsg(cmd);
+
     if (diag_list.size() == 0) {
         // No currently supported commands.
     }
     else {
         for (auto diag : diag_list) {
+            // GCOVR_EXCL_START
             if (diag.level >= Level::Type::INFO) {
                 diagnostic_manager.update_diagnostic(diag);
             }
+            // GCOVR_EXCL_STOP
         }
     }
     return diag_list;
@@ -46,10 +51,10 @@ std::vector<eros::eros_diagnostic::Diagnostic> TeleopJoyNodeProcess::new_joymsg(
     std::vector<eros_diagnostic::Diagnostic> diag_list;
     eros_diagnostic::Diagnostic diag = get_root_diagnostic();
     geometry_msgs::Twist twist;
-    twist.linear.x = 100.0 * msg.axes[1];
-    twist.angular.z = 100.0 * msg.axes[0];
+    twist.linear.x = 100.0 * msg.axes[JOY_DRIVE_THROTTLE_AXIS];
+    twist.angular.z = 100.0 * msg.axes[JOY_DRIVE_STEER_AXIS];
     cmd_vel_perc = twist;
-    if (msg.buttons[0] == 1) {
+    if (msg.buttons[JOY_BUTTON_COMMAND_ARMDISARM] == 1) {
         if (current_armed_state.state == eros::ArmDisarm::Type::DISARMED) {
             command.command.stamp = ros::Time::now();
             command.command.Command = (uint16_t)eros::Command::Type::ARM;
@@ -68,7 +73,7 @@ std::vector<eros::eros_diagnostic::Diagnostic> TeleopJoyNodeProcess::new_joymsg(
             logger->log_diagnostic(diag);
         }
     }
-    else if (msg.buttons[1] == 1) {
+    else if (msg.buttons[JOY_BUTTON_COMMAND_SNAPSHOT] == 1) {
         command.new_command = true;
         command.command.stamp = ros::Time::now();
         command.command.Command = (uint16_t)eros::Command::Type::GENERATE_SNAPSHOT;

@@ -102,7 +102,6 @@ eros_diagnostic::Diagnostic TeleopJoyNode::finish_initialization() {
         get_robotnamespace() + "SystemCommand", 10, &TeleopJoyNode::command_Callback, this);
     command_pub = n->advertise<eros::command>(get_robotnamespace() + "SystemCommand", 1);
     joy_sub = n->subscribe<sensor_msgs::Joy>("/joy", 10, &TeleopJoyNode::joy_Callback, this);
-    joy_feedback_pub = n->advertise<sensor_msgs::JoyFeedbackArray>("/joy/set_feedback", 10);
     std::string commandvel_per_topic = get_robotnamespace() + "cmd_vel_perc";
     cmd_vel_pub = n->advertise<geometry_msgs::Twist>(commandvel_per_topic, 2);
     diag = process->update_diagnostic(eros_diagnostic::DiagnosticType::SOFTWARE,
@@ -181,17 +180,6 @@ bool TeleopJoyNode::run_10hz() {
     if (current_command.new_command == true) {
         command_pub.publish(current_command.command);
     }
-    /*
-    sensor_msgs::JoyFeedbackArray feedback_array;
-    {
-        sensor_msgs::JoyFeedback feedback;
-        feedback.type = sensor_msgs::JoyFeedback::TYPE_RUMBLE;
-        feedback.id = 0;
-        feedback.intensity = 1.0;
-        feedback_array.array.push_back(feedback);
-    }
-    joy_feedback_pub.publish(feedback_array);
-    */
     return true;
 }
 void TeleopJoyNode::thread_loop() {

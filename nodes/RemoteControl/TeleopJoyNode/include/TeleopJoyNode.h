@@ -6,7 +6,6 @@
 // C++ System Files
 // ROS Base Functionality
 // ROS Messages
-#include <sensor_msgs/JoyFeedbackArray.h>
 // Project
 #include <eros/BaseNode.h>
 
@@ -96,7 +95,6 @@ class TeleopJoyNode : public eros::BaseNode
     ros::Subscriber joy_sub;
     ros::Publisher cmd_vel_pub;
     ros::Publisher command_pub;
-    ros::Publisher joy_feedback_pub;
 };
 }  // namespace eros_nodes::Infrastructure
 #endif  // TeleopJoyNode_H

@@ -15,7 +15,10 @@ class TeleopJoyNodeProcess : public eros::BaseNodeProcess
     TeleopJoyNodeProcess();
     ~TeleopJoyNodeProcess();
     // Constants
-
+    static constexpr uint8_t JOY_DRIVE_THROTTLE_AXIS = 1;
+    static constexpr uint8_t JOY_DRIVE_STEER_AXIS = 0;
+    static constexpr uint8_t JOY_BUTTON_COMMAND_ARMDISARM = 0;
+    static constexpr uint8_t JOY_BUTTON_COMMAND_SNAPSHOT = 1;
     // Enums
 
     // Structs
