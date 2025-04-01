@@ -71,7 +71,7 @@ bool SafetyNodeProcess::new_message_readytoarm(std::string name, bool ready_to_a
 bool SafetyNodeProcess::set_ready_to_arm_signals(std::vector<std::string> signals) {
     eros_diagnostic::Diagnostic diag = get_root_diagnostic();
     armed_state_manager = new eros::ArmedStateManager(
-        diag.device_name, diag.node_name, diag.system, diag.subsystem, signals);
+        diag.device_name, diag.node_name, diag.system, diag.subsystem, logger, signals);
     return true;
 }
 std::string SafetyNodeProcess::pretty() {

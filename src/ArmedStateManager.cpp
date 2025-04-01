@@ -5,6 +5,7 @@ ArmedStateManager::ArmedStateManager(std::string device_name,
                                      std::string node_name,
                                      System::MainSystem system,
                                      System::SubSystem subsystem,
+                                     Logger* _logger,
                                      std::vector<std::string> ready_to_arm_list)
     : current_diagnostic(device_name,
                          node_name,
@@ -14,7 +15,8 @@ ArmedStateManager::ArmedStateManager(std::string device_name,
                          eros_diagnostic::DiagnosticType::REMOTE_CONTROL,
                          eros_diagnostic::Message::INITIALIZING,
                          Level::Type::WARN,
-                         "Initializing") {
+                         "Initializing"),
+      logger(_logger) {
     current_armed_state.state = ArmDisarm::Type::DISARMED_CANNOTARM;
     for (auto signal_name : ready_to_arm_list) {
         ReadyToArmSignal signal(signal_name);
@@ -67,23 +69,46 @@ eros_diagnostic::Diagnostic ArmedStateManager::update(double t_ros_time) {
     }
     // State Machine for Armed State
     if ((all_ready_to_arm == false) || (any_ready_to_arm_timeout == true)) {
+        auto prev_state = current_armed_state.state;
         current_armed_state.state = ArmDisarm::Type::DISARMED_CANNOTARM;
+        if (prev_state != current_armed_state.state) {
+            logger->log_warn("Armed State Changed from: " + ArmDisarm::ArmDisarmString(prev_state) +
+                             " to: " + ArmDisarm::ArmDisarmString(current_armed_state.state));
+        }
     }
     else if (current_armed_state.state == ArmDisarm::Type::DISARMED_CANNOTARM) {
         if ((all_ready_to_arm == true) && (any_ready_to_arm_timeout == false)) {
+            auto prev_state = current_armed_state.state;
             current_armed_state.state = ArmDisarm::Type::DISARMED;
+            if (prev_state != current_armed_state.state) {
+                logger->log_notice(
+                    "Armed State Changed from: " + ArmDisarm::ArmDisarmString(prev_state) +
+                    " to: " + ArmDisarm::ArmDisarmString(current_armed_state.state));
+            }
         }
     }
     else if (current_armed_state.state == ArmDisarm::Type::ARMING) {
         arming_timer += delta_time;
         if (arming_timer >= ArmedStateManager::ARMING_TIME_SEC) {
+            auto prev_state = current_armed_state.state;
             current_armed_state.state = ArmDisarm::Type::ARMED;
+            if (prev_state != current_armed_state.state) {
+                logger->log_notice(
+                    "Armed State Changed from: " + ArmDisarm::ArmDisarmString(prev_state) +
+                    " to: " + ArmDisarm::ArmDisarmString(current_armed_state.state));
+            }
         }
     }
     else if (current_armed_state.state == ArmDisarm::Type::DISARMING) {
         disarming_timer += delta_time;
         if (disarming_timer >= ArmedStateManager::DISARMING_TIME_SEC) {
+            auto prev_state = current_armed_state.state;
             current_armed_state.state = ArmDisarm::Type::DISARMED;
+            if (prev_state != current_armed_state.state) {
+                logger->log_notice(
+                    "Armed State Changed from: " + ArmDisarm::ArmDisarmString(prev_state) +
+                    " to: " + ArmDisarm::ArmDisarmString(current_armed_state.state));
+            }
         }
     }
     diag.message = eros_diagnostic::Message::NOERROR;
@@ -96,7 +121,13 @@ eros_diagnostic::Diagnostic ArmedStateManager::new_command(eros::command cmd) {
     // Safe Armed State Change based on Commands
     if (cmd.Command == (uint16_t)Command::Type::ARM) {
         if (current_armed_state.state == ArmDisarm::Type::DISARMED) {
+            auto prev_state = current_armed_state.state;
             current_armed_state.state = ArmDisarm::Type::ARMING;
+            if (prev_state != current_armed_state.state) {
+                logger->log_notice(
+                    "Armed State Changed from: " + ArmDisarm::ArmDisarmString(prev_state) +
+                    " to: " + ArmDisarm::ArmDisarmString(current_armed_state.state));
+            }
             arming_timer = 0.0;
             diag.message = eros_diagnostic::Message::NOERROR;
             diag.level = Level::Type::INFO;
@@ -122,7 +153,13 @@ eros_diagnostic::Diagnostic ArmedStateManager::new_command(eros::command cmd) {
     }
     else if (cmd.Command == (uint16_t)Command::Type::DISARM) {
         if (current_armed_state.state == ArmDisarm::Type::ARMED) {
+            auto prev_state = current_armed_state.state;
             current_armed_state.state = ArmDisarm::Type::DISARMING;
+            if (prev_state != current_armed_state.state) {
+                logger->log_notice(
+                    "Armed State Changed from: " + ArmDisarm::ArmDisarmString(prev_state) +
+                    " to: " + ArmDisarm::ArmDisarmString(current_armed_state.state));
+            }
             disarming_timer = 0.0;
             diag.message = eros_diagnostic::Message::NOERROR;
             diag.level = Level::Type::INFO;
@@ -167,7 +204,12 @@ bool ArmedStateManager::reset() {
         it->second.update_count = 0;
         it->second.signal_timeout = true;
     }
+    auto prev_state = current_armed_state.state;
     current_armed_state.state = ArmDisarm::Type::DISARMED_CANNOTARM;
+    if (prev_state != current_armed_state.state) {
+        logger->log_warn("Armed State Changed from: " + ArmDisarm::ArmDisarmString(prev_state) +
+                         " to: " + ArmDisarm::ArmDisarmString(current_armed_state.state));
+    }
     return true;
 }
 std::string ArmedStateManager::pretty() {

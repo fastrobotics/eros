@@ -49,6 +49,31 @@ std::vector<eros::eros_diagnostic::Diagnostic> TeleopJoyNodeProcess::new_joymsg(
     twist.linear.x = 100.0 * msg.axes[1];
     twist.angular.z = 100.0 * msg.axes[0];
     cmd_vel_perc = twist;
+    if (msg.buttons[0] == 1) {
+        if (current_armed_state.state == eros::ArmDisarm::Type::DISARMED) {
+            command.command.stamp = ros::Time::now();
+            command.command.Command = (uint16_t)eros::Command::Type::ARM;
+            command.new_command = true;
+        }
+        else if (current_armed_state.state == eros::ArmDisarm::Type::ARMED) {
+            command.command.stamp = ros::Time::now();
+            command.command.Command = (uint16_t)eros::Command::Type::DISARM;
+            command.new_command = true;
+        }
+        else {
+            diag = update_diagnostic(eros_diagnostic::DiagnosticType::REMOTE_CONTROL,
+                                     Level::Type::WARN,
+                                     eros_diagnostic::Message::DIAGNOSTIC_FAILED,
+                                     "Arm/Disarm Command Not Allowed.");
+            logger->log_diagnostic(diag);
+        }
+    }
+    else if (msg.buttons[1] == 1) {
+        command.new_command = true;
+        command.command.stamp = ros::Time::now();
+        command.command.Command = (uint16_t)eros::Command::Type::GENERATE_SNAPSHOT;
+        command.command.Option1 = (uint16_t)eros::Command::GenerateSnapshot_Option1::RUN_MASTER;
+    }
 
     diag_list.push_back(diag);
     diag = update_diagnostic(diag);

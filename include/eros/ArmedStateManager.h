@@ -1,6 +1,7 @@
 /*! \file ArmedStateManager.h
  */
 #pragma once
+#include <eros/Logger.h>
 #include <eros/armed_state.h>
 #include <eros/command.h>
 #include <eros_diagnostic/Diagnostic.h>
@@ -31,6 +32,7 @@ class ArmedStateManager
                       std::string node_name,
                       System::MainSystem system,
                       System::SubSystem subsystem,
+                      Logger* logger,
                       std::vector<std::string> ready_to_arm_list);
     ~ArmedStateManager();
     // Constants
@@ -79,6 +81,7 @@ class ArmedStateManager
 
    private:
     eros_diagnostic::Diagnostic current_diagnostic;
+    Logger* logger;
     ArmDisarm::State current_armed_state;
     std::map<std::string, ReadyToArmSignal> ready_to_arm_signals;
     double current_time{-1.0};

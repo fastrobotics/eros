@@ -19,6 +19,10 @@ class TeleopJoyNodeProcess : public eros::BaseNodeProcess
     // Enums
 
     // Structs
+    struct CommandContainer {
+        bool new_command{false};
+        eros::command command;
+    };
 
     // Initialization Functions
     eros::eros_diagnostic::Diagnostic finish_initialization();
@@ -31,6 +35,11 @@ class TeleopJoyNodeProcess : public eros::BaseNodeProcess
     geometry_msgs::Twist get_cmd_twist() {
         return cmd_vel_perc;
     }
+    CommandContainer get_current_command() {
+        auto current_command = command;
+        command.new_command = false;
+        return current_command;
+    }
 
     // Utility Functions
 
@@ -40,6 +49,9 @@ class TeleopJoyNodeProcess : public eros::BaseNodeProcess
     // Message Functions
     std::vector<eros::eros_diagnostic::Diagnostic> new_commandmsg(eros::command msg);
     std::vector<eros::eros_diagnostic::Diagnostic> new_joymsg(sensor_msgs::Joy msg);
+    void update_armedstate(eros::ArmDisarm::State armed_state) {
+        current_armed_state = armed_state;
+    }
 
     // Destructors
     void cleanup() {
@@ -52,5 +64,7 @@ class TeleopJoyNodeProcess : public eros::BaseNodeProcess
 
    private:
     geometry_msgs::Twist cmd_vel_perc;
+    CommandContainer command;
+    eros::ArmDisarm::State current_armed_state;
 };
 }  // namespace eros_nodes::Infrastructure
