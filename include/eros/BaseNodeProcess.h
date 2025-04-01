@@ -164,6 +164,9 @@ class BaseNodeProcess
     Logger* get_logger() {
         return logger;
     }
+    std::vector<Command::Type> get_supported_commands() {
+        return supported_commands;
+    }
 
     // Data Functions
 

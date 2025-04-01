@@ -20,6 +20,7 @@ std::vector<eros_diagnostic::Diagnostic> BaseNodeProcess::base_new_commandmsg(er
     for (auto supported_cmd_type : supported_commands) {
         if (supported_cmd_type == cmd_type) {
             found_it = true;
+            // Don't do anything, including adding a diagnostic. The concrete class should do that.
         }
     }
     if (found_it == false) {

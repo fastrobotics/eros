@@ -25,13 +25,8 @@ void DiagnosticNode::system_commandAction_Callback(const eros::system_commandGoa
 }
 void DiagnosticNode::command_Callback(const eros::command::ConstPtr &t_msg) {
     eros::command cmd = eros_utility::ConvertUtility::convert_fromptr(t_msg);
-    eros_diagnostic::Diagnostic diag = process->get_root_diagnostic();
-    diag = process->update_diagnostic(
-        eros_diagnostic::DiagnosticType::COMMUNICATIONS,
-        Level::Type::WARN,
-        eros_diagnostic::Message::DROPPING_PACKETS,
-        "Received unsupported Command: " + Command::CommandString((Command::Type)cmd.Command));
-    logger->log_diagnostic(diag);
+    auto diag_list = process->new_commandmsg(cmd);
+    for (auto diag : diag_list) { logger->log_diagnostic(diag); }
 }
 void DiagnosticNode::diagnostic_Callback(const eros::diagnostic::ConstPtr &t_msg) {
     eros::diagnostic eros_diag = eros_utility::ConvertUtility::convert_fromptr(t_msg);

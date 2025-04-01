@@ -31,6 +31,8 @@ TEST(BasicTest, TestOperation) {
     diagnostic_types.push_back(eros_diagnostic::DiagnosticType::SYSTEM_RESOURCE);
     diagnostic_types.push_back(eros_diagnostic::DiagnosticType::COMMUNICATIONS);
     tester->enable_diagnostics(diagnostic_types);
+    eros_diagnostic::Diagnostic diag = tester->finish_initialization();
+    EXPECT_TRUE(diag.level <= Level::Type::NOTICE);
     EXPECT_TRUE(tester->get_logger()->log_warn("A Log to Write") ==
                 Logger::LoggerStatus::LOG_WRITTEN);
 
@@ -56,6 +58,8 @@ TEST(TestCommands, TestAllCommands) {
     std::vector<eros_diagnostic::DiagnosticType> diagnostic_types;
     diagnostic_types.push_back(eros_diagnostic::DiagnosticType::SOFTWARE);
     tester->enable_diagnostics(diagnostic_types);
+    eros_diagnostic::Diagnostic diag = tester->finish_initialization();
+    EXPECT_TRUE(diag.level <= Level::Type::NOTICE);
     for (uint8_t i = (uint16_t)Command::Type::UNKNOWN; i < (uint16_t)Command::Type::END_OF_LIST;
          ++i) {
         eros::command new_cmd;
