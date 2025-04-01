@@ -37,7 +37,10 @@ class BaseNodeProcessTester : public BaseNodeProcess
     }
     std::vector<eros_diagnostic::Diagnostic> new_commandmsg(eros::command msg) {
         eros_diagnostic::Diagnostic diag = diagnostic_manager.get_root_diagnostic();
-        std::vector<eros_diagnostic::Diagnostic> diag_list;
+        std::vector<eros_diagnostic::Diagnostic> diag_list = base_new_commandmsg(msg);
+        if (diag_list.size() == 0) {
+            // I need to actually process this message.
+        }
         (void)msg;
         return diag_list;
     }
@@ -324,6 +327,31 @@ TEST(DirectoryReadTests, DirectoryReadTestsCases) {
     {
         std::vector<std::string> fileList = tester->get_files_indir(std::string(getenv("HOME")));
         EXPECT_GT(fileList.size(), 0);
+    }
+
+    delete tester;
+    delete logger;
+}
+TEST(TestCommands, TestAllCommands) {
+    Logger* logger = new Logger("DEBUG", "UnitTestBaseNodeProcess");
+    BaseNodeProcessTester* tester = new BaseNodeProcessTester;
+    tester->initialize("UnitTestBaseNodeProcess",
+                       "UnitTestBaseNodeProcessInstance",
+                       get_hostname(),
+                       System::MainSystem::SIMROVER,
+                       System::SubSystem::ENTIRE_SYSTEM,
+                       System::Component::ENTIRE_SUBSYSTEM,
+                       logger);
+    std::vector<eros_diagnostic::DiagnosticType> diagnostic_types;
+    diagnostic_types.push_back(eros_diagnostic::DiagnosticType::SOFTWARE);
+    tester->enable_diagnostics(diagnostic_types);
+    for (uint8_t i = (uint16_t)Command::Type::UNKNOWN; i < (uint16_t)Command::Type::END_OF_LIST;
+         ++i) {
+        eros::command new_cmd;
+        new_cmd.Command = i;
+        std::vector<eros_diagnostic::Diagnostic> diag_list = tester->new_commandmsg(new_cmd);
+        EXPECT_GT(diag_list.size(), 0);
+        for (auto diag : diag_list) { EXPECT_TRUE(diag.level < Level::Type::WARN); }
     }
 
     delete tester;

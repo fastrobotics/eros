@@ -164,14 +164,17 @@ eros_diagnostic::Diagnostic SystemMonitorProcess::update(double t_dt, double t_r
     return diag;
 }
 std::vector<eros_diagnostic::Diagnostic> SystemMonitorProcess::new_commandmsg(eros::command msg) {
-    (void)msg;  // Not currently used.
-    std::vector<eros_diagnostic::Diagnostic> diag_list;
-    eros_diagnostic::Diagnostic diag = diagnostic_manager.get_root_diagnostic();
-    diag = diagnostic_manager.update_diagnostic(eros_diagnostic::DiagnosticType::SOFTWARE,
-                                                Level::Type::INFO,
-                                                eros_diagnostic::Message::NOERROR,
-                                                "Processed Command.");
-    diag_list.push_back(diag);
+    std::vector<eros_diagnostic::Diagnostic> diag_list = base_new_commandmsg(msg);
+    if (diag_list.size() == 0) {
+        // No currently supported commands.
+    }
+    else {
+        for (auto diag : diag_list) {
+            if (diag.level >= Level::Type::INFO) {
+                diagnostic_manager.update_diagnostic(diag);
+            }
+        }
+    }
     return diag_list;
 }
 std::vector<eros_diagnostic::Diagnostic> SystemMonitorProcess::check_programvariables() {

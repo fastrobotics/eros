@@ -11,12 +11,17 @@ function print_usage()
         update: Update
         code_coverage: Run Code Coverage Scan
         plantuml: Generate plantuml Images
-        regression: Run Regression Tests"
+        regression: Run Regression Tests
+        regen: Regenerate Auto-Code"
     exit 1
 }
 function update {
     ./scripts/create_from_template.py -t auto_template/class/ -o sample/SampleClass/ -i 0
     ./scripts/create_from_template.py -t auto_template/node/ -o sample/SampleNode/ -i 0
+}
+function regen_autocode {
+    cookiecutter -f auto_template/node -o auto_code --no-input
+    cookiecutter -f auto_template/class -o auto_code --no-input
 }
 # Code Coverage Scan
 function code_coverage_scan {
@@ -26,7 +31,7 @@ function code_coverage_scan {
     rm -r -f $coverage_dir
     fi
     mkdir $coverage_dir
-    gcov_cmd="gcovr $bin_dir/eros -x $coverage_dir/coverage.xml -s --html-details -o $coverage_dir/coverage.html  --exclude ^src.*/test_[^/]*.cpp  --exclude ^nodes.*/test_[^/]*.cpp --exclude devel --fail-under-line $LINE_COVERAGE_THRESHOLD --fail-under-branch $BRANCH_COVERAGE_THRESHOLD --exclude-throw-branches --exclude-unreachable-branches"
+    gcov_cmd="gcovr $bin_dir/eros -x $coverage_dir/coverage.xml -s --html-details -o $coverage_dir/coverage.html  --exclude ^src.*/test_[^/]*.cpp  --exclude ^nodes.*/test_[^/]*.cpp --exclude ^auto_code.*/test_[^/]*.cpp --exclude devel --fail-under-line $LINE_COVERAGE_THRESHOLD --fail-under-branch $BRANCH_COVERAGE_THRESHOLD --exclude-throw-branches --exclude-unreachable-branches"
     
     echo $gcov_cmd
     eval "$gcov_cmd"
@@ -48,7 +53,7 @@ function code_coverage_scan {
 }
 function generate_plantuml {
 
-    plantuml -tpng -r -o output "*/**.puml"
+    plantuml -x "auto_template*/**/*.puml" -tpng -r  -o output "*/**.puml"
     status=$?
     exit $status
 }
@@ -109,6 +114,7 @@ else
         "code_coverage") code_coverage_scan;;
         "plantuml") generate_plantuml;;
         "regression") run_regression;;
+        "regen") regen_autocode;;
     esac
 fi
 exit 0

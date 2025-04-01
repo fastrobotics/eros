@@ -1,0 +1,16 @@
+@startuml
+title SampleClass Sequence Diagram
+actor User as user
+participant SampleClass as class
+
+alt initialize
+activate class
+user -> class++: init(Logger)
+class --> user--: status
+end
+
+alt execute
+user -> class++: update(dt)
+class --> user--: status
+end
+@enduml
