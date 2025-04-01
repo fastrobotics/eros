@@ -17,6 +17,14 @@ eros_diagnostic::Diagnostic SnapshotProcess::finish_initialization() {
                                                     eros_diagnostic::Message::DEVICE_NOT_AVAILABLE,
                                                     "Architecture not set!");
     }
+    // Set Supported Commands
+    // Command::Type::GENERATE_SNAPSHOT
+    std::vector<Command::Type> supported_commands;
+    {
+        Command::Type cmd = Command::Type::GENERATE_SNAPSHOT;
+        supported_commands.push_back(cmd);
+    }
+    enable_commands(supported_commands);
     return diag;
 }
 void SnapshotProcess::reset() {
@@ -56,40 +64,51 @@ std::vector<eros_diagnostic::Diagnostic> SnapshotProcess::new_commandstatemsg(
     return diag_list;
 }
 std::vector<eros_diagnostic::Diagnostic> SnapshotProcess::new_commandmsg(eros::command t_msg) {
-    eros_diagnostic::Diagnostic diag = get_root_diagnostic();
-    std::vector<eros_diagnostic::Diagnostic> diag_list;
-    if (t_msg.Command == (uint16_t)Command::Type::GENERATE_SNAPSHOT) {
-        if (((mode == Mode::MASTER) &&
-             (t_msg.Option1 == (uint16_t)Command::GenerateSnapshot_Option1::RUN_MASTER)) ||
-            ((mode == Mode::SLAVE) &&
-             (t_msg.Option1 == (uint16_t)Command::GenerateSnapshot_Option1::RUN_SLAVE))) {
-            if ((systemsnapshot_state != SnapshotState::NOTRUNNING) ||
-                (devicesnapshot_state != SnapshotState::NOTRUNNING)) {
-                diag = update_diagnostic(eros_diagnostic::DiagnosticType::DATA_STORAGE,
-                                         Level::Type::WARN,
-                                         eros_diagnostic::Message::DROPPING_PACKETS,
-                                         "Snapshot is still being generated.");
-                diag_list.push_back(diag);
-                return diag_list;
+    (void)t_msg;  // Currently Unused
+    std::vector<eros_diagnostic::Diagnostic> diag_list = base_new_commandmsg(t_msg);
+    if (diag_list.size() == 0) {
+        eros_diagnostic::Diagnostic diag = get_root_diagnostic();
+        if (t_msg.Command == (uint16_t)Command::Type::GENERATE_SNAPSHOT) {
+            if (((mode == Mode::MASTER) &&
+                 (t_msg.Option1 == (uint16_t)Command::GenerateSnapshot_Option1::RUN_MASTER)) ||
+                ((mode == Mode::SLAVE) &&
+                 (t_msg.Option1 == (uint16_t)Command::GenerateSnapshot_Option1::RUN_SLAVE))) {
+                if ((systemsnapshot_state != SnapshotState::NOTRUNNING) ||
+                    (devicesnapshot_state != SnapshotState::NOTRUNNING)) {
+                    diag = update_diagnostic(eros_diagnostic::DiagnosticType::DATA_STORAGE,
+                                             Level::Type::WARN,
+                                             eros_diagnostic::Message::DROPPING_PACKETS,
+                                             "Snapshot is still being generated.");
+                    diag_list.push_back(diag);
+                    return diag_list;
+                }
+                else {
+                    if (mode == Mode::MASTER) {
+                        systemsnapshot_state = SnapshotState::STARTED;
+                    }
+                    devicesnapshot_state = SnapshotState::STARTED;
+                    diag = update_diagnostic(eros_diagnostic::DiagnosticType::DATA_STORAGE,
+                                             Level::Type::INFO,
+                                             eros_diagnostic::Message::NOERROR,
+                                             "Snapshot Started.");
+                }
+            }
+            else if ((t_msg.Option1 ==
+                      (uint16_t)Command::GenerateSnapshot_Option1::CLEAR_SNAPSHOTS)) {
+                diag_list = clear_snapshots();
             }
             else {
-                if (mode == Mode::MASTER) {
-                    systemsnapshot_state = SnapshotState::STARTED;
-                }
-                devicesnapshot_state = SnapshotState::STARTED;
-                diag = update_diagnostic(eros_diagnostic::DiagnosticType::DATA_STORAGE,
-                                         Level::Type::INFO,
-                                         eros_diagnostic::Message::NOERROR,
-                                         "Snapshot Started.");
             }
-        }
-        else if ((t_msg.Option1 == (uint16_t)Command::GenerateSnapshot_Option1::CLEAR_SNAPSHOTS)) {
-            diag_list = clear_snapshots();
         }
         else {
         }
     }
     else {
+        for (auto diag : diag_list) {
+            if (diag.level >= Level::Type::INFO) {
+                diagnostic_manager.update_diagnostic(diag);
+            }
+        }
     }
     return diag_list;
 }

@@ -13,6 +13,26 @@ eros_diagnostic::Diagnostic BaseNodeProcess::base_update(double t_dt, double t_s
     }
     return diag;
 }
+std::vector<eros_diagnostic::Diagnostic> BaseNodeProcess::base_new_commandmsg(eros::command t_msg) {
+    std::vector<eros_diagnostic::Diagnostic> diag_list;
+    Command::Type cmd_type = (Command::Type)t_msg.Command;
+    bool found_it = false;
+    for (auto supported_cmd_type : supported_commands) {
+        if (supported_cmd_type == cmd_type) {
+            found_it = true;
+            // Don't do anything, including adding a diagnostic. The concrete class should do that.
+        }
+    }
+    if (found_it == false) {
+        eros_diagnostic::Diagnostic diag = diagnostic_manager.update_diagnostic(
+            eros_diagnostic::DiagnosticType::SOFTWARE,
+            Level::Type::DEBUG,
+            eros_diagnostic::Message::NOERROR,
+            "Command Type: " + Command::CommandString(cmd_type) + " Not Enabled.  Ignoring.");
+        diag_list.push_back(diag);
+    }
+    return diag_list;
+}
 bool BaseNodeProcess::request_statechange(Node::State newstate, bool override) {
     Node::State current_state = node_state;
     bool state_changed = false;

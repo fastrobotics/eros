@@ -104,6 +104,10 @@ class BaseNodeProcess
     bool enable_diagnostics(std::vector<eros_diagnostic::DiagnosticType> diagnostic_types) {
         return diagnostic_manager.enable_diagnostics(diagnostic_types);
     }
+    bool enable_commands(std::vector<Command::Type> commands) {
+        supported_commands = commands;
+        return true;
+    }
 
     /*! \brief Resets Process. Used for counters, timers, etc.*/
     virtual void reset() = 0;
@@ -160,6 +164,9 @@ class BaseNodeProcess
     Logger* get_logger() {
         return logger;
     }
+    std::vector<Command::Type> get_supported_commands() {
+        return supported_commands;
+    }
 
     // Data Functions
 
@@ -206,7 +213,7 @@ class BaseNodeProcess
       \param t_system_time The current system time.
       \return A Diagnostic reflecting the status of the function.
     */
-
+    std::vector<eros_diagnostic::Diagnostic> base_new_commandmsg(eros::command t_msg);
     Logger* logger;
     std::string hostname;
     std::string base_node_name;
@@ -219,5 +226,6 @@ class BaseNodeProcess
    private:
     double run_time, system_time;
     std::string homeDir;
+    std::vector<Command::Type> supported_commands;
 };
 }  // namespace eros

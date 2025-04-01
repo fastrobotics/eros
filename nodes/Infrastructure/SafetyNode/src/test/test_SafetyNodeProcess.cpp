@@ -39,6 +39,10 @@ TEST(BasicTest, TestOperation) {
     topics.push_back("Topic3");
     EXPECT_TRUE(tester->set_ready_to_arm_signals(topics));
 
+    eros_diagnostic::Diagnostic diag = tester->finish_initialization();
+    EXPECT_TRUE(diag.level <= Level::Type::NOTICE);
+    EXPECT_GT(tester->get_supported_commands().size(), 0);
+
     EXPECT_TRUE(tester->get_armed_state().armed_state ==
                 (uint8_t)ArmDisarm::Type::DISARMED_CANNOTARM);
     double current_time = 0.0;
@@ -185,6 +189,39 @@ TEST(BasicTest, TestOperation) {
 
     delete logger;
     delete tester;
+}
+TEST(TestCommands, TestAllCommands) {
+    Logger* logger = new Logger("DEBUG", "UnitTestSafetyNodeProcess");
+    SafetyNodeProcessTester* tester = new SafetyNodeProcessTester;
+    tester->initialize("UnitTestSafetyNodeProcess",
+                       "UnitTestSafetyNodeProcess",
+                       "MyHost",
+                       System::MainSystem::SIMROVER,
+                       System::SubSystem::ENTIRE_SYSTEM,
+                       System::Component::ENTIRE_SUBSYSTEM,
+                       logger);
+    std::vector<eros_diagnostic::DiagnosticType> diagnostic_types;
+    diagnostic_types.push_back(eros_diagnostic::DiagnosticType::SOFTWARE);
+    diagnostic_types.push_back(eros_diagnostic::DiagnosticType::DATA_STORAGE);
+    diagnostic_types.push_back(eros_diagnostic::DiagnosticType::SYSTEM_RESOURCE);
+    diagnostic_types.push_back(eros_diagnostic::DiagnosticType::COMMUNICATIONS);
+    diagnostic_types.push_back(eros_diagnostic::DiagnosticType::REMOTE_CONTROL);
+    tester->enable_diagnostics(diagnostic_types);
+    eros_diagnostic::Diagnostic diag = tester->finish_initialization();
+    for (uint8_t i = (uint16_t)Command::Type::UNKNOWN; i < (uint16_t)Command::Type::END_OF_LIST;
+         ++i) {
+        if (((Command::Type)i == Command::Type::ARM) ||
+            ((Command::Type)i == Command::Type::DISARM)) {  // Don't test this, other tests do this.
+            continue;
+        }
+        eros::command new_cmd;
+        new_cmd.Command = i;
+        std::vector<eros_diagnostic::Diagnostic> diag_list = tester->new_commandmsg(new_cmd);
+        EXPECT_GT(diag_list.size(), 0);
+        for (auto diag : diag_list) { EXPECT_TRUE(diag.level < Level::Type::WARN); }
+    }
+
+    delete logger;
 }
 int main(int argc, char** argv) {
     testing::InitGoogleTest(&argc, argv);

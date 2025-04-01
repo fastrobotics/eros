@@ -26,13 +26,8 @@ void SampleNode::system_commandAction_Callback(const eros::system_commandGoalCon
 }
 void SampleNode::command_Callback(const eros::command::ConstPtr &t_msg) {
     eros::command cmd = eros_utility::ConvertUtility::convert_fromptr(t_msg);
-    eros_diagnostic::Diagnostic diag = process->get_root_diagnostic();
-    diag = process->update_diagnostic(
-        eros_diagnostic::DiagnosticType::COMMUNICATIONS,
-        Level::Type::WARN,
-        eros_diagnostic::Message::DROPPING_PACKETS,
-        "Received unsupported Command: " + Command::CommandString((Command::Type)cmd.Command));
-    logger->log_diagnostic(diag);
+    auto diag_list = process->new_commandmsg(cmd);
+    for (auto diag : diag_list) { logger->log_diagnostic(diag); }
 }
 bool SampleNode::changenodestate_service(eros::srv_change_nodestate::Request &req,
                                          eros::srv_change_nodestate::Response &res) {

@@ -27,6 +27,7 @@ package eros {
         +{abstract} eros_diagnostic::Diagnostic finish_initialization()
         +bool enable_diagnostics(std::vector<eros_diagnostic::DiagnosticType> diagnostic_types)
         +{abstract} void reset()
+        +bool enable_commands(<Command::Type[] commands)
 
         -- Update Functions --
         +{abstract} eros_diagnostic::Diagnostic update(double t_dt, double t_ros_time)
@@ -56,6 +57,7 @@ package eros {
         -- Message Functions --
         +bool request_statechange(Node::State newstate,bool override = false)
         +{abstract} std::vector<eros_diagnostic::Diagnostic> new_commandmsg(eros::command t_msg)
+        #Diagnostic[] base_new_commandmsg(command t_msg)
         
         -- Support Functions --
         +{abstract} std::vector<eros_diagnostic::Diagnostic> check_programvariables() 

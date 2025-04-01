@@ -17,6 +17,14 @@ alt initialize
     node--
 end
 
+alt messages
+    alt Command
+        user -> node++: command_Callback(cmd)
+        node -> process++: new_commandmsg(cmd)
+        process --> node--: diag_list
+        node --> logger: log_diag(diag_list)
+    end
+end
 alt loops
     alt loop1
         node -> node++: run_loop1
