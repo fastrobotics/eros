@@ -28,10 +28,17 @@ eros_diagnostic::Diagnostic TeleopJoyNodeProcess::update(double t_dt, double t_r
     return diag;
 }
 std::vector<eros_diagnostic::Diagnostic> TeleopJoyNodeProcess::new_commandmsg(eros::command cmd) {
-    std::vector<eros_diagnostic::Diagnostic> diag_list;
-    eros_diagnostic::Diagnostic diag = get_root_diagnostic();
-    diag_list.push_back(diag);
-    diag = update_diagnostic(diag);
+    std::vector<eros_diagnostic::Diagnostic> diag_list = base_new_commandmsg(cmd);
+    if (diag_list.size() == 0) {
+        // No currently supported commands.
+    }
+    else {
+        for (auto diag : diag_list) {
+            if (diag.level >= Level::Type::INFO) {
+                diagnostic_manager.update_diagnostic(diag);
+            }
+        }
+    }
     return diag_list;
 }
 std::vector<eros::eros_diagnostic::Diagnostic> TeleopJoyNodeProcess::new_joymsg(

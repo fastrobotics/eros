@@ -19,7 +19,9 @@ void TeleopJoyNode::system_commandAction_Callback(const eros::system_commandGoal
     system_command_action_server.setAborted(system_commandResult_);
 }
 void TeleopJoyNode::command_Callback(const eros::command::ConstPtr &t_msg) {
-    process->new_commandmsg(eros_utility::ConvertUtility::convert_fromptr(t_msg));
+    eros::command cmd = eros_utility::ConvertUtility::convert_fromptr(t_msg);
+    auto diag_list = process->new_commandmsg(cmd);
+    for (auto diag : diag_list) { logger->log_diagnostic(diag); }
 }
 void TeleopJoyNode::joy_Callback(const sensor_msgs::Joy::ConstPtr &t_msg) {
     process->new_joymsg(eros_utility::ConvertUtility::convert_fromptr(t_msg));
