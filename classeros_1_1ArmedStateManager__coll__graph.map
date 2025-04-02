@@ -1,5 +1,6 @@
 <map id="eros::ArmedStateManager" name="eros::ArmedStateManager">
-<area shape="rect" id="node1" title="ArmedStateManager class is responsible for managing the robot&#39;s Armed State." alt="" coords="85,109,277,136"/>
+<area shape="rect" id="node1" title="ArmedStateManager class is responsible for managing the robot&#39;s Armed State." alt="" coords="145,109,337,136"/>
 <area shape="rect" id="node2" href="$structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic." alt="" coords="5,5,165,47"/>
-<area shape="rect" id="node3" href="$structeros_1_1ArmDisarm_1_1State.html" title="ArmDisarm Container Holds information about ArmDisarm." alt="" coords="190,13,365,39"/>
+<area shape="rect" id="node3" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="190,13,293,39"/>
+<area shape="rect" id="node4" href="$structeros_1_1ArmDisarm_1_1State.html" title="ArmDisarm Container Holds information about ArmDisarm." alt="" coords="317,13,491,39"/>
 </map>

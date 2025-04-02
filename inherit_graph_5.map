@@ -1,11 +1,12 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classeros_1_1BaseNode.html" title="This is a BaseNode class. All Nodes should be a derived class from this Base Class." alt="" coords="5,242,129,269"/>
+<area shape="rect" id="node1" href="$classeros_1_1BaseNode.html" title="This is a BaseNode class. All Nodes should be a derived class from this Base Class." alt="" coords="5,274,129,301"/>
 <area shape="rect" id="node2" href="$classeros__nodes_1_1Infrastructure_1_1DataLoggerNode.html" title="A Node that can be used to collect bag files. Configured as either always logging to disk,..." alt="" coords="190,5,382,47"/>
 <area shape="rect" id="node3" href="$classeros__nodes_1_1Infrastructure_1_1DiagnosticNode.html" title="A node used to collect diagnostic information." alt="" coords="190,71,382,112"/>
 <area shape="rect" id="node4" href="$classeros__nodes_1_1Infrastructure_1_1MasterNode.html" title="MasterNode is used to provide information about a host device." alt="" coords="190,136,382,177"/>
 <area shape="rect" id="node5" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNode.html" title="The SafetyNode is used to control a system Safely." alt="" coords="190,201,382,243"/>
 <area shape="rect" id="node6" href="$classeros__nodes_1_1Infrastructure_1_1SnapshotNode.html" title="The SnapshotNode is used to collect diagnostic information about a device for future analysis." alt="" coords="190,267,382,308"/>
-<area shape="rect" id="node7" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html" title=" " alt="" coords="185,332,387,373"/>
-<area shape="rect" id="node8" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html" title="The SystemMonitorNode is used to monitor the state of the System." alt="" coords="185,397,387,439"/>
-<area shape="rect" id="node9" href="$classSamplePackage_1_1SampleNode.html" title=" " alt="" coords="177,463,395,490"/>
+<area shape="rect" id="node7" href="$classeros__nodes_1_1Infrastructure_1_1TeleopJoyNode.html" title="The TeleopJoyNode is used to control a system Safely." alt="" coords="190,332,382,373"/>
+<area shape="rect" id="node8" href="$classeros__nodes_1_1RemoteControl_1_1TeleopNode.html" title=" " alt="" coords="185,397,387,439"/>
+<area shape="rect" id="node9" href="$classeros__nodes_1_1SystemMonitor_1_1SystemMonitorNode.html" title="The SystemMonitorNode is used to monitor the state of the System." alt="" coords="185,463,387,504"/>
+<area shape="rect" id="node10" href="$classSamplePackage_1_1SampleNode.html" title=" " alt="" coords="177,529,395,555"/>
 </map>

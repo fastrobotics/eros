@@ -85,9 +85,10 @@ Collaboration diagram for eros::ArmedStateManager:</div>
 <div class="dyncontent">
 <div class="center"><img src="classeros_1_1ArmedStateManager__coll__graph.png" border="0" usemap="#eros_1_1ArmedStateManager_coll__map" alt="Collaboration graph"/></div>
 <map name="eros_1_1ArmedStateManager_coll__map" id="eros_1_1ArmedStateManager_coll__map">
-<area shape="rect" title="ArmedStateManager class is responsible for managing the robot&#39;s Armed State." alt="" coords="85,109,277,136"/>
+<area shape="rect" title="ArmedStateManager class is responsible for managing the robot&#39;s Armed State." alt="" coords="145,109,337,136"/>
 <area shape="rect" href="structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic." alt="" coords="5,5,165,47"/>
-<area shape="rect" href="structeros_1_1ArmDisarm_1_1State.html" title="ArmDisarm Container Holds information about ArmDisarm." alt="" coords="190,13,365,39"/>
+<area shape="rect" href="classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="190,13,293,39"/>
+<area shape="rect" href="structeros_1_1ArmDisarm_1_1State.html" title="ArmDisarm Container Holds information about ArmDisarm." alt="" coords="317,13,491,39"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -98,9 +99,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a99fdeec07bd4d3bb7a60fadd91ffd076"><td class="memItemLeft" align="right" valign="top"><a id="a99fdeec07bd4d3bb7a60fadd91ffd076"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ArmedStateManager</b> (std::string device_name, std::string node_name, <a class="el" href="group__eros_ga7c607a1224b68fbf12782f6969aa5c4b.html#ga7c607a1224b68fbf12782f6969aa5c4b">System::MainSystem</a> system, <a class="el" href="group__eros_ga3adcdfcbabd1045cf45829dff620b1ab.html#ga3adcdfcbabd1045cf45829dff620b1ab">System::SubSystem</a> subsystem, std::vector&lt; std::string &gt; ready_to_arm_list)</td></tr>
-<tr class="separator:a99fdeec07bd4d3bb7a60fadd91ffd076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d110d01aaf7ecf64a3a1348e756cce7"><td class="memItemLeft" align="right" valign="top"><a id="a8d110d01aaf7ecf64a3a1348e756cce7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ArmedStateManager</b> (std::string device_name, std::string node_name, <a class="el" href="group__eros_ga7c607a1224b68fbf12782f6969aa5c4b.html#ga7c607a1224b68fbf12782f6969aa5c4b">System::MainSystem</a> system, <a class="el" href="group__eros_ga3adcdfcbabd1045cf45829dff620b1ab.html#ga3adcdfcbabd1045cf45829dff620b1ab">System::SubSystem</a> subsystem, <a class="el" href="classeros_1_1Logger.html">Logger</a> *logger, std::vector&lt; std::string &gt; ready_to_arm_list)</td></tr>
+<tr class="separator:a8d110d01aaf7ecf64a3a1348e756cce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f71f81cb28f01a4dc550559d5f53161"><td class="memItemLeft" align="right" valign="top"><a id="a9f71f81cb28f01a4dc550559d5f53161"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
 <tr class="separator:a9f71f81cb28f01a4dc550559d5f53161"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,6 +150,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:addeaafbee30ec8706853920131cfc563"><td class="memItemLeft" align="right" valign="top"><a id="addeaafbee30ec8706853920131cfc563"></a>
 <a class="el" href="structeros_1_1eros__diagnostic_1_1Diagnostic.html">eros_diagnostic::Diagnostic</a>&#160;</td><td class="memItemRight" valign="bottom"><b>current_diagnostic</b></td></tr>
 <tr class="separator:addeaafbee30ec8706853920131cfc563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a257c13b6c2064124df295645a480e56a"><td class="memItemLeft" align="right" valign="top"><a id="a257c13b6c2064124df295645a480e56a"></a>
+<a class="el" href="classeros_1_1Logger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b></td></tr>
+<tr class="separator:a257c13b6c2064124df295645a480e56a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adff6545c3e990f89f17d97aca65d18ed"><td class="memItemLeft" align="right" valign="top"><a id="adff6545c3e990f89f17d97aca65d18ed"></a>
 <a class="el" href="structeros_1_1ArmDisarm_1_1State.html">ArmDisarm::State</a>&#160;</td><td class="memItemRight" valign="bottom"><b>current_armed_state</b></td></tr>
 <tr class="separator:adff6545c3e990f89f17d97aca65d18ed"><td class="memSeparator" colspan="2">&#160;</td></tr>

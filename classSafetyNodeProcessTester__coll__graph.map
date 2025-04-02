@@ -1,10 +1,10 @@
 <map id="SafetyNodeProcessTester" name="SafetyNodeProcessTester">
-<area shape="rect" id="node1" title=" " alt="" coords="1211,37,1397,64"/>
-<area shape="rect" id="node2" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNodeProcess.html" title="The process utility for the Safety Node." alt="" coords="969,30,1161,71"/>
-<area shape="rect" id="node3" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="745,68,920,95"/>
-<area shape="rect" id="node4" href="$classeros_1_1eros__diagnostic_1_1DiagnosticManager.html" title=" " alt="" coords="384,109,544,150"/>
-<area shape="rect" id="node5" href="$structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic." alt="" coords="13,74,173,115"/>
-<area shape="rect" id="node7" href="$classeros_1_1ArmedStateManager.html" title="ArmedStateManager class is responsible for managing the robot&#39;s Armed State." alt="" coords="368,7,560,33"/>
-<area shape="rect" id="node6" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="413,57,515,84"/>
-<area shape="rect" id="node8" href="$structeros_1_1ArmDisarm_1_1State.html" title="ArmDisarm Container Holds information about ArmDisarm." alt="" coords="5,7,180,33"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1315,97,1501,123"/>
+<area shape="rect" id="node2" href="$classeros__nodes_1_1Infrastructure_1_1SafetyNodeProcess.html" title="The process utility for the Safety Node." alt="" coords="1073,89,1265,131"/>
+<area shape="rect" id="node3" href="$classeros_1_1BaseNodeProcess.html" title="This is a BaseNodeProcess class. All NodeProcess should be a derived class from this BaseNodeProcess ..." alt="" coords="690,53,865,79"/>
+<area shape="rect" id="node4" href="$classeros_1_1eros__diagnostic_1_1DiagnosticManager.html" title=" " alt="" coords="326,5,486,47"/>
+<area shape="rect" id="node5" href="$structeros_1_1eros__diagnostic_1_1Diagnostic.html" title="Contains the definition for the Diagnostic." alt="" coords="5,113,165,155"/>
+<area shape="rect" id="node7" href="$classeros_1_1ArmedStateManager.html" title="ArmedStateManager class is responsible for managing the robot&#39;s Armed State." alt="" coords="681,122,873,149"/>
+<area shape="rect" id="node6" href="$classeros_1_1Logger.html" title="Logger class Logger class used to write log outputs for strings and diagnostic information to console..." alt="" coords="355,83,457,110"/>
+<area shape="rect" id="node8" href="$structeros_1_1ArmDisarm_1_1State.html" title="ArmDisarm Container Holds information about ArmDisarm." alt="" coords="319,203,493,230"/>
 </map>

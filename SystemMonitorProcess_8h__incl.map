@@ -1,52 +1,52 @@
 <map id="nodes/SystemMonitor/node/SystemMonitorProcess.h" name="nodes/SystemMonitor/node/SystemMonitorProcess.h">
-<area shape="rect" id="node1" title=" " alt="" coords="916,5,1139,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,172,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="196,95,373,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="397,102,473,129"/>
-<area shape="rect" id="node5" href="$BaseNodeProcess_8h.html" title=" " alt="" coords="2191,102,2373,129"/>
-<area shape="rect" id="node13" title=" " alt="" coords="5036,191,5115,218"/>
-<area shape="rect" id="node20" title=" " alt="" coords="1249,273,1379,300"/>
-<area shape="rect" id="node49" href="$CommonWindowDefinitions_8h.html" title=" " alt="" coords="119,348,341,389"/>
-<area shape="rect" id="node50" title=" " alt="" coords="2449,95,2665,136"/>
-<area shape="rect" id="node6" title=" " alt="" coords="4775,191,4845,218"/>
-<area shape="rect" id="node7" title=" " alt="" coords="4870,191,4961,218"/>
-<area shape="rect" id="node8" title=" " alt="" coords="874,273,1069,300"/>
-<area shape="rect" id="node9" title=" " alt="" coords="2421,184,2588,225"/>
-<area shape="rect" id="node10" title=" " alt="" coords="2612,191,2771,218"/>
-<area shape="rect" id="node11" title=" " alt="" coords="2795,191,2961,218"/>
-<area shape="rect" id="node12" title=" " alt="" coords="2985,184,3152,225"/>
-<area shape="rect" id="node14" title=" " alt="" coords="38,512,126,539"/>
-<area shape="rect" id="node15" title=" " alt="" coords="1455,273,1603,300"/>
-<area shape="rect" id="node16" title=" " alt="" coords="1627,273,1758,300"/>
-<area shape="rect" id="node17" title=" " alt="" coords="1782,273,1953,300"/>
-<area shape="rect" id="node18" title=" " alt="" coords="1977,273,2110,300"/>
-<area shape="rect" id="node19" title=" " alt="" coords="2412,355,2499,382"/>
-<area shape="rect" id="node21" title=" " alt="" coords="1093,273,1225,300"/>
-<area shape="rect" id="node22" title=" " alt="" coords="2575,273,2717,300"/>
-<area shape="rect" id="node23" title=" " alt="" coords="2741,273,2897,300"/>
-<area shape="rect" id="node24" title=" " alt="" coords="2922,273,3045,300"/>
-<area shape="rect" id="node25" title=" " alt="" coords="3069,273,3181,300"/>
-<area shape="rect" id="node26" title=" " alt="" coords="3204,273,3333,300"/>
-<area shape="rect" id="node27" title=" " alt="" coords="3176,191,3388,218"/>
-<area shape="rect" id="node28" title=" " alt="" coords="3411,191,3547,218"/>
-<area shape="rect" id="node29" title=" " alt="" coords="3571,191,3737,218"/>
-<area shape="rect" id="node30" title=" " alt="" coords="3761,191,3913,218"/>
-<area shape="rect" id="node31" title=" " alt="" coords="3937,191,4131,218"/>
-<area shape="rect" id="node32" title=" " alt="" coords="4155,191,4329,218"/>
-<area shape="rect" id="node33" title=" " alt="" coords="4353,191,4579,218"/>
-<area shape="rect" id="node34" href="$Diagnostic_8h.html" title=" " alt="" coords="741,355,951,382"/>
-<area shape="rect" id="node35" href="$eros__Definitions_8h.html" title=" " alt="" coords="476,437,648,464"/>
-<area shape="rect" id="node39" href="$ConvertUtility_8h.html" title=" " alt="" coords="1943,191,2143,218"/>
-<area shape="rect" id="node42" href="$CoreUtility_8h.html" title=" " alt="" coords="671,273,850,300"/>
-<area shape="rect" id="node45" title=" " alt="" coords="4603,191,4750,218"/>
-<area shape="rect" id="node46" href="$Logger_8h.html" title=" " alt="" coords="416,273,495,300"/>
-<area shape="rect" id="node48" href="$ResourceMonitor_8h.html" title=" " alt="" coords="562,191,706,218"/>
-<area shape="rect" id="node36" title=" " alt="" coords="737,512,795,539"/>
-<area shape="rect" id="node37" title=" " alt="" coords="803,437,889,464"/>
-<area shape="rect" id="node38" title=" " alt="" coords="913,437,976,464"/>
-<area shape="rect" id="node40" title=" " alt="" coords="2185,273,2361,300"/>
-<area shape="rect" id="node41" title=" " alt="" coords="2385,273,2449,300"/>
-<area shape="rect" id="node43" title=" " alt="" coords="975,355,1043,382"/>
-<area shape="rect" id="node44" title=" " alt="" coords="599,355,666,382"/>
-<area shape="rect" id="node47" title=" " alt="" coords="466,355,525,382"/>
+<area shape="rect" id="node1" title=" " alt="" coords="910,5,1133,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="35,95,202,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="226,95,403,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="427,102,503,129"/>
+<area shape="rect" id="node5" href="$BaseNodeProcess_8h.html" title=" " alt="" coords="1989,102,2171,129"/>
+<area shape="rect" id="node13" title=" " alt="" coords="4834,191,4913,218"/>
+<area shape="rect" id="node20" title=" " alt="" coords="1274,273,1403,300"/>
+<area shape="rect" id="node49" href="$CommonWindowDefinitions_8h.html" title=" " alt="" coords="93,348,315,389"/>
+<area shape="rect" id="node50" title=" " alt="" coords="2247,95,2463,136"/>
+<area shape="rect" id="node6" title=" " alt="" coords="4573,191,4643,218"/>
+<area shape="rect" id="node7" title=" " alt="" coords="4668,191,4759,218"/>
+<area shape="rect" id="node8" title=" " alt="" coords="848,273,1043,300"/>
+<area shape="rect" id="node9" title=" " alt="" coords="2219,184,2386,225"/>
+<area shape="rect" id="node10" title=" " alt="" coords="2410,191,2569,218"/>
+<area shape="rect" id="node11" title=" " alt="" coords="2593,191,2759,218"/>
+<area shape="rect" id="node12" title=" " alt="" coords="2783,184,2950,225"/>
+<area shape="rect" id="node14" title=" " alt="" coords="12,512,100,539"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1479,273,1627,300"/>
+<area shape="rect" id="node16" title=" " alt="" coords="1652,273,1783,300"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1807,273,1977,300"/>
+<area shape="rect" id="node18" title=" " alt="" coords="2001,273,2135,300"/>
+<area shape="rect" id="node19" title=" " alt="" coords="1398,355,1485,382"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1118,273,1250,300"/>
+<area shape="rect" id="node22" title=" " alt="" coords="2765,273,2907,300"/>
+<area shape="rect" id="node23" title=" " alt="" coords="2931,273,3087,300"/>
+<area shape="rect" id="node24" title=" " alt="" coords="3112,273,3235,300"/>
+<area shape="rect" id="node25" title=" " alt="" coords="3259,273,3371,300"/>
+<area shape="rect" id="node26" title=" " alt="" coords="4062,273,4191,300"/>
+<area shape="rect" id="node27" title=" " alt="" coords="2974,191,3186,218"/>
+<area shape="rect" id="node28" title=" " alt="" coords="3209,191,3345,218"/>
+<area shape="rect" id="node29" title=" " alt="" coords="3369,191,3535,218"/>
+<area shape="rect" id="node30" title=" " alt="" coords="3559,191,3711,218"/>
+<area shape="rect" id="node31" title=" " alt="" coords="3735,191,3929,218"/>
+<area shape="rect" id="node32" title=" " alt="" coords="3953,191,4127,218"/>
+<area shape="rect" id="node33" title=" " alt="" coords="4151,191,4377,218"/>
+<area shape="rect" id="node34" href="$Diagnostic_8h.html" title=" " alt="" coords="633,355,842,382"/>
+<area shape="rect" id="node35" href="$eros__Definitions_8h.html" title=" " alt="" coords="367,437,539,464"/>
+<area shape="rect" id="node39" href="$ConvertUtility_8h.html" title=" " alt="" coords="1792,191,1992,218"/>
+<area shape="rect" id="node43" href="$CoreUtility_8h.html" title=" " alt="" coords="645,273,824,300"/>
+<area shape="rect" id="node46" title=" " alt="" coords="4401,191,4548,218"/>
+<area shape="rect" id="node47" href="$Logger_8h.html" title=" " alt="" coords="441,273,519,300"/>
+<area shape="rect" id="node48" href="$ResourceMonitor_8h.html" title=" " alt="" coords="536,191,680,218"/>
+<area shape="rect" id="node36" title=" " alt="" coords="628,512,687,539"/>
+<area shape="rect" id="node37" title=" " alt="" coords="695,437,780,464"/>
+<area shape="rect" id="node38" title=" " alt="" coords="805,437,867,464"/>
+<area shape="rect" id="node40" title=" " alt="" coords="2311,273,2487,300"/>
+<area shape="rect" id="node41" title=" " alt="" coords="2511,273,2652,300"/>
+<area shape="rect" id="node42" title=" " alt="" coords="2676,273,2740,300"/>
+<area shape="rect" id="node44" title=" " alt="" coords="866,355,934,382"/>
+<area shape="rect" id="node45" title=" " alt="" coords="491,355,557,382"/>
 </map>
