@@ -33,7 +33,8 @@ full_apt_dependency_list = [ 'libncurses5-dev',
             'googletest',
             'graphviz',
             'clang-format',
-            'doxygen']
+            'doxygen',
+            'ros-noetic-joy']
 target_apt_dependency_list = [ 'libncurses5-dev',
                     'libncursesw5-dev',
                     'libtinyxml-dev',
