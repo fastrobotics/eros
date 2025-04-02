@@ -42,14 +42,17 @@ bool TeleopJoyNode::start() {
         MAJOR_RELEASE_VERSION, MINOR_RELEASE_VERSION, BUILD_NUMBER, FIRMWARE_DESCRIPTION);
     enable_ready_to_arm_pub(true);
     diagnostic = preinitialize_basenode();
+    // GCOVR_EXCL_START
     if (diagnostic.level > Level::Type::WARN) {
         return false;
     }
+    // GCOVR_EXCL_STOP
     diagnostic = read_launchparameters();
+    // GCOVR_EXCL_START
     if (diagnostic.level > Level::Type::WARN) {
         return false;
     }
-
+    // GCOVR_EXCL_STOP
     process->initialize(get_basenodename(),
                         get_nodename(),
                         get_hostname(),
@@ -101,7 +104,8 @@ eros_diagnostic::Diagnostic TeleopJoyNode::finish_initialization() {
     command_sub = n->subscribe<eros::command>(
         get_robotnamespace() + "SystemCommand", 10, &TeleopJoyNode::command_Callback, this);
     command_pub = n->advertise<eros::command>(get_robotnamespace() + "SystemCommand", 1);
-    joy_sub = n->subscribe<sensor_msgs::Joy>("/joy", 10, &TeleopJoyNode::joy_Callback, this);
+    joy_sub = n->subscribe<sensor_msgs::Joy>(
+        get_robotnamespace() + "joy", 10, &TeleopJoyNode::joy_Callback, this);
     std::string commandvel_per_topic = get_robotnamespace() + "cmd_vel_perc";
     cmd_vel_pub = n->advertise<geometry_msgs::Twist>(commandvel_per_topic, 2);
     diag = process->update_diagnostic(eros_diagnostic::DiagnosticType::SOFTWARE,
@@ -171,9 +175,12 @@ bool TeleopJoyNode::run_1hz() {
 bool TeleopJoyNode::run_10hz() {
     update_diagnostics(process->get_diagnostics());
     eros_diagnostic::Diagnostic diag = process->update(0.1, ros::Time::now().toSec());
+    // No practical way to unit test
+    // GCOVR_EXCL_START
     if (diag.level >= Level::Type::NOTICE) {
         logger->log_diagnostic(diag);
     }
+    // GCOVR_EXCL_STOP
     process->update_armedstate(eros_utility::ConvertUtility::convert(armed_state));
     update_ready_to_arm(process->get_ready_to_arm());
     auto current_command = process->get_current_command();
@@ -191,11 +198,14 @@ void TeleopJoyNode::cleanup() {
     delete process;
     base_cleanup();
 }
+// No practical way to unit test
+// GCOVR_EXCL_START
 void signalinterrupt_handler(int sig) {
     printf("Killing TeleopJoyNode with Signal: %d\n", sig);
     kill_node = true;
     exit(0);
 }
+// GCOVR_EXCL_STOP
 int main(int argc, char **argv) {
     signal(SIGINT, signalinterrupt_handler);
     signal(SIGTERM, signalinterrupt_handler);

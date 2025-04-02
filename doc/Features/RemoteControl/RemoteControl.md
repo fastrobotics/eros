@@ -1,8 +1,11 @@
-# Troubleshooting
-```bash
-sudo apt install qjoypad
-qjoypad --notray # Then click on Joypad image that opens
-```
-# References
-- https://wiki.ros.org/joy
-- https://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick
+[Features](../Features.md)
+# Remote Control
+
+## Overview
+The Remote Control feature allows a user to remote control a robot.
+
+## Features
+| Node |
+| --- |
+| [Teleop Joy Node](../../../nodes/RemoteControl/TeleopJoyNode/doc/TeleopJoyNode.md) |
+
