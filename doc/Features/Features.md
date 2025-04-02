@@ -16,6 +16,7 @@ eros has different features to help make your robot more robust.  Here is some d
 | READY | [Snapshot](Snapshot/Snapshot.md) |
 | READY | [Software Sync](SoftwareSync/SoftwareSync.md) |
 | READY | [System Monitor](SystemMonitor/SystemMonitor.md) |
+| READY | [Remote Control](RemoteControl/RemoteControl.md) |
 | READY | [Teleop GUI](TeleopGUI/TeleopGUI.md) |
 | READY | [Templates](Templates/Templates.md) |
 | READY | [Utility](Utility/Utility.md) |

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="robot_namespace" value="/test" />
+    <group ns="test">
+        <include file="$(find eros)/launch/nodes/teleop_joy_node.launch">
+            <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+            <arg name="verbosity_level" value="NOTICE"/>
+        </include>
+        <test test-name="test_teleopJoyNode" pkg="eros" type="test_teleopJoyNode"/>
+    </group>
+</launch>

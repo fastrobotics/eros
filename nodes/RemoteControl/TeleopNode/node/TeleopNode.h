@@ -92,5 +92,6 @@ class TeleopNode : public eros::BaseNode
     TeleopNodeProcess* process;
     actionlib::SimpleActionServer<eros::system_commandAction> system_command_action_server;
     ros::Subscriber commandstate_sub;
+    ros::Publisher cmd_vel_pub;
 };
 }  // namespace eros_nodes::RemoteControl

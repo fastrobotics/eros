@@ -141,4 +141,12 @@ eros::resource ConvertUtility::convert(eros::ResourceInfo res_info) {
     res.DISK_Perc = res_info.disk_perc;
     return res;
 }
+
+sensor_msgs::Joy ConvertUtility::convert_fromptr(const sensor_msgs::Joy::ConstPtr &t_ptr) {
+    sensor_msgs::Joy msg;
+    msg.header = t_ptr->header;
+    msg.axes = t_ptr->axes;
+    msg.buttons = t_ptr->buttons;
+    return msg;
+}
 }  // namespace eros::eros_utility

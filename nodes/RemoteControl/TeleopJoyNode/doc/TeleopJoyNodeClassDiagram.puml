@@ -1,0 +1,88 @@
+@startuml
+title Teleop Joy Node Class Diagram
+package eros {
+    class BaseNode
+    class BaseNodeProcess
+    class ArmedStateManager
+    namespace eros_diagnostic {
+        class Diagnostic
+    }
+}
+namespace eros_nodes::Infrastructure {
+    class TeleopJoyNode #LimeGreen {
+        -- Initialization Functions --
+        +bool start()
+        +eros_diagnostic::Diagnostic finish_initialization()
+        
+        -- Update Functions --
+        +bool run_loop1()
+        +bool run_loop2()
+        +bool run_loop3()
+        +bool run_001hz()
+        +bool run_01hz()
+        +bool run_01hz_noisy()
+        +bool run_1hz()
+        +bool run_10hz()
+        +void thread_loop()
+
+        -- Attribute Functions --
+        +TeleopJoyNodeProcess* get_process()
+
+        -- Data Functions --
+
+        -- Message Functions --
+        +bool changenodestate_service(eros::srv_change_nodestate::Request& req, eros::srv_change_nodestate::Response& res)
+        +void system_commandAction_Callback(const eros::system_commandGoalConstPtr& goal)
+        +void command_Callback(const eros::command::ConstPtr& t_msg)
+        +void ReadyToArmCallback(const eros::ready_to_arm::ConstPtr& msg, const std::string& topic_name)
+
+        -- Support Functions --
+
+        -- Convert Functions --
+        
+        -- Printing Functions --
+        +string pretty()
+
+        -- Destructors --
+        +void cleanup()
+    
+    }
+    class TeleopJoyNodeProcess #LimeGreen {
+        -- Initialization Functions --
+        +eros::eros_diagnostic::Diagnostic finish_initialization()
+        +reset()
+        +bool set_ready_to_arm_signals(string[] signals)
+
+        -- Update Functions --
+        +eros_diagnostic::Diagnostic update(double t_dt, double t_ros_time)
+
+        -- Attribute Functions --
+        +armed_state get_armed_state()
+        +string[] get_cannotarm_reasons()
+
+        -- Data Functions --
+
+        -- Message Functions --
+        +eros_diagnostic::Diagnostic[] new_commandmsg(eros::command msg)
+        +bool new_message_readytoarm(string name, ready_to_arm ready_to_arm)
+        +new_message_readytoarm(string name, bool v)
+
+        -- Support Functions --
+        eros_diagnostic::Diagnostic[] check_programvariables()
+
+        -- Convert Functions --
+        
+        -- Printing Functions --
+        +string pretty()
+
+        -- Destructors --
+        +cleanup()
+    }
+
+    BaseNode <|-- TeleopJoyNode
+    BaseNodeProcess <|-- TeleopJoyNodeProcess
+    TeleopJoyNode -> TeleopJoyNodeProcess 
+    TeleopJoyNodeProcess --> ArmedStateManager
+}
+
+@enduml

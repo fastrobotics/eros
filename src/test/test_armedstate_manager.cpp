@@ -15,6 +15,7 @@ TEST(BasicTest, TestOperation_HappyFlow) {
                           node_name,
                           System::MainSystem::SIMROVER,
                           System::SubSystem::ROBOT_CONTROLLER,
+                          logger,
                           ready_to_arm_list);
     EXPECT_EQ(SUT.get_armed_state().state, ArmDisarm::Type::DISARMED_CANNOTARM);
     auto current_diag = SUT.get_current_diagnostic();
@@ -89,6 +90,7 @@ TEST(BasicTest, TestOperation_MultipleArmSignals) {
                           node_name,
                           System::MainSystem::SIMROVER,
                           System::SubSystem::ROBOT_CONTROLLER,
+                          logger,
                           ready_to_arm_list);
     EXPECT_EQ(SUT.get_armed_state().state, ArmDisarm::Type::DISARMED_CANNOTARM);
     auto current_diag = SUT.get_current_diagnostic();
@@ -212,6 +214,7 @@ TEST(BasicTest, TestOperation_Reset) {
                           node_name,
                           System::MainSystem::SIMROVER,
                           System::SubSystem::ROBOT_CONTROLLER,
+                          logger,
                           ready_to_arm_list);
     EXPECT_EQ(SUT.get_armed_state().state, ArmDisarm::Type::DISARMED_CANNOTARM);
     auto current_diag = SUT.get_current_diagnostic();
@@ -287,6 +290,7 @@ TEST(BasicTest, TestOperation_FailureCases) {
                           node_name,
                           System::MainSystem::SIMROVER,
                           System::SubSystem::ROBOT_CONTROLLER,
+                          logger,
                           ready_to_arm_list);
     EXPECT_EQ(SUT.get_armed_state().state, ArmDisarm::Type::DISARMED_CANNOTARM);
     auto current_diag = SUT.get_current_diagnostic();
@@ -329,6 +333,7 @@ TEST(BasicTest, TestOperation_NoSignals) {
                           node_name,
                           System::MainSystem::SIMROVER,
                           System::SubSystem::ROBOT_CONTROLLER,
+                          logger,
                           ready_to_arm_list);
     EXPECT_EQ(SUT.get_armed_state().state, ArmDisarm::Type::DISARMED_CANNOTARM);
     auto current_diag = SUT.get_current_diagnostic();
