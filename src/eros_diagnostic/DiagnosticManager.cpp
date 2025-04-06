@@ -138,8 +138,11 @@ Diagnostic DiagnosticManager::update_diagnostic(std::string device_name,
     }
 }
 Level::Type DiagnosticManager::get_highest_level() {
+    return DiagnosticManager::get_highest_level(get_diagnostics());
+}
+Level::Type DiagnosticManager::get_highest_level(std::vector<Diagnostic> diagnostics) {
     Level::Type highest_level = Level::Type::DEBUG;
-    for (auto diag : get_diagnostics()) {
+    for (auto diag : diagnostics) {
         if (diag.level > highest_level) {
             highest_level = diag.level;
         }
