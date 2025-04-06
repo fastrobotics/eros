@@ -19,6 +19,8 @@ namespace eros_diagnostic {
         +string pretty()
         -string pretty(string pre,Diagnostic[] diagnostics)
         -bool initialized
+        +Level::Type get_highest_level()
+        +{static} Level::Type get_highest_level(Diagnostic[] diagnostics)
         -Diagnostic root_diagnostic
         -Diagnostic[] diagnostics
 
