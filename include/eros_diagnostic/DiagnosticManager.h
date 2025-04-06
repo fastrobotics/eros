@@ -66,6 +66,13 @@ class DiagnosticManager
                                  Message message,
                                  std::string description);
 
+    /**
+     * @brief Get the highest level of all the current Diagnostics
+     *
+     * @return Level::Type
+     */
+    Level::Type get_highest_level();
+
    private:
     //! Generate human readable string of a vector of diagnostics
     /*!

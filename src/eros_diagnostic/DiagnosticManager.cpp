@@ -137,5 +137,13 @@ Diagnostic DiagnosticManager::update_diagnostic(std::string device_name,
         return diag;
     }
 }
-
+Level::Type DiagnosticManager::get_highest_level() {
+    Level::Type highest_level = Level::Type::DEBUG;
+    for (auto diag : get_diagnostics()) {
+        if (diag.level > highest_level) {
+            highest_level = diag.level;
+        }
+    }
+    return highest_level;
+}
 }  // namespace eros::eros_diagnostic
