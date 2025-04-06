@@ -132,12 +132,14 @@ class BaseNodeProcess
     Node::State get_nodestate() {
         return node_state;
     }
+
     double get_runtime() {
         return run_time;
     }
     double get_system_time() {
         return system_time;
     }
+    // TODO: Remove this (redundant with get_runtime())
     double get_run_time() {
         return run_time;
     }
