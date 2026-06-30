@@ -55,47 +55,12 @@ add_action_files(
   system_snapshot.action
 )
 generate_messages(DEPENDENCIES std_msgs actionlib_msgs)
-
-catkin_package(INCLUDE_DIRS include DEPENDS
-      TinyXML actionlib_msgs)
-
 include_directories(
   include
-  include/eros_diagnostic
-  include/eros_utility
   ${catkin_INCLUDE_DIRS}
   ${TinyXML_INCLUDE_DIRS}
 )
-
+catkin_package(INCLUDE_DIRS include DEPENDS
+      TinyXML actionlib_msgs)
 
 add_subdirectory(src)
-
-add_subdirectory(nodes)
-install(
-  DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-)
-add_subdirectory(auto_code)
-# Doxygen
-
-# look for Doxygen package
-find_package(Doxygen)
-
-if (DOXYGEN_FOUND)
-    # set input and output files
-    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
-    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile.out)
-
-    # request to configure the file
-    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
-    message("Doxygen build started")
-
-    # Note: do not put "ALL" - this builds docs together with application EVERY TIME!
-    add_custom_target( eros_docs
-        COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
-        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-        COMMENT "Generating API documentation with Doxygen"
-        VERBATIM )
-else (DOXYGEN_FOUND)
-  message("Doxygen need to be installed to generate the doxygen documentation")
-endif (DOXYGEN_FOUND)

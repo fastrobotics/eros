@@ -92,7 +92,7 @@ class FileHelper
               folder(""),
               full_path(""),
               byte_size(0),
-              data(nullptr){};
+              data(nullptr) {};
 
         FileType fileType;
         FileStatus fileStatus;

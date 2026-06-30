@@ -3,6 +3,7 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+#include <eros_diagnostic/Diagnostic.h>
 #include <stdio.h>
 
 #include <ctime>
@@ -52,9 +53,15 @@ namespace eros {
 */
 #define log_fatal(tempstr) LOG_FATAL(__FILE__, __LINE__, tempstr)
 
+//! Log a Diagnostic
+/*!
+  \param diagnostic The diagnostic to output.
+*/
+#define log_diagnostic(diagnostic) LOG_DIAGNOSTIC(__FILE__, __LINE__, diagnostic)
+
 /*! \class Logger
     \brief Logger class
-    Logger class used to write log outputs for strings console and
+    Logger class used to write log outputs for strings and diagnostic information to console and
    output text files.
 */
 class Logger
@@ -134,6 +141,10 @@ class Logger
     LoggerStatus LOG_ERROR(std::string filename, uint64_t linenumber, std::string tempstr);
     //! Log a Fatal Line.  Do not use, use: log_fatal
     LoggerStatus LOG_FATAL(std::string filename, uint64_t linenumber, std::string tempstr);
+    //! Log a Diagnostic.  Do not use, use: log_diagnostic
+    LoggerStatus LOG_DIAGNOSTIC(std::string filename,
+                                uint64_t linenumber,
+                                eros_diagnostic::Diagnostic diagnostic);
 
    private:
     const std::string GREEN_FOREGROUND = "\033[1;32m";

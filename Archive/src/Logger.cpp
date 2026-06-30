@@ -1,4 +1,5 @@
 #include <eros/Logger.h>
+#include <eros_diagnostic/DiagnosticUtility.h>
 namespace eros {
 Logger::~Logger() {
 }
@@ -83,6 +84,32 @@ Logger::LoggerStatus Logger::LOG_FATAL(std::string filename,
                                        uint64_t linenumber,
                                        std::string tempstr) {
     return print_log(filename, linenumber, Level::Type::FATAL, tempstr);
+}
+Logger::LoggerStatus Logger::LOG_DIAGNOSTIC(std::string filename,
+                                            uint64_t linenumber,
+                                            eros_diagnostic::Diagnostic diagnostic) {
+    char tempstr[2048];
+
+    sprintf(tempstr,
+            "Device: %s System: %s Subsystem: %s Component: %s Type: %s Message: %s "
+            "Description: %s",
+            diagnostic.device_name.c_str(),
+            System::MainSystemString(diagnostic.system).c_str(),
+            System::SubSystemString(diagnostic.subsystem).c_str(),
+            System::ComponentString(diagnostic.component).c_str(),
+            eros_diagnostic::DiagnosticUtility::DiagnosticTypeString(diagnostic.type).c_str(),
+            eros_diagnostic::DiagnosticUtility::DiagnosticMessageString(diagnostic.message).c_str(),
+            diagnostic.description.c_str());
+    switch (diagnostic.level) {
+        case Level::Type::DEBUG: return LOG_DEBUG(filename, linenumber, std::string(tempstr));
+        case Level::Type::INFO: return LOG_INFO(filename, linenumber, std::string(tempstr));
+        case Level::Type::NOTICE: return LOG_NOTICE(filename, linenumber, std::string(tempstr));
+        case Level::Type::WARN: return LOG_WARN(filename, linenumber, std::string(tempstr));
+        case Level::Type::ERROR: return LOG_ERROR(filename, linenumber, std::string(tempstr));
+        case Level::Type::FATAL: return LOG_FATAL(filename, linenumber, std::string(tempstr));
+        default:
+            return LOG_ERROR("", 0, "UNKNOWN LEVEL: " + std::to_string((uint8_t)diagnostic.level));
+    }
 }
 Logger::LoggerStatus Logger::print_log(std::string filename,
                                        uint64_t linenumber,
